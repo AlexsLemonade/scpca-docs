@@ -164,10 +164,8 @@ Metadata for all samples on the Portal is available to download separately from 
 Each project page has an option to download metadata for all of its samples as a single zip file containing the `metadata.tsv` file and a `README.md` file.
 Project-specific metadata will contain all columns listed in [the above table](#metadata) and any additional project-specific columns, such as treatment or outcome.
 
-<!--
 Additionally, a single TSV file containing the metadata for all samples from all projects on the Portal is available for download.
 The Portal-wide metadata will contain all columns listed in [the above table](#metadata).
--->
 
 ## Multiplexed sample libraries
 
@@ -185,6 +183,7 @@ Because we do not perform demultiplexing to separate cells from multiplexed libr
 For more on the specific contents of multiplexed library `SingleCellExperiment` objects, see the {ref}`Additional SingleCellExperiment components for multiplexed libraries <sce_file_contents:additional singlecellexperiment components for multiplexed libraries>` section.
 
 The [metadata file](#metadata) for multiplexed libraries (`single_cell_metadata.tsv`) will have the same format as for individual samples, but each row will represent a particular sample/library pair, meaning that there may be multiple rows for each `scpca_library_id`, one for each `scpca_sample_id` within that library.
+In addition, an estimate of the total number of cells for each sample after demultiplexing will be found in the `sample_cell_estimate` (as opposed to the `sample_cell_count_estimate` column used for non-multiplexed samples).
 
 
 ## Merged object downloads
