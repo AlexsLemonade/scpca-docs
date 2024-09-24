@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## 2024.09.XX
+## 2024.09.24
 
 * Metadata for all samples from all projects on the Portal can now be downloaded in a single tab-separated values file.
 * For more information on what to expect in the metadata file, see the {ref}`metadata section of the Downloadable files page <download_files:metadata>`.
