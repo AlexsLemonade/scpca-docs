@@ -183,6 +183,7 @@ Because we do not perform demultiplexing to separate cells from multiplexed libr
 For more on the specific contents of multiplexed library `SingleCellExperiment` objects, see the {ref}`Additional SingleCellExperiment components for multiplexed libraries <sce_file_contents:additional singlecellexperiment components for multiplexed libraries>` section.
 
 The [metadata file](#metadata) for multiplexed libraries (`single_cell_metadata.tsv`) will have the same format as for individual samples, but each row will represent a particular sample/library pair, meaning that there may be multiple rows for each `scpca_library_id`, one for each `scpca_sample_id` within that library.
+In addition, an estimate of the total number of cells for each sample after demultiplexing will be found in the `sample_cell_estimate` (as opposed to the `sample_cell_count_estimate` column used for non-multiplexed samples).
 
 
 ## Merged object downloads
