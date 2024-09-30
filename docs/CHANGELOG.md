@@ -12,6 +12,11 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
+## PLACEHOLDER YYYY.MM.DD
+
+* You can now use a `Copy Download Link` button to get download links for projects on the ScPCA Portal.
+Please see the {ref}`FAQ <faq:what does the copy download link button do>` for more information.
+
 ## 2024.09.24
 
 * Metadata for all samples from all projects on the Portal can now be downloaded in a single tab-separated values file.
