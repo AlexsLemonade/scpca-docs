@@ -15,7 +15,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 ## PLACEHOLDER YYYY.MM.DD
 
 * You can now use a `Copy Download Link` button to get download links for projects on the ScPCA Portal.
-Please see the {ref}`FAQ <faq:What does the \`Copy Download Link\` button do?>` for more information.
+Please see the {ref}`FAQ <faq:What does the `Copy Download Link` button do?>` for more information.
 
 ## 2024.09.24
 
