@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## PLACEHOLDER YYYY.MM.DD
+## 2024.10.01
 
 * You can now use a `Copy Download Link` button to get download links for projects on the ScPCA Portal.
 Please see the {ref}`FAQ <faq:What does the Copy Download Link button do?>` for more information.
