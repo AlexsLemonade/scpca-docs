@@ -18,7 +18,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
   * `sample_cell_count_estimate` has been removed from downloads for non-multiplexed samples.
   * A new field that indicates the estimated number of cells from a sample for a given library—`demux_sample_cell_estimate`—has been added to downloadable metadata for multiplexed samples.
     This replaces the `sample_cell_estimate` field, which has been removed.
-* Fusion nomenclature has been standardized using the double colon recommendation from the HUGO Gene Nomenclature Committee ([Bruford et al. 2021.](https://doi.org/10.1038/s41375-021-01436-6)) in downloadable metadata.
+* Fusion nomenclature has been standardized using the double colon recommendation from the HUGO Gene Nomenclature Committee ([Bruford et al. 2021](https://doi.org/10.1038/s41375-021-01436-6)) in downloadable metadata.
 
 ## 2024.10.01
 
