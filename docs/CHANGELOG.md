@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## PLACEHOLDER
+## 2024.10.14
 
 * Some cell count-related fields in downloadable metadata have changed.
   * `sample_cell_count_estimate` has been removed from downloads for non-multiplexed samples.
