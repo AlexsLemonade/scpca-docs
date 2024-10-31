@@ -16,7 +16,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 
 * The raw count matrix is again rounded to integer values, in agreement with the documentation
 * Some project-specific metadata columns were renamed for uniformity
-  * columns previously labelled as `mycn_status` or similar with a gene name prefix are capitalized `MYCN_status`
+  * columns previously labeled as `mycn_status` or similar with a gene name prefix are capitalized `MYCN_status`
   * columns that were previously labeled with sentence case are now all lower case.  
 
 ## 2024.10.14
