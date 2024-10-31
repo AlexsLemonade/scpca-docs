@@ -12,6 +12,13 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
+## Upcoming
+
+* The raw count matrix is again rounded to integer values, in agreement with the documentation
+* Some project-specific metadata columns were renamed for uniformity
+  * columns previously labelled as `mycn_status` or similar with a gene name prefix are capitalized `MYCN_status`
+  * columns that were previously labeled with sentence case are now all lower case.  
+
 ## 2024.10.14
 
 * Some cell count-related fields in downloadable metadata have changed.
