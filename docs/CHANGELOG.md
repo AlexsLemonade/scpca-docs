@@ -14,10 +14,11 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 
 ## Upcoming
 
-* The raw count matrix is again rounded to integer values, in agreement with the documentation
-* Some project-specific metadata columns were renamed for uniformity
-  * columns previously labeled as `mycn_status` or similar with a gene name prefix are capitalized `MYCN_status`
-  * columns that were previously labeled with sentence case are now all lower case.  
+* Recent versions of the raw count matrices in `SingleCellExperiment` and `AnnData` objects were not rounded. 
+The raw counts are now rounded to integer values in agreement with the documentation.
+* Some project-specific metadata columns were renamed for uniformity:
+  * Columns previously labeled as `mycn_status` or similar with a gene name prefix are capitalized `MYCN_status`.
+  * Columns that were previously labeled with sentence case are now all lower case.  
 
 ## 2024.10.14
 
