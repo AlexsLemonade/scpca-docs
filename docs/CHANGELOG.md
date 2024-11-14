@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## Upcoming
+## 2024.11.14
 
 * Recent versions of the raw count matrices in `SingleCellExperiment` and `AnnData` objects were not rounded. 
 The raw counts are now rounded to integer values in agreement with the documentation.
