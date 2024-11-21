@@ -51,6 +51,8 @@ Please see the {ref}`FAQ <faq:What does the Copy Download Link button do?>` for 
 * Downloads now follow a new naming convention: `{identifier}_{modality}_{file format}_{date}.zip`
   * For example, a sample (`SCPCS999990`) downloaded on 2024-08-13 in AnnData format will be named: `SCPCP999990_SINGLE-CELL_ANN-DATA_2024-08-13.zip`
   * See the {ref}`Downloadable files page <download_files:downloadable files>` for more information.
+* Bulk RNA-seq files now follow a new naming convention: `{project accession identifier}_bulk_quant.tsv` and `{project accession identifier}_bulk_metatdata.tsv`.
+See the {ref}`Downloadable files page <download_files:downloadable files>` for more information.
 
 ## 2024.08.01
 
