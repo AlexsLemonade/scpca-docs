@@ -75,7 +75,7 @@ Finally, these principal components are used to calculate the [UMAP (Uniform Man
 We perform cell type annotation with two complementary methods, where possible:
 
 - [`SingleR`](https://bioconductor.org/packages/release/bioc/html/SingleR.html), a reference-based cell type annotation method ([Looney _et al._ 2019](https://doi.org/10.1038/s41590-018-0276-y))
-- [`CellAssign`](https://github.com/Irrationone/cellassign), a marker-gene--based cell type annotation method ([Zhang _et al._ 2019](https://doi.org/10.1038/s41592-019-0529-1))
+- [`CellAssign`](https://github.com/Irrationone/cellassign), a marker-gene-based cell type annotation method ([Zhang _et al._ 2019](https://doi.org/10.1038/s41592-019-0529-1))
 
 For `SingleR` annotation, we identify an appropriate reference dataset from the [`celldex` package](http://bioconductor.org/packages/release/data/experiment/html/celldex.html) and train the classification model to use ontology IDs for annotation.
 Cells which `SingleR` cannot confidently assign are labeled as `NA`.
@@ -90,6 +90,16 @@ In addition, `CellAssign` annotation is only performed if there are at least 30 
 
 Some cells may be labeled as "Unclassified cell" if they were not annotated with `SingleR` or `CellAssign`.
 These are cells which were not present in previous ScPCA data versions on which cell typing was initially performed, so they were not labeled.
+
+Additionally, annotations from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
+The [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) between the `SingleR` and `CellAssign` cell type assignments is used as the consensus cell type label if the following criteria are met, otherwise no consensus cell type is assigned:
+
+1. The terms share only one distinct LCA.
+The only exception to this rule is if the terms share two LCAs, one of which is `hematopoietic precursor cell`; then `hematopoietic precursor cell` is used as the consensus label. 
+
+2. The LCA has fewer than 170 descendants, or is either `neuron` or `epithelial cell`.
+
+The following non-specific LCA terms are also exlucded: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`. 
 
 Cell type annotation is not performed for cell line samples.
 For information on how to determine if a given sample was derived from a cell line, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
