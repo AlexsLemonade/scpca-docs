@@ -95,7 +95,7 @@ Additionally, annotations from `SingleR` and `CellAssign` are used to assign an 
 The [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) between the `SingleR` and `CellAssign` cell type assignments is used as the consensus cell type label if the following criteria are met, otherwise no consensus cell type is assigned:
 
 1. The terms share only one distinct LCA.
-The only exception to this rule is if the terms share two LCAs, one of which is `hematopoietic precursor cell`; then `hematopoietic precursor cell` is used as the consensus label. 
+The only exception to this rule is if the terms share two LCAs and one of which is `hematopoietic precursor cell`, then `hematopoietic precursor cell` is used as the consensus label. 
 
 2. The LCA has fewer than 170 descendants, or is either `neuron` or `epithelial cell`.
 
