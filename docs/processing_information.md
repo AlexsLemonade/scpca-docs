@@ -99,7 +99,7 @@ The only exception to this rule is if the terms share two LCAs and one of which 
 
 2. The LCA has fewer than 170 descendants, or is either `neuron` or `epithelial cell`.
 
-The following non-specific LCA terms are also excluded: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`. 
+If the LCA is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`. 
 
 Cell type annotation is not performed for cell line samples.
 For information on how to determine if a given sample was derived from a cell line, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.

@@ -78,7 +78,7 @@ Columns representing quality control statistics were calculated using the [`scut
 | `submitter_celltype_annotation`            | If available, cell type annotations obtained from the group that submitted the original data. Cells that the submitter did not annotate are labeled as `"Submitter-excluded"`                                                                                                                                                                                                                                                                          |
 
 Unlike for {ref}`individual SCE objects<sce_file_contents:singlecellexperiment cell metrics>`, cluster assignments are not included in the `colData`.
-Further, if cell type annotation was performed on at least one libraries included in the merged object, there will be additional columns representing annotation results in the `processed` object's `colData`, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
+Further, if cell type annotation was performed on at least one library included in the merged object, there will be additional columns representing annotation results in the merged object's `colData`, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
 
 
 | Column name             | Contents                                              |
