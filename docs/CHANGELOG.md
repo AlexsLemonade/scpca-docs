@@ -15,9 +15,9 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 ## UPDATE WITH DATE FOR RELEASE 
 
 * Consensus cell type annotations are now available in all processed `SingleCellExperiment` and `AnnData` objects and merged objects. 
-  * Annotations from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
+  * The labels obtained from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
   * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` to learn more about how consensus cell types are assigned. 
-  * For more information on locating these cell type annotations in the downloaded objects see {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>`.
+  * See {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>` for more information on obtaining these cell type annotations from the downloaded objects .
 * All assays within a merged object are now saved as a sparse matrix (`CsparseMatrix`), whereas previously these assays were saved as a `DelayedArray`. 
 
 ## 2024.11.14
