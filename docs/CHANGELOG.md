@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## UPDATE WITH DATE FOR RELEASE 
+## 2025.04.24
 
 * Consensus cell type annotations are now available in all processed `SingleCellExperiment` and `AnnData` objects and merged objects. 
   * The labels obtained from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
