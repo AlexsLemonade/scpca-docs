@@ -59,6 +59,8 @@ introns
 isotype
 Jaccard
 Kaminow
+LCA
+LCAs
 Lun
 Marioni
 miQC

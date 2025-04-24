@@ -87,10 +87,13 @@ Further, if cell type annotation was performed, there will be additional columns
 | Column name             | Contents                                              |
 | ----------------------- | ----------------------------------------------------- |
 | `cluster`  | Cell cluster identity identified by graph-based clustering |
-| `singler_celltype_annotation`  | If cell typing with `SingleR` was performed, the annotated cell type. Cells labeled as `NA` are those which `SingleR` could not confidently annotate |
-| `singler_celltype_ontology`  | If cell typing with `SingleR` was performed with ontology labels, the annotated cell type's ontology ID. Cells labeled as `NA` are those which `SingleR` could not confidently annotate. Cells labeled as `"Unclassified cell"` did not undergo cell type annotation with `SingleR` |
+| `singler_celltype_annotation`  | If cell typing with `SingleR` was performed, the annotated cell type. Cells labeled as `NA` are those which `SingleR` could not confidently annotate. Cells labeled as `"Unclassified cell"` did not undergo cell type annotation with `SingleR` |
+| `singler_celltype_ontology`  | If cell typing with `SingleR` was performed with ontology labels, the annotated cell type's ontology ID. Cells labeled as `NA` are those which `SingleR` could not confidently annotate |
 | `cellassign_celltype_annotation`  | If cell typing with `CellAssign` was performed, the annotated cell type. Cells labeled as `"other"` are those which `CellAssign` could not confidently annotate. If `CellAssign` was unable to complete successfully, cells will be labeled as `"Not run"`. Cells labeled as `"Unclassified cell"` did not undergo cell type annotation with `CellAssign`  |
+| `cellassign_celltype_ontology`  | If cell typing with `CellAssign` was performed, the annotated cell type ontology ID. Cells labeled as `NA` are those which `CellAssign` could not confidently annotate. If `CellAssign` was unable to complete successfully, cells will be labeled as `"Not run"` |
 | `cellassign_max_prediction`  | If cell typing with `CellAssign` was performed and completed successfully, the annotation's prediction score (probability)  |
+| `consensus_celltype_annotation`  | The assigned consensus cell type annotation as determined by finding the latest common ancestor between the `SingleR` and `CellAssign` cell type annotations. Cells labeled as `"Unknown"` do not have an appropriate consensus cell type label that could be assigned. This column is only present if `SingleR` and `CellAssign` were run |
+| `consensus_celltype_ontology`  | The assigned consensus cell type ontology ID as determined by finding the latest common ancestor between the `SingleR` and `CellAssign` cell type annotations. Cells labeled as `NA` do not have an appropriate consensus cell type label that could be assigned. This column is only present if `SingleR` and `CellAssign` were run |
 
 ### SingleCellExperiment gene information and metrics
 
