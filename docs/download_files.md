@@ -22,7 +22,7 @@ The files shown below will be included with each library (example shown for a li
 - A quality control report: `SCPCL000000_qc.html`,
 - A supplemental cell type report: `SCPCL000000_celltype-report.html`
 
-For more information on the contents of these files, see the sections on [gene expression data](#gene-expression-data), the [qc report](#qc-report), and the [cell type report](#cell-type-report).
+For more information on the contents of these files, see the sections on [gene expression data](#gene-expression-data), the [QC report](#qc-report), and the [cell type report](#cell-type-report).
 
 Every download also includes a single `single_cell_metadata.tsv` file containing metadata for all libraries included in the download.
 For a full description of the metadata file, refer to the [metadata section below](#metadata).
