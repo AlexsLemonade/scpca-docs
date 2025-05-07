@@ -37,7 +37,7 @@ To download more than one project or combine samples across projects, see the se
 For project downloads, data for all samples will be provided as either [`SingleCellExperiment` objects (`.rds` files)](https://bioconductor.org/books/3.21/OSCA.intro/the-singlecellexperiment-class.html) or [`AnnData` objects (`.h5ad` files)](https://anndata.readthedocs.io/en/latest/index.html).
 If the project contains samples with a spatial transcriptomics library, the spatial data will be provided as a separate download.
 See the [description of the Spatial transcriptomics output section below](#spatial-transcriptomics-libraries).
-For more information on choosing a data format and modality, see the {ref}`section on download options<download_options:Download options>`.
+For more information on choosing a data format and modality, see the {ref}`documentation on download options<download_options:Download options>`.
 
 If the project contains bulk RNA-seq data, two tab-separated value files, e.g., `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
 The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by `salmon`.
