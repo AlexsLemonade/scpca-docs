@@ -31,8 +31,7 @@ Metadata-only downloads are also available, either by downloading the metadata f
 
 ## Project downloads
 
-To download the gene expression data for all samples in a single project, use the `Download Now` button next to the project title. 
-This will allow you to download the chosen project instantly, without having to wait for a download link to be available. 
+Use the `Download Now` button next to the project title to instantly download gene expression data for all samples in a single project.
 To download more than one project or combine samples across projects, see the section on [downloading custom datasets](#custom-datasets).
 
 For project downloads, data for all samples will be provided as either [`SingleCellExperiment` objects (`.rds` files)](http://bioconductor.org/books/3.13/OSCA.intro/the-singlecellexperiment-class.html) or [`AnnData` objects (`.h5ad` files)](https://anndata.readthedocs.io/en/latest/index.html).
@@ -41,8 +40,8 @@ See the [description of the Spatial transcriptomics output section below](#spati
 <!--TODO: Replace STUB link--> 
 For more information on choosing a data format and modality, see the {ref}`section on download options<STUB TO DATA FORMATS SECTION>`.
 
-If downloading a project containing bulk RNA-seq data, two tab-separated value files, e.g., `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will be included in the project download.
-The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by Salmon.
+If the project contains bulk RNA-seq data, two tab-separated value files, e.g., `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
+The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by `salmon`.
 The `SCPCP000000_bulk_metadata.tsv` file contains associated metadata for all samples with bulk RNA-seq data.
 This file will contain fields equivalent to those found in the `single_cell_metadata.tsv` related to processing the sample, but will not contain patient or disease specific metadata (e.g. `age`, `sex`, `diagnosis`, `subdiagnosis`, `tissue_location`, or `disease_timing`).
 See also {ref}`processing bulk RNA samples <processing_information:Bulk RNA samples>`.
