@@ -7,6 +7,7 @@ The ScPCA Portal is a growing database of uniformly processed single-cell data f
 :maxdepth: 4
 
 processing_information
+download_options
 download_files
 sce_file_contents
 merged_objects
