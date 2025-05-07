@@ -100,9 +100,8 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ### Metadata-only downloads
 
-<!--Update this text once adding in the intro for portal wide downloads-->
-A single TSV file containing the metadata for all samples from all projects on the Portal is available for download.
-The Portal-wide metadata will contain all columns listed in [the below table](#metadata).
+The Portal-wide metadata download is a single TSV file containing the metadata for all samples with associated single-cell RNA-seq, single-nuclei RNA-seq, or spatial transcriptomics data available on the Portal. 
+A table describing all columns included in the file can be found in the [metadata section below](#metadata).
 
 ### `SingleCellExperiment` downloads
 
