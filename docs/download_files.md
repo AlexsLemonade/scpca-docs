@@ -35,10 +35,9 @@ Use the `Download Now` button next to the project title to instantly download ge
 To download more than one project or combine samples across projects, see the section on [downloading custom datasets](#custom-datasets).
 
 For project downloads, data for all samples will be provided as either [`SingleCellExperiment` objects (`.rds` files)](https://bioconductor.org/books/3.21/OSCA.intro/the-singlecellexperiment-class.html) or [`AnnData` objects (`.h5ad` files)](https://anndata.readthedocs.io/en/latest/index.html).
-If the project contains samples with a spatial transcriptomics library, the spatial data will be provided as a separate download. 
+If the project contains samples with a spatial transcriptomics library, the spatial data will be provided as a separate download.
 See the [description of the Spatial transcriptomics output section below](#spatial-transcriptomics-libraries).
-<!--TODO: Replace STUB link--> 
-For more information on choosing a data format and modality, see the {ref}`section on download options<STUB TO DATA FORMATS SECTION>`.
+For more information on choosing a data format and modality, see the {ref}`section on download options<download_options:Download options>`.
 
 If the project contains bulk RNA-seq data, two tab-separated value files, e.g., `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
 The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by `salmon`.
@@ -100,7 +99,7 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ### Metadata-only downloads
 
-The Portal-wide metadata download is a single TSV file containing the metadata for all samples with associated single-cell RNA-seq, single-nuclei RNA-seq, or spatial transcriptomics data available on the Portal. 
+The Portal-wide metadata download is a single TSV file containing the metadata for all samples with associated single-cell RNA-seq, single-nuclei RNA-seq, or spatial transcriptomics data available on the Portal.
 A table describing all columns included in the file can be found in the [metadata section below](#metadata).
 
 ### `SingleCellExperiment` downloads
@@ -118,7 +117,7 @@ A table describing all columns included in the file can be found in the [metadat
 
 If downloading a sample that contains a CITE-seq library as an `AnnData` object (`.h5ad` file), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
-<!--TODO: 
+<!--TODO:
 spatial section to be moved here, followed by the merged objects section
 -->
 
