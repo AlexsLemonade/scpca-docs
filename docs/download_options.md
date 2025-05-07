@@ -14,3 +14,14 @@ Note that only one data format is currently supported for a single download, inc
 To obtain data in both `SingleCellExperiment` and `AnnData` formats, you will need to download these file formats separately.
 
 In addition, note that `AnnData` files are not available for projects with multiplexed libraries all data on the Portal, {ref}`as described here:<download_files:Multiplexed sample libraries>`.
+
+## Modalities
+
+Besides single-cell/nuclei expression, many samples in the Portal have additional sequencing modalities including CITE-seq, bulk RNA-seq, and spatial transcriptomics.
+
+When downloading a project with spatial transcriptomics data, you will have the option to select either the "Single-cell" or "Spatial" modality.
+Selecting "Single-cell" will provide you with the single-cell/nuclei expression data only, and selecting "Spatial" will provide you with the spatial data only.
+If available, CITE-seq data will be automatically included with the "Single-cell" modality only.
+Only one modality can be selected at a time.
+
+If the project also has bulk RNA-seq data, you can choose to include it in your download for either modality selection.
