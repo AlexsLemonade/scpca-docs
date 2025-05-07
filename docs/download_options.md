@@ -19,6 +19,7 @@ In addition, note that `AnnData` files are not available for projects with multi
 
 Besides single-cell/nuclei expression, many samples in the Portal have additional sequencing modalities including CITE-seq, bulk RNA-seq, and spatial transcriptomics.
 
+<!-- TODO: Confirm with Deepa, will Single-cell be automatically selected if it's not a spatial project? -->
 When downloading a project with spatial transcriptomics data, you will have the option to select either the "Single-cell" or "Spatial" modality.
 Selecting "Single-cell" will provide you with the single-cell/nuclei expression data only, and selecting "Spatial" will provide you with the spatial data only.
 If available, CITE-seq data will be automatically included with the "Single-cell" modality only.
