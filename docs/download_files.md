@@ -24,8 +24,8 @@ The files shown below will be included with each library (example shown for a li
 
 For more information on the contents of these files, see the sections on [gene expression data](#gene-expression-data), the [QC report](#qc-report), and the [cell type report](#cell-type-report).
 
-Every download also includes a single `single_cell_metadata.tsv` file containing metadata for all libraries included in the download.
-For a full description of the metadata file, refer to the [metadata section below](#metadata).
+Every download also includes sample and processing metadata for all libraries included in the download.
+For a full description of the metadata files, refer to the [metadata section below](#metadata).
 
 Metadata-only downloads are also available, either by downloading the metadata for all samples in a single project using the `Download Sample Metadata` button or by downloading the [metadata for all samples on the Portal](#metadata-only-downloads).
 
@@ -92,7 +92,37 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ## Custom datasets
 
-<!--TODO: Fill in this section with information about creating and downloading custom datasets-->
+To download data for individual samples, multiple projects, or any combination of individual samples and projects, use the `Add to Dataset` button.
+The `My Dataset` button can then be used to view and download the custom dataset as a single zip file. 
+
+<!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
+Each zip file will be named with a unique dataset ID, the chosen data format (either `SCE` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
+Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`Why can't I change the data format in My Dataset <faq:why can't i change the data format in my dataset>`). 
+
+Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
+Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (single-cell), `spatial_metadata.tsv` (spatial), or `bulk_metadata.tsv` (bulk). 
+See {ref}`the section describing download formats <download_options:data formats>`. 
+
+If downloading a project as a [merged object](#merged-object-downloads), the project folder will contain a `_merged` suffix. 
+
+If any samples included in your dataset contain associated CITE-seq data, the quantified CITE-seq expression data will be included alongside the gene expression data in the `SingleCellExperiment` objects (`.rds` files).
+For [`AnnData` downlaods (`.h5ad` files)](#download-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+### Download folder structure for custom downloads:
+![custom dataset download](STUB-IMAGE){width="600"}
+
+### Custom datasets with `SingleCellExperiment` format
+
+#### Detailed folder structure for individual samples:
+![sample download folder](images/sample-download-folder.png){width="600"}
+
+### Custom datasets with `AnnData` format
+
+#### Detailed folder structure for individual samples:
+![sample download folder](images/anndata-sample-download-folder.png){width="600"}
+
+#### Download folder structure for individual samples with CITE-seq (ADT) data:
+![sample download folder](images/anndata-sample-citeseq-download-folder.png){width="600"}
 
 ## Portal-wide downloads
 
@@ -105,18 +135,7 @@ A table describing all columns included in the file can be found in the [metadat
 
 ### `SingleCellExperiment` downloads
 
-#### Download folder structure for individual sample downloads:
-![sample download folder](images/sample-download-folder.png){width="600"}
-
 ### `AnnData` downloads
-
-#### Download folder structure for individual sample downloads:
-![sample download folder](images/anndata-sample-download-folder.png){width="600"}
-
-#### Download folder structure for individual sample downloads with CITE-seq (ADT) data:
-![sample download folder](images/anndata-sample-citeseq-download-folder.png){width="600"}
-
-If downloading a sample that contains a CITE-seq library as an `AnnData` object (`.h5ad` file), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
 <!--TODO: 
 spatial section to be moved here, followed by the merged objects section
