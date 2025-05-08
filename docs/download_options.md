@@ -7,7 +7,7 @@ This page describes the different options available to you when downloading Port
 
 ## Data format
 
-We provide all single-cell/nuclei expression data in both [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-downloads) for use in R, and as [`AnnData` objects (`.h5ad` files)](#anndata-downloads) for use in Python.
+We provide all single-cell and single-nuclei expression data in both `SingleCellExperiment` objects (`.rds` files) for use in R, and as `AnnData` objects (`.h5ad` files) for use in Python.
 You can learn more about using these object types from our FAQ sections on {ref}`using the provided RDS files<faq:How do I use the provided RDS files in R?>` and {ref}`using the provided H5AD files<faq:How do I use the provided H5AD files in Python?>`.
 
 Note that only one data format is currently supported for a single download, including when {ref}`downloading custom datasets<downloadable_files:Custom datasets>`.
@@ -25,5 +25,3 @@ If available, CITE-seq data will be automatically included with the "Single-cell
 Only one modality can be selected at a time.
 
 If the project also has bulk RNA-seq data, you can choose to include it in your download for either modality selection.
-
-If spatial transcriptomics data is not available for the project, then the "Single-cell" modality will be selected automatically.
