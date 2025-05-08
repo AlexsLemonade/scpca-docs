@@ -29,3 +29,5 @@ This option is also available when downloading any projects that have samples wi
 
 You can only select a single modality at a time for each sample or project you are downloading.
 If the project also has bulk RNA-seq data, you can choose to include it in your download for either modality selection.
+
+For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
