@@ -19,9 +19,12 @@ In addition, note that `AnnData` files are not available for projects with multi
 
 Besides single-cell/nuclei expression, many samples in the Portal have additional sequencing modalities including CITE-seq, bulk RNA-seq, and spatial transcriptomics.
 
-When downloading a project with spatial transcriptomics data, you will have the option to select either the "Single-cell" or "Spatial" modality.
-Selecting "Single-cell" will provide you with the single-cell/nuclei expression data only, and selecting "Spatial" will provide you with the spatial data only.
-If available, CITE-seq data will be automatically included with the "Single-cell" modality only.
-Only one modality can be selected at a time.
+By default, the "Single-cell" modality will be selected for all single-cell and single-nuclei RNA-seq samples. 
+This will provide you with the gene expression data from single-cell or single-nuclei only. 
+If available, this will also include CITE-seq data. 
+
+If a sample has spatial transcriptomic data, you will have the option to select either the "Single-cell" or "Spatial" modality for download. 
+This will provide you with the spatial transcriptomic data only. 
+This option is also available when downloading any projects that have samples with spatial transcriptomic data.
 
 If the project also has bulk RNA-seq data, you can choose to include it in your download for either modality selection.
