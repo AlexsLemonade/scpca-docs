@@ -106,7 +106,7 @@ See {ref}`the section describing download formats <download_options:data formats
 If downloading a project as a [merged object](#merged-object-downloads), the project folder will contain a `_merged` suffix. 
 
 If any samples included in your dataset contain associated CITE-seq data, the quantified CITE-seq expression data will be included alongside the gene expression data in the `SingleCellExperiment` objects (`.rds` files).
-For [`AnnData` downlaods (`.h5ad` files)](#download-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+For [`AnnData` downloads (`.h5ad` files)](#download-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
 ### Download folder structure for custom downloads:
 ![custom dataset download](STUB-IMAGE){width="600"}
