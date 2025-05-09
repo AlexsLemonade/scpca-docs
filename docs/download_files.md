@@ -92,16 +92,17 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ## Custom datasets
 
-To download data for individual samples, multiple projects, or any combination of individual samples and projects, use the `Add to Dataset` button.
-The `My Dataset` button can then be used to view and download the custom dataset as a single zip file. 
+To download data for individual samples, multiple projects, or any combination of individual samples and projects, use the `Add to Dataset` button. 
+This process creates a custom dataset for download, referred to as `My Dataset` within the Portal.
+The `My Dataset` button can be used to view and download the custom dataset as a single zip file. 
 
 <!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
-Each zip file will be named with a unique dataset ID, the chosen data format (either `SCE` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
 Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`Why can't I change the data format in My Dataset <faq:why can't i change the data format in my dataset>`). 
 
 Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
 Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (single-cell), `spatial_metadata.tsv` (spatial), or `bulk_metadata.tsv` (bulk). 
-See {ref}`the section describing download formats <download_options:data formats>`. 
+For more information on available data formats and modalities, see {ref}`the section describing download formats <download_options:data formats>`. 
 
 If downloading a project as a [merged object](#merged-object-downloads), the project folder will contain a `_merged` suffix. 
 
