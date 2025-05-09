@@ -28,7 +28,6 @@ If available, CITE-seq expression data will also be included.
 
 If a sample or project has spatial transcriptomic data, you will also have the option to select the "Spatial" modality for download.
 Selecting "Spatial" will provide you with the spatial transcriptomic data only.
-This option is also available when downloading any projects that have samples with spatial transcriptomic data.
 
 If you are creating a custom dataset that contains samples and/or projects with bulk RNA-seq data, you will have the option to include this data in your download as well.
 Note that the bulk RNA-seq expression file will always include all samples from the given project with bulk expression, even if you are only downloading a subset of that project's samples.
