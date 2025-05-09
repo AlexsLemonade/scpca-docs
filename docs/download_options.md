@@ -36,3 +36,17 @@ If you are using the "Download now" button to download a full project that conta
 https://github.com/AlexsLemonade/scpca-docs/pull/413#issuecomment-2867497722 -->
 
 For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
+
+## Merge options
+
+When downloading a project, either by using `Download Now` or `Add to Dataset`, you will have the option to either receive the data as objects for individual libraries, or as {ref}`a single merged object with data from all samples in the given project<merged_objects.md:Merged objects>`.
+Please be aware that merged objects have _not_ been integrated or batch-corrected.
+Refer to {ref}`this documentation<download_files:Merged object downloads` for the contents of a merged object download specifically.
+Note that this applies only to "Single-cell" modality downloads, not "Spatial."
+
+When {ref}`creating a custom dataset to download<download_files:Custom datasets>`, you will be able to select the option to merge all samples only if you have included all samples from the given project in `My dataset`.
+Merging a subset of samples in a project {ref}`is not currently supported<faq:STUB for https://github.com/AlexsLemonade/scpca-docs/issues/399>`.
+In addition, merged objects are not available for all samples or projects, {ref}`as described here<faq:Which projects can I download as merged objects?`.
+
+Note that even when {ref}`downloading data for all single-cell and single-nuclei samples on the Portal<download_files:Portal-wide downloads>`, merged objects will still be provided per-project.
+There will not be a merged object with all samples from all projects, but a single merged object for each project.
