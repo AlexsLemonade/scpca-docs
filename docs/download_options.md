@@ -20,7 +20,7 @@ In addition, note that expression data for multiplexed libraries is only availab
 
 Besides single-cell/nuclei expression, many samples in the Portal have additional sequencing modalities including CITE-seq, spatial transcriptomics, and bulk RNA-seq.
 
-In particular, there are two modality options that you may see when {ref}`creating a custom dataset to download<download_files:Project downloads>` or when {ref}`downloading a full project with the "Download Now" button<download_files:Project downloads>`: "Single-cell" and "Spatial."
+In particular, there are two modality options that you may see when {ref}`creating a custom dataset to download<download_files:Custom datasets>` or when {ref}`downloading a full project with the "Download Now" button<download_files:Project downloads>`: "Single-cell" and "Spatial."
 
 By default, the "Single-cell" modality will be selected for all single-cell and single-nuclei RNA-seq samples and/or projects.
 Selecting this download option will provide you with the gene expression data from single-cell or single-nuclei samples and/or projects.
