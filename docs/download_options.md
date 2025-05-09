@@ -14,7 +14,7 @@ You can learn more about using these object types from our FAQ sections on {ref}
 Only one data format is currently supported for a single download, including when {ref}`downloading custom datasets<download_files:Custom datasets>`.
 To obtain data in both `SingleCellExperiment` and `AnnData` formats, you will need to download these file formats separately.
 
-In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment`  format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
+In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment` format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
 
 ## Modalities
 
