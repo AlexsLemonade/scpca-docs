@@ -40,6 +40,7 @@ For more information about the expected file download structure for "Single-cell
 
 When downloading all single-cell or single-nuclei samples from a project, you will have the option to either receive the data as objects for individual libraries, or as {ref}`a single merged object with data from all samples in the given project<merged_objects.md:Merged objects>`.
 Please be aware that merged objects have _not_ been integrated or batch-corrected.
+Refer to {ref}`this documentation<download_files:Merged object downloads` for the contents of a merged object download specifically.
 
 When {ref}`creating a custom dataset to download<download_files:Custom datasets>`, you will be able to select the option to merge all samples only if you have included all samples from a project in `My dataset`. 
 Merging a subset of samples in a project {ref}`is not currently supported<faq:STUB for https://github.com/AlexsLemonade/scpca-docs/issues/399>`.
