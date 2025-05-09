@@ -30,8 +30,8 @@ If a sample or project has spatial transcriptomic data, you will also have the o
 Selecting "Spatial" will provide you with the spatial transcriptomic data only.
 This option is also available when downloading any projects that have samples with spatial transcriptomic data.
 
-If you are creating a custom dataset for downloading including samples and/or projects with bulk RNA-seq data, you will have the option to include this data in your download as well.
-Note that the bulk RNA-seq data download will always include all samples from a given project with bulk expression, even if you are only downloading a subset of samples.
+If you are creating a custom dataset that contains samples and/or projects with bulk RNA-seq data, you will have the option to include this data in your download as well.
+Note that the bulk RNA-seq expression file will always include all samples from the given project with bulk expression, even if you are only downloading a subset of that project's samples.
 If you are using the "Download now" button to download a full project that contains bulk RNA-seq expression, it will automatically be included with the download.
 
 For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
