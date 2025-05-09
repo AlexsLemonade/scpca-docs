@@ -42,7 +42,7 @@ When downloading all single-cell or single-nuclei samples from a project, you wi
 Please be aware that merged objects have _not_ been integrated or batch-corrected.
 Refer to {ref}`this documentation<download_files:Merged object downloads` for the contents of a merged object download specifically.
 
-When {ref}`creating a custom dataset to download<download_files:Custom datasets>`, you will be able to select the option to merge all samples only if you have included all samples from a project in `My dataset`. 
+When {ref}`creating a custom dataset to download<download_files:Custom datasets>`, you will be able to select the option to merge all samples only if you have included all samples from the given project in `My dataset`.
 Merging a subset of samples in a project {ref}`is not currently supported<faq:STUB for https://github.com/AlexsLemonade/scpca-docs/issues/399>`.
 In addition, merged objects are not available for all samples or projects, {ref}`as described here<faq:Which projects can I download as merged objects?`.
 
