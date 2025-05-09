@@ -14,7 +14,7 @@ You can learn more about using these object types from our FAQ sections on {ref}
 Only one data format is currently supported for a single download, including when {ref}`downloading custom datasets<download_files:Custom datasets>`.
 To obtain data in both `SingleCellExperiment` and `AnnData` formats, you will need to download these file formats separately.
 
-In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment`  format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
+In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment` format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
 
 ## Modalities
 
@@ -28,11 +28,12 @@ If available, CITE-seq expression data will also be included.
 
 If a sample or project has spatial transcriptomic data, you will also have the option to select the "Spatial" modality for download.
 Selecting "Spatial" will provide you with the spatial transcriptomic data only.
-This option is also available when downloading any projects that have samples with spatial transcriptomic data.
 
 If you are creating a custom dataset that contains samples and/or projects with bulk RNA-seq data, you will have the option to include this data in your download as well.
 Note that the bulk RNA-seq expression file will always include all samples from the given project with bulk expression, even if you are only downloading a subset of that project's samples.
 If you are using the "Download now" button to download a full project that contains bulk RNA-seq expression, it will automatically be included with the download.
+<!-- TODO: Confirm if there are any Spatial considerations here we need to add:
+https://github.com/AlexsLemonade/scpca-docs/pull/413#issuecomment-2867497722 -->
 
 For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
 
