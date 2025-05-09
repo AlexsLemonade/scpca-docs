@@ -8,28 +8,30 @@ This page describes the different options available to you when downloading Port
 ## Data format
 
 We provide all single-cell and single-nuclei expression data in both `SingleCellExperiment` objects (`.rds` files) for use in R, or as `AnnData` objects (`.h5ad` files) for use in Python.
-The default format for all samples on the Portal with single-cell and single-nuclei expression is set to `SingleCellExperiment (R)`. 
+The default format for all samples on the Portal with single-cell and single-nuclei expression is set to `SingleCellExperiment (R)`.
 You can learn more about using these object types from our FAQ sections on {ref}`using the provided RDS files<faq:How do I use the provided RDS files in R?>` and {ref}`using the provided H5AD files<faq:How do I use the provided H5AD files in Python?>`.
 
 Only one data format is currently supported for a single download, including when {ref}`downloading custom datasets<download_files:Custom datasets>`.
 To obtain data in both `SingleCellExperiment` and `AnnData` formats, you will need to download these file formats separately.
 
-In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment`  format, {ref}`as described here:<download_files:Multiplexed sample libraries>`.
+In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment`  format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
 
 ## Modalities
 
-Besides single-cell/nuclei expression, many samples in the Portal have additional sequencing modalities including CITE-seq, bulk RNA-seq, and spatial transcriptomics.
+Besides single-cell/nuclei expression, many samples in the Portal have additional sequencing modalities including CITE-seq, spatial transcriptomics, and bulk RNA-seq.
 
-By default, the "Single-cell" modality will be selected for all single-cell and single-nuclei RNA-seq samples.
-This will provide you with the gene expression data from single-cell or single-nuclei only.
-If available, this will also include CITE-seq data.
+In particular, there are two modality options that you may see when {ref}`creating a custom dataset to download<download_files:Project downloads>` or when {ref}`downloading a full project with the "Download Now" button<download_files:Project downloads>`: "Single-cell" and "Spatial."
 
-If a sample has spatial transcriptomic data, you will have the option to select either the "Single-cell" or "Spatial" modality for download.
+By default, the "Single-cell" modality will be selected for all single-cell and single-nuclei RNA-seq samples and/or projects.
+Selecting this download option will provide you with the gene expression data from single-cell or single-nuclei samples and/or projects.
+If available, CITE-seq expression data will also be included.
+
+If a sample or project has spatial transcriptomic data, you will also have the option to select the "Spatial" modality for download.
 Selecting "Spatial" will provide you with the spatial transcriptomic data only.
 This option is also available when downloading any projects that have samples with spatial transcriptomic data.
 
-You can only select a single modality at a time for each sample or project you are downloading.
-When selecting samples that have associated bulk RNA-seq, you will have the option to include the bulk RNA-seq data in your download. 
-If downloading an entire project using the `Download Now` button, any associated bulk RNA-seq data for samples in that project will automatically be included. 
+If you are creating a custom dataset for downloading including samples and/or projects with bulk RNA-seq data, you will have the option to include this data in your download as well.
+Note that the bulk RNA-seq data download will always include all samples from a given project with bulk expression, even if you are only downloading a subset of samples.
+If you are using the "Download now" button to download a full project that contains bulk RNA-seq expression, it will automatically be included with the download.
 
 For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
