@@ -35,3 +35,15 @@ Note that the bulk RNA-seq expression file will always include all samples from 
 If you are using the "Download now" button to download a full project that contains bulk RNA-seq expression, it will automatically be included with the download.
 
 For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
+
+## Merge options
+
+When downloading all single-cell or single-nuclei samples from a project, you will have the option to either receive the data as objects for individual libraries, or as {ref}`a single merged object with data from all samples in the given project<merged_objects.md:Merged objects>`.
+Please be aware that merged objects have _not_ been integrated or batch-corrected.
+
+When {ref}`creating a custom dataset to download<download_files:Custom datasets>`, you will be able to select the option to merge all samples only if you are downloading all samples from a project or a full project itself.
+All samples in a given project must be included; merging a subset of samples in a project {ref}`is not currently supported<faq:STUB for https://github.com/AlexsLemonade/scpca-docs/issues/399>`.
+In addition, merged objects are not available for all samples or projects, {ref}`as described here<faq:Which projects can I download as merged objects?`.
+
+Note that even when {ref}`downloading the full Portal<download_files:Portal-wide downloads>`, merged objects will still be provided per-project.
+There will not be a merged object with all samples from all projects, but a single merged object for each project.
