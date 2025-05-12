@@ -112,10 +112,10 @@ For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the
 
 <!--TODO: Update images-->
 ### `SingleCellExperiment` Portal-wide download structure
-![portal wide download structure - sce](STUB-IMAGE){width="600"}
+![portal wide download structure - `sce`](STUB-IMAGE){width="600"}
 
 ### `AnnData` Portal-wide download structure
-![portal wide download structure - anndata](STUB-IMAGE){width="600"}
+![portal wide download structure - `anndata`](STUB-IMAGE){width="600"}
 
 <!--TODO:
 spatial section to be moved here
@@ -126,14 +126,14 @@ spatial section to be moved here
 You can choose to download data from all samples as [merged objects with data from all samples in a single project](#merged-object-downloads) by checking "Merge samples into one object per project". 
 This download includes a folder for each project that contains a single merged object (`SCPCP000000_merged.rds` or `SCPCP000000_merged.h5ad`), a merged summary report (`SCPCP000000_merged-summary-report.html`), a single [metadata](#metadata) file (`single-cell_metadata.tsv`), and all individual [QC reports](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object for that project. 
 
-Note that downloading all data using this option _will not_ dowload a merged object with all samples from all projects, but a single merged object for each project.
+Note that downloading all data using this option _will not_ download a merged object with all samples from all projects, but a single merged object for each project.
 
 <!--TODO: Update images-->
 #### Portal-wide download structure for merged `SingleCellExperiment` objects
-![portal wide download structure - merged sce](STUB-IMAGE){width="600"}
+![portal wide download structure - merged `sce`](STUB-IMAGE){width="600"}
 
 #### Portal-wide download structure for merged `AnnData` objects
-![portal wide download structure - merged anndata](STUB-IMAGE){width="600"}
+![portal wide download structure - merged `anndata`](STUB-IMAGE){width="600"}
 
 ### Metadata-only downloads
 
