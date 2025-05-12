@@ -147,7 +147,6 @@ A table describing all columns included in the file can be found in the [metadat
 If downloading a sample that contains a CITE-seq library as an `AnnData` object (`.h5ad` file), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
 <!--TODO:
-<!--TODO: 
 spatial section to be moved here, followed by the merged objects section
 -->
 
