@@ -103,7 +103,7 @@ All spatial data for any samples sequenced using [spatial transcriptomics](#spat
 When downloading any of the available Portal-wide data downloads, all metadata and bulk RNA-seq data is also included. 
 
 <!--TODO: make sure data format naming for files is correctly formatted-->
-Each zip file will be named with the the chosen data format (either `SingleCellExperiment` or `AnnData`) and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with the chosen data format (either `SingleCellExperiment` or `AnnData`) and the date you accessed the data on the ScPCA Portal.
 Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
 
 As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
@@ -123,7 +123,7 @@ spatial section to be moved here
 
 ### Portal-wide downloads as merged objects
 
-You can choose to download single-cell Portal data as [merged objects for each project](#merged-object-downloads) by checking "Merge samples into one object per project". 
+You can choose to download all single-cell and single-nuclei samples from the Portal as [merged objects for each project](#merged-object-downloads) by checking "Merge samples into one object per project". 
 {ref}`Merged objects<merged_objects:Merged objects>` contain gene expression for all samples in a given project in a single file.
 This download includes a folder for each project that contains a single merged object (`SCPCP000000_merged.rds` or `SCPCP000000_merged.h5ad`), a merged summary report (`SCPCP000000_merged-summary-report.html`), a single [metadata](#metadata) file (`single-cell_metadata.tsv`), and all individual [QC reports](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object for that project. 
 
