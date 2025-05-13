@@ -1,7 +1,7 @@
 # Downloadable files
 
 The ScPCA Portal download packages include gene expression data, a QC report, and associated metadata for each processed sample.
-Gene expression data is available as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-downloads) or [`AnnData` objects (`.h5ad` files)](#anndata-downloads).
+Gene expression data is available as either [`SingleCellExperiment` objects (`.rds` files)](#download-folder-structure-for-singlecellexperiment-project-downloads) or [`AnnData` objects (`.h5ad` files)](#download-folder-structure-for-anndata-project-downloads).
 All downloaded files are delivered as a zip file.
 When you uncompress the zip file, the root directory name of your download will include the date you accessed the data on the ScPCA Portal.
 We recommend you record this date in case there are future updates to the Portal that change the underlying data or if you need to cite the data in the future (see {ref}`How to Cite <citation:how to cite>` for more information).
@@ -72,7 +72,7 @@ However, for `AnnData` objects, (`.h5ad` files), the quantified CITE-seq express
 Every download also includes a single `single_cell_metadata.tsv` file containing metadata for all libraries included in the merged object.
 For a full description of this file's contents, refer to the [metadata section below](#metadata).
 
-Every download includes a summary report, `SCPCL000000_merged-summary-report.html`, which provides a brief summary of the samples and libraries included in the merged object.
+Every download includes a summary report, `SCPCP000000_merged-summary-report.html`, which provides a brief summary of the samples and libraries included in the merged object.
 This includes a summary of the types of libraries (e.g., single-cell, single-nuclei, with CITE-seq) and sample diagnoses included in the object, as well as UMAP visualizations highlighting each library.
 
 Every download also includes the individual [QC report](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object.
@@ -93,33 +93,53 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 <!--TODO: Fill in this section with information about creating and downloading custom datasets-->
 
-## Portal-wide downloads
+## Portal-wide Downloads
 
-<!--TODO: Fill in information about portal-wide downloads and provide screenshots of all file structure downloads -->
+The Portal-wide Download page can be used to download all [metadata](#metadata-only-downloads) or gene expression data for all samples on the Portal at once. 
+
+All single-cell and single-nuclei gene expression data from the Portal can be downloaded as a single zip file containing data stored as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-portal-wide-download-structure) or [`AnnData` objects (`.h5ad` files)](#anndata-portal-wide-download-structure). 
+All spatial data for any samples sequenced using [spatial transcriptomics](#spatial-transcriptomics-libraries) is available separately as a zip file. 
+
+When downloading any of the available Portal-wide data downloads, all metadata and bulk RNA-seq data is also included. 
+
+<!--TODO: make sure data format naming for files is correctly formatted-->
+Each zip file will be named with the chosen data format (either `SingleCellExperiment` or `AnnData`) and the date you accessed the data on the ScPCA Portal.
+Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
+
+As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
+For [`SingleCellExperiment (R)` downloads](#singlecellexperiment-portal-wide-download-structure), the quantified CITE-seq expression is included in the same file as the gene expression data. 
+For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+<!--TODO: Update images-->
+### `SingleCellExperiment` Portal-wide download structure
+![portal wide download structure - `sce`](STUB-IMAGE){width="600"}
+
+### `AnnData` Portal-wide download structure
+![portal wide download structure - `anndata`](STUB-IMAGE){width="600"}
+
+<!--TODO:
+spatial section to be moved here
+-->
+
+### Portal-wide downloads as merged objects
+
+You can choose to download all single-cell and single-nuclei samples from the Portal as [merged objects for each project](#merged-object-downloads) by checking "Merge samples into one object per project". 
+{ref}`Merged objects<merged_objects:Merged objects>` contain gene expression for all samples in a given project in a single file.
+This download includes a folder for each project that contains a single merged object (`SCPCP000000_merged.rds` or `SCPCP000000_merged.h5ad`), a merged summary report (`SCPCP000000_merged-summary-report.html`), a single [metadata](#metadata) file (`single-cell_metadata.tsv`), and all individual [QC reports](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object for that project. 
+
+Note that downloading all data using this option _will not_ download a merged object with all samples from all projects, but a single merged object for each project.
+
+<!--TODO: Update images-->
+#### Portal-wide download structure for merged `SingleCellExperiment` objects
+![portal wide download structure - merged `sce`](STUB-IMAGE){width="600"}
+
+#### Portal-wide download structure for merged `AnnData` objects
+![portal wide download structure - merged `anndata`](STUB-IMAGE){width="600"}
 
 ### Metadata-only downloads
 
 The Portal-wide metadata download is a single TSV file containing the metadata for all samples with associated single-cell RNA-seq, single-nuclei RNA-seq, or spatial transcriptomics data available on the Portal.
 A table describing all columns included in the file can be found in the [metadata section below](#metadata).
-
-### `SingleCellExperiment` downloads
-
-#### Download folder structure for individual sample downloads:
-![sample download folder](images/sample-download-folder.png){width="600"}
-
-### `AnnData` downloads
-
-#### Download folder structure for individual sample downloads:
-![sample download folder](images/anndata-sample-download-folder.png){width="600"}
-
-#### Download folder structure for individual sample downloads with CITE-seq (ADT) data:
-![sample download folder](images/anndata-sample-citeseq-download-folder.png){width="600"}
-
-If downloading a sample that contains a CITE-seq library as an `AnnData` object (`.h5ad` file), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
-
-<!--TODO:
-spatial section to be moved here, followed by the merged objects section
--->
 
 ## Gene expression data
 
