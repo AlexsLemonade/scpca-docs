@@ -107,7 +107,7 @@ If downloading a project as a [merged object](#merged-object-downloads), the pro
 
 If any samples included in `My Dataset` contain associated CITE-seq data, the quantified CITE-seq expression data will be included when downloading single-cell expression data.
 For `SingleCellExperiment` objects (`.rds` files), the quantified CITE-seq expression is included in the same file as the gene expression data. 
-For [`AnnData` objects (`.h5ad` files)](#download-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+For [`AnnData` objects (`.h5ad` files)](#detailed-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
 ### Download folder structure for custom downloads:
 ![custom dataset download](STUB-IMAGE){width="600"}
@@ -122,7 +122,7 @@ For [`AnnData` objects (`.h5ad` files)](#download-folder-structure-for-individua
 #### Detailed folder structure for individual samples:
 ![sample download folder](images/anndata-sample-download-folder.png){width="600"}
 
-#### Download folder structure for individual samples with CITE-seq (ADT) data:
+#### Detailed folder structure for individual samples with CITE-seq (ADT) data:
 ![sample download folder](images/anndata-sample-citeseq-download-folder.png){width="600"}
 
 ## Portal-wide Downloads
