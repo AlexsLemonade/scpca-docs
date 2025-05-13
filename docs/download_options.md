@@ -51,9 +51,9 @@ In addition, merged objects are not available for all samples or projects, {ref}
 Note that even when {ref}`downloading data for all single-cell and single-nuclei samples on the Portal<download_files:Portal-wide downloads>`, merged objects will still be provided per-project.
 There will not be a merged object with all samples from all projects, but a single merged object for each project.
 
-## Multiplexed objects
+## Multiplexed sample libraries
 
-When downloading a project that contains multiplexed samples, you will have the option to exclude multiplexed samples from the download.
-If selected, the download will contain expression data for only non-multiplexed libraries.
+When downloading a project that contains multiplexed samples (see {ref}`what is a multiplexed sample? <faq:What is a multiplexed sample?>`, you will have the option to exclude multiplexed samples from the download.
+If selected, the download will contain expression data for only non-multiplexed samples.
 Note that, {ref}`as described in our FAQ<faq:Which samples can I download as AnnData objects?>`, `AnnData`-formatted files are not available for multiplexed samples.
 In addition, you will not be able to select the option to merge samples into a single file {ref}`if the project contains multiplexed samples<faq:Which projects can I download as merged objects?>`.
