@@ -53,7 +53,7 @@ There will not be a merged object with all samples from all projects, but a sing
 
 ## Multiplexed sample libraries
 
-When downloading a project that contains multiplexed samples (see {ref}`what is a multiplexed sample? <faq:What is a multiplexed sample?>`), you will have the option to exclude multiplexed samples from the download.
+When downloading a project that contains multiplexed samples (see {ref}`What is a multiplexed sample? <faq:What is a multiplexed sample?>`), you will have the option to exclude multiplexed samples from the download.
 If selected, the download will contain expression data for only non-multiplexed samples.
 Note that, {ref}`as described in our FAQ<faq:Which samples can I download as AnnData objects?>`, `AnnData`-formatted files are not available for multiplexed samples.
 In addition, you will not be able to select the option to merge samples into a single file {ref}`if the project contains multiplexed samples<faq:Which projects can I download as merged objects?>`.
