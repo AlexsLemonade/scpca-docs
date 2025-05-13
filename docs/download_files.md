@@ -7,7 +7,7 @@ When you uncompress the zip file, the root directory name of your download will 
 We recommend you record this date in case there are future updates to the Portal that change the underlying data or if you need to cite the data in the future (see {ref}`How to Cite <citation:how to cite>` for more information).
 Please see our {ref}`CHANGELOG <CHANGELOG:CHANGELOG>` for a summary of changes that impact downloads from the Portal.
 
-Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [portal-wide download options](#portal-wide-downloads).
+Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [Portal-wide download options](#portal-wide-downloads).
 For all data downloads, sample folders (indicated by the `SCPCS` prefix) contain the files for all libraries (`SCPCL` prefix) derived from that biological sample.
 Most samples only have one library that has been sequenced.
 For [multiplexed sample libraries](#multiplexed-sample-libraries), the sample folder name will be an underscore-separated list of all samples found in the library files that the folder contains.
@@ -98,6 +98,7 @@ The `My Dataset` button can be used to view and download the custom dataset as a
 <!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
 Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
 Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`Why can't I change the data format in My Dataset <faq:why can't i change the data format in my dataset>`). 
+If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), the `Spatial` box can be used to indicate whether or not to include the spatial transcriptomics data in the download. 
 
 Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
 Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (single-cell), `spatial_metadata.tsv` (spatial), or `SCPCP000000_bulk_metadata.tsv` (bulk). 
@@ -149,9 +150,8 @@ For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the
 ### `AnnData` Portal-wide download structure
 ![portal wide download structure - `anndata`](STUB-IMAGE){width="600"}
 
-<!--TODO:
-spatial section to be moved here
--->
+### Spatial Portal-wide download structure
+![portal wide download structure - spatial](#STUB-IMAE){width="600"}
 
 ### Portal-wide downloads as merged objects
 
@@ -277,10 +277,11 @@ This file will contain fields equivalent to those found in the `single_cell_meta
 For libraries where multiple biological samples were combined via cellhashing or similar technology (see the {ref}`FAQ section about multiplexed samples <faq:What is a multiplexed sample?>`), the organization of the downloaded files and metadata is slightly different.
 Note that multiplexed sample libraries are only available as `SingleCellExperiment` objects, and are not currently available as `AnnData` objects.
 
-For project downloads, the counts and QC files will be organized by the _set_ of samples that comprise each library, rather than in individual sample folders.
+When downloading an entire project, the counts and QC files will be organized by the _set_ of samples that comprise each library, rather than in individual sample folders.
 These sample set folders are named with an underscore-separated list of the sample ids for the libraries within, _e.g._, `SCPCS999990_SCPCS999991_SCPCS999992`.
-Bulk RNA-seq data, if present, will follow the [same format as bulk RNA-seq for single-sample libraries](#download-folder-structure-for-project-downloads).
+Bulk RNA-seq data, if present, will follow the [same format as bulk RNA-seq for single-sample libraries](#download-folder-structure-for-singlecellexperiment-project-downloads).
 
+<!--TODO: update this image to have correct folder names-->
 ![multiplexed project download folder](images/multiplexed-download-folder.png){width="750"}
 
 Because we do not perform demultiplexing to separate cells from multiplexed libraries into sample-specific count matrices, sample downloads from a project with multiplexed data will include all libraries that contain the sample of interest, but these libraries _will still contain cells from other samples_.
@@ -293,7 +294,7 @@ In addition, the `demux_cell_count_estimate` column will contain an estimate of 
 
 ## Spatial transcriptomics libraries
 
-If a sample includes a library processed using spatial transcriptomics, the spatial transcriptomics output files will be available as a separate download from the single-cell/single-nuclei gene expression data.
+If a sample includes a library processed using spatial transcriptomics, the spatial transcriptomics output files will be available as a separate download from the single-cell/single-nuclei gene expression data by selecting "Spatial" as the modality (see more on {ref}`modalities <download_options:modalities>`). 
 
 For all spatial transcriptomics libraries, a `SCPCL000000_spatial` folder will be nested inside the corresponding sample folder in the download.
 Inside that folder will be the following folders and files:
@@ -308,4 +309,5 @@ A full description of all files included in the download for spatial transcripto
 
 Every download also includes a single `spatial_metadata.tsv` file containing metadata for all libraries included in the download.
 
+<!--TODO: update this image to have correct folder names-->
 ![sample download with spatial](images/spatial-download-folder.png){width="600"}
