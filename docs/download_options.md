@@ -37,7 +37,7 @@ https://github.com/AlexsLemonade/scpca-docs/pull/413#issuecomment-2867497722 -->
 
 For more information about the expected file download structure for "Single-cell" and "Spatial" modalities, refer to our {ref}`Downloadable files<download_files:STUB LINK TO SECTION WITH SINGLE-CELL/SPATIAL DOWNLOAD FOLDERS>`.
 
-## Merge options
+## Merged objects
 
 When downloading a project, either by using `Download Now` or `Add to Dataset`, you will have the option to either receive the data as objects for individual libraries, or as {ref}`a single merged object with data from all samples in the given project<merged_objects:Merged objects>`.
 Please be aware that merged objects have _not_ been integrated or batch-corrected.
@@ -53,7 +53,7 @@ There will not be a merged object with all samples from all projects, but a sing
 
 ## Multiplexed sample libraries
 
-When downloading a project that contains multiplexed samples (see {ref}`what is a multiplexed sample? <faq:What is a multiplexed sample?>`, you will have the option to exclude multiplexed samples from the download.
+When downloading a project that contains multiplexed samples (see {ref}`what is a multiplexed sample? <faq:What is a multiplexed sample?>`), you will have the option to exclude multiplexed samples from the download.
 If selected, the download will contain expression data for only non-multiplexed samples.
 Note that, {ref}`as described in our FAQ<faq:Which samples can I download as AnnData objects?>`, `AnnData`-formatted files are not available for multiplexed samples.
 In addition, you will not be able to select the option to merge samples into a single file {ref}`if the project contains multiplexed samples<faq:Which projects can I download as merged objects?>`.
