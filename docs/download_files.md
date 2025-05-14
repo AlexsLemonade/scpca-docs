@@ -100,8 +100,8 @@ Each zip file will be named with a unique dataset ID, the chosen data format (ei
 Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
 If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), you can check the {ref}`Spatial modality box<download_options:Modalities>` to include the spatial transcriptomics data in `My Dataset`.
 
-Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
-Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (single-cell), `spatial_metadata.tsv` (spatial), or `SCPCP000000_bulk_metadata.tsv` (bulk). 
+Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either `Single-cell`, `Spatial`, or `Bulk`). 
+Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (`Single-cell`), `spatial_metadata.tsv` (`Spatial`), or `SCPCP000000_bulk_metadata.tsv` (`Bulk`). 
 For more information on available data formats and modalities, see {ref}`the section describing download options <download_options:data formats>`. 
 
 If downloading a project as a [merged object](#merged-object-downloads), the project folder will contain a `_merged` suffix. 
@@ -294,7 +294,7 @@ In addition, the `demux_cell_count_estimate` column will contain an estimate of 
 
 ## Spatial transcriptomics libraries
 
-If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files by selecting "Spatial" as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
+If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files by selecting `Spatial` as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
 
 If downloading an [entire project using the `Download Now` button](#project-downloads), you will need to download the spatial data separately from the single-cell and single-nuclei gene expression data. 
 If creating and downloading a [custom dataset by using the `Add to Dataset` button](#custom-datasets), you will be able to select both `Single-cell` and `Spatial` to be included in the download. 
