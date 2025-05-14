@@ -131,7 +131,7 @@ For [`AnnData` objects (`.h5ad` files)](#detailed-folder-structure-for-individua
 The Portal-wide Download page can be used to download all [metadata](#metadata-only-downloads) or gene expression data for all samples on the Portal at once. 
 
 All single-cell and single-nuclei gene expression data from the Portal can be downloaded as a single zip file containing data stored as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-portal-wide-download-structure) or [`AnnData` objects (`.h5ad` files)](#anndata-portal-wide-download-structure). 
-All spatial data for any samples sequenced using [spatial transcriptomics](#spatial-transcriptomics-libraries) is available separately as a zip file. 
+All spatial data for any samples sequenced using [spatial transcriptomics](#spatial-transcriptomics-libraries) are available separately as a zip file. 
 
 When downloading any of the available Portal-wide data downloads, all metadata and bulk RNA-seq data is also included. 
 
