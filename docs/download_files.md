@@ -97,7 +97,7 @@ The `My Dataset` button can be used to view and download the custom dataset as a
 
 <!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
 Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
-Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`Why can't I change the data format in My Dataset <faq:why can't i change the data format in my dataset>`). 
+Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
 If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), the `Spatial` box can be used to indicate whether or not to include the spatial transcriptomics data in the download. 
 
 Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
@@ -151,7 +151,7 @@ For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the
 ![portal wide download structure - `anndata`](STUB-IMAGE){width="600"}
 
 ### Spatial Portal-wide download structure
-![portal wide download structure - spatial](#STUB-IMAE){width="600"}
+![portal wide download structure - spatial](#STUB-IMAGE){width="600"}
 
 ### Portal-wide downloads as merged objects
 
@@ -294,7 +294,7 @@ In addition, the `demux_cell_count_estimate` column will contain an estimate of 
 
 ## Spatial transcriptomics libraries
 
-If a sample includes a library processed using spatial transcriptomics, the spatial transcriptomics output files will be available as a separate download from the single-cell/single-nuclei gene expression data by selecting "Spatial" as the modality (see more on {ref}`modalities <download_options:modalities>`). 
+If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files as a separate download from the single-cell/single-nuclei gene expression data by selecting "Spatial" as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
 
 For all spatial transcriptomics libraries, a `SCPCL000000_spatial` folder will be nested inside the corresponding sample folder in the download.
 Inside that folder will be the following folders and files:
@@ -307,6 +307,7 @@ Inside that folder will be the following folders and files:
 
 A full description of all files included in the download for spatial transcriptomics libraries can also be found in the [`spaceranger count` documentation](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count#outputs).
 
+<!-- TODO: Confirm spatial_metadata.tsv or spatial-metadata.tsv: https://github.com/AlexsLemonade/scpca-docs/issues/381#issuecomment-2867277605 -->
 Every download also includes a single `spatial_metadata.tsv` file containing metadata for all libraries included in the download.
 
 <!--TODO: update this image to have correct folder names-->
