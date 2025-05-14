@@ -247,4 +247,4 @@ When creating a {ref}`custom dataset for download<download_files:Custom datasets
 We currently do not support including both data formats at once in `My Dataset`.
 Once a sample or project of a given data format has been added to `My Dataset`, all subsequent single-cell data added will automatically be in that same format.
 
-Therefore, if you wish to download single-cell expression data in both `SingleCEllExperiment` and `AnnData` data formats, you will need to create and download separate `My Dataset`s, one at a time, for each format.
+Therefore, if you wish to download single-cell expression data in both `SingleCellExperiment` and `AnnData` data formats, you will need to create and download separate `My Dataset`s, one at a time, for each format.
