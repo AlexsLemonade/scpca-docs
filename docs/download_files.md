@@ -294,7 +294,11 @@ In addition, the `demux_cell_count_estimate` column will contain an estimate of 
 
 ## Spatial transcriptomics libraries
 
-If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files as a separate download from the single-cell/single-nuclei gene expression data by selecting "Spatial" as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
+If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files by selecting "Spatial" as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
+
+If downloading an [entire project using the `Download Now` button](#project-downloads), you will need to download the spatial data separately from the single-cell and single-nuclei gene expression data. 
+If creating and downloading a [custom dataset by using the `Add to Dataset` button](#custom-datasets), you will be able to select both `Single-cell` and `Spatial` to be included in the download. 
+Alternatively, you can download all of the spatial transcriptomic data from the Portal on the [Portal-wide Downloads page](#portal-wide-downloads).
 
 For all spatial transcriptomics libraries, a `SCPCL000000_spatial` folder will be nested inside the corresponding sample folder in the download.
 Inside that folder will be the following folders and files:
