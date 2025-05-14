@@ -11,7 +11,7 @@ We provide all single-cell and single-nuclei expression data in both `SingleCell
 The default format for all samples on the Portal with single-cell and single-nuclei expression is set to `SingleCellExperiment (R)`.
 You can learn more about using these object types from our FAQ sections on {ref}`using the provided RDS files<faq:How do I use the provided RDS files in R?>` and {ref}`using the provided H5AD files<faq:How do I use the provided H5AD files in Python?>`.
 
-Only one data format is currently supported for a single download, including when {ref}`downloading custom datasets<download_files:Custom datasets>`.
+Only {ref}`one data format is currently supported for a single download<faq:Why can't I change the data format in My Dataset?>`, including when {ref}`downloading custom datasets<download_files:Custom datasets>`.
 To obtain data in both `SingleCellExperiment` and `AnnData` formats, you will need to download these file formats separately.
 
 In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment` format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
