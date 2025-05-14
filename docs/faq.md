@@ -234,10 +234,17 @@ However, we respect submitters' requests to remove samples if they have deemed t
 
 ## What does the Copy Download Link button do?
 
-The copy download link allows you to copy the URL to download a project using a command line tool such as [`wget`](https://www.gnu.org/software/wget/) or [`curl`](https://curl.se/). 
+The copy download link allows you to copy the URL to download a project using a command line tool such as [`wget`](https://www.gnu.org/software/wget/) or [`curl`](https://curl.se/).
 It does not trigger a download via your web browser, so you must take additional steps to download the data with another tool.
 
 Download links expire in 7 days, but you can generate a new link on the ScPCA Portal as often as needed.
 
 Download links are only available for projects (i.e., not for downloading individual samples).
 
+## Why can't I change the data format in My Dataset?
+
+When creating a {ref}`custom dataset for download<download_files:Custom datasets>` (`My Dataset`), all single-cell sample or project data included must be of the same {ref}`data format<download_options:Data format>`, either `SingleCellExperiment` for use in R or `AnnData` for use in Python.
+We currently do not support including both data formats at once in `My Dataset`.
+Once a sample or project of a given data format has been added to `My Dataset`, all subsequent single-cell or single-nuclei data added will automatically be in that same format.
+
+Therefore, if you wish to download single-cell or single-nuclei expression data in both `SingleCellExperiment` and `AnnData` data formats, you will need to create and download separate `My Dataset`s, one at a time, for each format.
