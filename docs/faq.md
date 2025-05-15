@@ -282,6 +282,6 @@ You can learn more about the specific version of the data you have as follows:
 * The file name of each downloaded zip file, and the enclosed `README.md`, will include the date it was downloaded from the Portal
 * The {ref}`CHANGELOG page<changelog:CHANGELOG>` provides information about data changes within the Portal
 * The metadata included in your downloaded files will contain information about the `scpca-nf` workflow version that was used to process the data
-  * For example, the column `workflow_version` in the `single_cell_metadata.tsv` or `bulk_metadata.tsv` file included in your download provides the `AlexsLemonade/scpca-nf` workflow version used to process the sample, and the column `processed_date` provides the date the sample was processed through the workflow.
+  * For example, the column `workflow_version` in the metadata file included in your download (`single_cell_metadata.tsv`, `bulk_metadata.tsv`, and/or `spatial_metadata.tsv`) provides the `AlexsLemonade/scpca-nf` workflow version used to process the sample, and the column `processed_date` provides the date the sample was processed through the workflow.
   See the {ref}`metadata documentation<download_files:metadata> for additional information
 * For more information about a given `scpca-nf` release, refer to the [workflow release notes](https://github.com/AlexsLemonade/scpca-nf/releases)
