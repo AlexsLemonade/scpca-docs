@@ -91,9 +91,11 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ## Custom datasets
 
-To download data for individual samples, multiple projects, or any combination of individual samples and projects, use the `Add to Dataset` button. 
-This process creates a custom dataset for download, referred to as `My Dataset` within the Portal.
-The `My Dataset` button can be used to view and download the custom dataset as a single zip file. 
+You can create a custom dataset with any combination of individual samples and projects with your choice of modalities and data format. 
+Custom datasets are referred to as `My Dataset ` within the portal.
+`Add to Dataset` button allows you to add projects and selected samples to `My Dataset`. 
+You can select the data formats and modalities for each project or sample before you add it to `My Dataset`
+The `My Dataset` button on the top right of the portal can be used to view and download the custom dataset as a single zip file. 
 
 <!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
 Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
