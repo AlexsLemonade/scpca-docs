@@ -93,12 +93,12 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 You can create a custom dataset with any combination of individual samples and projects with your choice of modalities and data format. 
 Custom datasets are referred to as `My Dataset ` within the portal.
-`Add to Dataset` button allows you to add projects and selected samples to `My Dataset`. 
-You can select the data formats and modalities for each project or sample before you add it to `My Dataset`
-The `My Dataset` button on the top right of the portal can be used to view and download the custom dataset as a single zip file. 
+The `Add to Dataset` button allows you to add projects and selected samples to `My Dataset`. 
+You can select the data formats and modalities for each project or sample before you add it to `My Dataset`.
+The `My Dataset` button on the top right of the portal can then be used to view and download the custom dataset as a single zip file. 
 
 <!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
-Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnDaANta`), and the date you accessed the data on the ScPCA Portal.
 Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`Why can't I change the data format in My Dataset <faq:why can't i change the data format in my dataset>`). 
 
 Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
