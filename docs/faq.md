@@ -270,3 +270,18 @@ Specifically, we apply these rules when you append to `My Dataset`:
 Otherwise, if only one dataset had this option selected, the merge option will no longer be applied.
 
 You are always welcome to edit these options in `My Dataset` to your liking after appending the additional samples.
+
+## Why are some values different after I regenerate My Dataset?
+
+The Portal only offers one version of each sample at any given time.
+Because of this, when you regenerate a previously-created version of `My Dataset`, the values in your downloaded files may be slightly different compared to a previous download.
+The file name of each downloaded zip file, and the enclosed `README.md`, will include the date it was downloaded from the Portal
+
+You can learn more about the specific version of the data you have as follows:
+
+* The file name of each downloaded zip file, and the enclosed `README.md`, will include the date it was downloaded from the Portal
+* The {ref}`CHANGELOG page<changelog:CHANGELOG>` provides information about data changes within the Portal
+* The metadata included in your downloaded files will contain information about the `scpca-nf` workflow version that was used to process the data
+  * For example, the column `workflow_version` in `single_cell_metadata.tsv` or `bulk_metadata.tsv` file in your download provides the `AlexsLemonade/scpca-nf` workflow version used to process the sample.
+  See the {ref}`metadata documentation<download_files:metadata> for additional information
+* For more information about a given `scpca-nf` release, refer to the [workflow release notes](https://github.com/AlexsLemonade/scpca-nf/releases)
