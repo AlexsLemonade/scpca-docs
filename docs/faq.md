@@ -268,3 +268,5 @@ Specifically, we apply these rules when you append to `My Dataset`:
 * If you selected to {ref}`include bulk RNA-seq expression in the download<download_options:Modalities>` *either* in the previous dataset or the current `My Dataset`, bulk expression will remain included in the download.
 * If you selected the {ref}`merged project option<download_options:Merged objects>` **both** in the previous dataset and the current `My Dataset`, the merge option will remain selected.
 Otherwise, if only one dataset had this option selected, the merge option will no longer be applied.
+
+You are always welcome to edit these options in `My Dataset` to your liking after appending the additional samples.
