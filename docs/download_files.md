@@ -91,12 +91,13 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ## Custom datasets
 
-To download data for individual samples, multiple projects, or any combination of individual samples and projects, use the `Add to Dataset` button. 
-This process creates a custom dataset for download, referred to as `My Dataset` within the Portal.
-The `My Dataset` button can be used to view and download the custom dataset as a single zip file. 
+You can create a custom dataset with any combination of individual samples and projects with your choice of modalities and data format. 
+Custom datasets are referred to as `My Dataset ` within the portal.
+The `Add to Dataset` button allows you to add projects and selected samples to `My Dataset`. 
+You can select the data formats and modalities for each project or sample before you add it to `My Dataset`.
+The `My Dataset` button on the top right of the portal can then be used to view and download the custom dataset as a single zip file. 
 
-<!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
-Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnData`), and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with a unique dataset ID, the chosen data format (either `single-cell-experiment` or `anndata`), and the date you accessed the data on the ScPCA Portal.
 Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
 If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), you can check the {ref}`Spatial modality box<download_options:Modalities>` to include the spatial transcriptomics data in `My Dataset`.
 
@@ -135,8 +136,7 @@ All spatial data for any samples sequenced using [spatial transcriptomics](#spat
 
 When downloading any of the available Portal-wide data downloads, all metadata and bulk RNA-seq data is also included. 
 
-<!--TODO: make sure data format naming for files is correctly formatted-->
-Each zip file will be named with the chosen data format (either `SingleCellExperiment` or `AnnData`) and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with the chosen data format (either `single-cell-experiment` or `anndata`) and the date you accessed the data on the ScPCA Portal.
 Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
 
 As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.

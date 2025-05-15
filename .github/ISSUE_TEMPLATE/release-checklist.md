@@ -15,6 +15,7 @@ assignees: ''
 ### Preparing for the release
 - [ ] Does this release require an update to the CHANGELOG because there will be changes to downloadable files? If so, please create an issue tracking the CHANGELOG update and mark it as blocking this issue.
 - [ ] Are all other issues planned for this release resolved? If any issues are unresolved, mark this issue as blocked by those on ZenHub.
+- [ ] All `TODO`s and `STUB` links have been filled in with their correct values, or commented out.
 - [ ] Optional: If not all changes in `development` are ready to be released, create a feature branch off `main` and cherry pick commits from `development` to that feature branch.
 - [ ] File a PR from the `development` branch (or the new feature branch) to the `main` branch. This should include all of the changes that will be associated with the next release.
   - [ ] If a CHANGELOG entry was required, add the date to the entry's header as part of this PR.

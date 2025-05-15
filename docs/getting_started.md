@@ -397,7 +397,7 @@ libraries <- c("SCPCL00000X", "SCPCL00000Y", "SCPCL00000Z")
 subsetted_merged_sce <- merged_sce[,merged_sce$library_id %in% libraries]
 ```
 
-To subset an `AnnData` merged object to a given set of libraries, use the following R code:
+To subset an `AnnData` merged object to a given set of libraries, use the following python code:
 
 ```r
 # Define list of library IDs of interest
@@ -408,7 +408,7 @@ subsetted_adata_merged_object = adata_merged_object[adata_merged_object.obs["lib
 ```
 
 The merged object additionally contains metadata such as information about sample diagnosis, subdiagnosis, or tissue location that may be useful for subsetting.
-A full set of merged object contents which can support subsetting is available in <TODO: the forthcoming section forthcoming in `merged_objects.md` about file contents>.
+A full set of merged object contents which can support subsetting {ref}`is available here<merged_objects:SingleCellExperiment cell metrics>`.
 
 As one example, to subset a `SingleCellExperiment` merged object to a given diagnosis, use the following R code:
 
