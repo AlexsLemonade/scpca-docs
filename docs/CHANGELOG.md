@@ -5,7 +5,7 @@ As of November 2023, the `CHANGELOG` is a feature of our documentation we'll use
 You can find more information about how and when your download was prepared in the following places:
 
 * The date your download was packaged (`Generated on: {date}`) is included at the top of the README in your download.
-* The version of the [`AlexsLemonade/scpca-nf`](https://github.com/alexsLemonade/scpca-nf) pipeline used to process data in your download is included in the `workflow_version` column of the `single_cell_metadata.tsv` or `bulk_metadata.tsv` file in your download.
+* The version of the [`AlexsLemonade/scpca-nf`](https://github.com/alexsLemonade/scpca-nf) pipeline used to process data in your download is included in the `workflow_version` column of the `single_cell_metadata.tsv`, `bulk_metadata.tsv`, or `spatial_metadata.tsv` file in your download.
 For more information about `AlexsLemonade/scpca-nf` versions, please see [the releases page on GitHub](https://github.com/AlexsLemonade/scpca-nf/releases).
 
 <!-------------------------------------------------->
@@ -14,11 +14,11 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 
 ## 2025.04.24
 
-* Consensus cell type annotations are now available in all processed `SingleCellExperiment` and `AnnData` objects and merged objects. 
-  * The labels obtained from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
-  * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` to learn more about how consensus cell types are assigned. 
+* Consensus cell type annotations are now available in all processed `SingleCellExperiment` and `AnnData` objects and merged objects.
+  * The labels obtained from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label.
+  * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` to learn more about how consensus cell types are assigned.
   * See {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>` for more information on obtaining these cell type annotations from the downloaded objects.
-* All assays within a merged object are now saved as a sparse matrix (`CsparseMatrix`), whereas previously these assays were saved as a `DelayedArray`. 
+* All assays within a merged object are now saved as a sparse matrix (`CsparseMatrix`), whereas previously these assays were saved as a `DelayedArray`.
 
 ## 2024.11.14
 
