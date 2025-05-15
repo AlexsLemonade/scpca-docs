@@ -97,8 +97,7 @@ The `Add to Dataset` button allows you to add projects and selected samples to `
 You can select the data formats and modalities for each project or sample before you add it to `My Dataset`.
 The `My Dataset` button on the top right of the portal can then be used to view and download the custom dataset as a single zip file. 
 
-<!--TODO: Confirm that these are the correct names that will be used as the folder names for data format-->
-Each zip file will be named with a unique dataset ID, the chosen data format (either `SingleCellExperiment` or `AnnDaANta`), and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with a unique dataset ID, the chosen data format (either `single-cell-experiment` or `anndata`), and the date you accessed the data on the ScPCA Portal.
 Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`Why can't I change the data format in My Dataset <faq:why can't i change the data format in my dataset>`). 
 
 Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either single-cell, spatial, or bulk). 
@@ -136,8 +135,7 @@ All spatial data for any samples sequenced using [spatial transcriptomics](#spat
 
 When downloading any of the available Portal-wide data downloads, all metadata and bulk RNA-seq data is also included. 
 
-<!--TODO: make sure data format naming for files is correctly formatted-->
-Each zip file will be named with the chosen data format (either `SingleCellExperiment` or `AnnData`) and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with the chosen data format (either `single-cell-experiment` or `anndata`) and the date you accessed the data on the ScPCA Portal.
 Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
 
 As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
