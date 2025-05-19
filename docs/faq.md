@@ -256,3 +256,17 @@ Merged objects will always contain all samples in the given project ([see which 
 
 If you would like to work with a merged object that only contains a subset of project samples, we recommend downloading the merged object and subsetting it directly to the samples of your choosing.
 See {ref}`Subsetting the Merged Object<getting_started:Subsetting the merged object>` for instructions on how to subset `SingleCellExperiment` and `AnnData` merged objects.
+
+
+## Why did project options change when I appended samples to My Dataset?
+
+If you would like to include all samples from a dataset you have previously created, you can append these samples to your current `My Dataset`.
+In some cases, however, certain project-level options may change when you append additional samples from a project that is already present in `My Dataset`.
+
+Specifically, we apply these rules when you append to `My Dataset`:
+
+* If you selected to {ref}`include bulk RNA-seq expression in the download<download_options:Modalities>` *either* in the previous dataset or the current `My Dataset`, bulk expression will remain included in the download.
+* If you selected the {ref}`merged project option<download_options:Merged objects>` **both** in the previous dataset and the current `My Dataset`, the merge option will remain selected.
+Otherwise, if only one dataset had this option selected, the merge option will no longer be applied.
+
+You are always welcome to edit these options in `My Dataset` to your liking after appending the additional samples.
