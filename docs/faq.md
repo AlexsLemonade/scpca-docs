@@ -260,7 +260,7 @@ See {ref}`Subsetting the Merged Object<getting_started:Subsetting the merged obj
 
 ## Why did project options change when I appended samples to My Dataset?
 
-If you would like to include samples from a dataset you have previously created, you can append these samples to your current `My Dataset`.
+If you would like to include all samples from a dataset you have previously created, you can append these samples to your current `My Dataset`.
 In some cases, however, certain project-level options may change when you append additional samples from a project that is already present in `My Dataset`.
 
 Specifically, we apply these rules when you append to `My Dataset`:
