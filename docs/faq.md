@@ -273,10 +273,10 @@ You are always welcome to edit these options in `My Dataset` to your liking afte
 
 ## Why are some values different after I regenerate My Dataset?
 
-The Portal only offers data processed using a single version of the `scpca-nf` workflow for each sample at any given time.
-If any new features or updates are made to the processing workflow, all data currently on the Portal will be re-processed.
+The Portal only offers data processed using a single version of the [`scpca-nf` workflow](github.com/AlexsLemonade/scpca-nf/) for each sample at any given time.
+If any new features or updates are made to the `scpca-nf` workflow, all data currently on the Portal will be re-processed.
 Because of this, when you regenerate a previously-created version of `My Dataset`, the values in your downloaded files may be slightly different compared to a previous download.
-A full description of any major changes made to data on the Portal are described in the {ref}`CHANGELOG page<changelog:CHANGELOG>`. 
+A full description of any major changes made to data on the Portal are described in the {ref}`CHANGELOG page<changelog:CHANGELOG>`.
 
 You can learn more about the specific version of the data you have as follows:
 
