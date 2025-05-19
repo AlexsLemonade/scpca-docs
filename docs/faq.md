@@ -273,15 +273,15 @@ You are always welcome to edit these options in `My Dataset` to your liking afte
 
 ## Why are some values different after I regenerate My Dataset?
 
-The Portal only offers data processed using a single version of the [`scpca-nf` workflow](github.com/AlexsLemonade/scpca-nf/) for each sample at any given time.
-If any new features or updates are made to the `scpca-nf` workflow, all data currently on the Portal will be re-processed.
+The Portal only offers data processed using a single version of the [`AlexsLemonade/scpca-nf` workflow](github.com/AlexsLemonade/scpca-nf/) for each sample at any given time.
+If any new features or updates are made to the workflow, all data currently on the Portal will be re-processed.
 Because of this, when you regenerate a previously-created version of `My Dataset`, the values in your downloaded files may be slightly different compared to a previous download.
 A full description of any major changes made to data on the Portal are described in the {ref}`CHANGELOG page<changelog:CHANGELOG>`.
 
 You can learn more about the specific version of the data you have as follows:
 
 * The file name of each downloaded zip file, and the enclosed `README.md`, will include the date it was downloaded from the Portal
-* The metadata included in your downloaded files will contain information about the `scpca-nf` workflow version that was used to process the data
+* The metadata included in your downloaded files will contain information about the `AlexsLemonade/scpca-nf` workflow version that was used to process the data
   * For example, the column `workflow_version` in the metadata file included in your download (`single_cell_metadata.tsv`, `bulk_metadata.tsv`, and/or `spatial_metadata.tsv`) provides the `AlexsLemonade/scpca-nf` workflow version used to process the sample, and the column `processed_date` provides the date the sample was processed through the workflow.
   See the {ref}`metadata documentation<download_files:metadata>` for additional information
-* For more information about a given `scpca-nf` release, refer to the [releases page on GitHub](https://github.com/AlexsLemonade/scpca-nf/releases)
+* For more information about a given `AlexsLemonade/scpca-nf` release, refer to the [releases page on GitHub](https://github.com/AlexsLemonade/scpca-nf/releases)
