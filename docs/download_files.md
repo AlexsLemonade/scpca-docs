@@ -7,7 +7,7 @@ When you uncompress the zip file, the root directory name of your download will 
 We recommend you record this date in case there are future updates to the Portal that change the underlying data or if you need to cite the data in the future (see {ref}`How to Cite <citation:how to cite>` for more information).
 Please see our {ref}`CHANGELOG <CHANGELOG:CHANGELOG>` for a summary of changes that impact downloads from the Portal.
 
-Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [portal-wide download options](#portal-wide-downloads).
+Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [Portal-wide download options](#portal-wide-downloads).
 For all data downloads, sample folders (indicated by the `SCPCS` prefix) contain the files for all libraries (`SCPCL` prefix) derived from that biological sample.
 Most samples only have one library that has been sequenced.
 For [multiplexed sample libraries](#multiplexed-sample-libraries), the sample folder name will be an underscore-separated list of all samples found in the library files that the folder contains.
@@ -24,8 +24,8 @@ The files shown below will be included with each library (example shown for a li
 
 For more information on the contents of these files, see the sections on [gene expression data](#gene-expression-data), the [QC report](#qc-report), and the [cell type report](#cell-type-report).
 
-Every download also includes a single `single_cell_metadata.tsv` file containing metadata for all libraries included in the download.
-For a full description of the metadata file, refer to the [metadata section below](#metadata).
+Every download also includes sample and processing metadata for all libraries included in the download.
+For a full description of the metadata files, refer to the [metadata section below](#metadata).
 
 Metadata-only downloads are also available, either by downloading the metadata for all samples in a single project using the `Download Sample Metadata` button or by downloading the [metadata for all samples on the Portal](#metadata-only-downloads).
 
@@ -91,19 +91,52 @@ Every download also includes the individual [QC report](#qc-report) and, if appl
 
 ## Custom datasets
 
-<!--TODO: Fill in this section with information about creating and downloading custom datasets-->
+You can create a custom dataset with any combination of individual samples and projects with your choice of modalities and data format. 
+Custom datasets are referred to as `My Dataset ` within the portal.
+The `Add to Dataset` button allows you to add projects and selected samples to `My Dataset`. 
+You can select the data formats and modalities for each project or sample before you add it to `My Dataset`.
+The `My Dataset` button on the top right of the portal can then be used to view and download the custom dataset as a single zip file. 
+
+Each zip file will be named with a unique dataset ID, the chosen data format (either `single-cell-experiment` or `anndata`), and the date you accessed the data on the ScPCA Portal.
+Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
+If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), you can check the {ref}`Spatial modality box<download_options:Modalities>` to include the spatial transcriptomics data in `My Dataset`.
+
+Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either `single-cell`, `spatial`, or `bulk`). 
+Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (`single-cell`), `spatial_metadata.tsv` (`spatial`), or `SCPCP000000_bulk_metadata.tsv` (`bulk`). 
+For more information on available data formats and modalities, see {ref}`the section describing download options <download_options:data formats>`. 
+
+If downloading a project as a [merged object](#merged-object-downloads), the project folder will contain a `_merged` suffix. 
+
+If any samples included in `My Dataset` contain associated CITE-seq data, the quantified CITE-seq expression data will be included when downloading single-cell expression data.
+For `SingleCellExperiment` objects (`.rds` files), the quantified CITE-seq expression is included in the same file as the gene expression data. 
+For [`AnnData` objects (`.h5ad` files)](#detailed-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+### Download folder structure for custom downloads:
+![custom dataset download](STUB-IMAGE){width="600"}
+
+### Custom datasets with `SingleCellExperiment` format
+
+#### Detailed folder structure for individual samples:
+![sample download folder](images/sample-download-folder.png){width="600"}
+
+### Custom datasets with `AnnData` format
+
+#### Detailed folder structure for individual samples:
+![sample download folder](images/anndata-sample-download-folder.png){width="600"}
+
+#### Detailed folder structure for individual samples with CITE-seq (ADT) data:
+![sample download folder](images/anndata-sample-citeseq-download-folder.png){width="600"}
 
 ## Portal-wide Downloads
 
 The Portal-wide Download page can be used to download all [metadata](#metadata-only-downloads) or gene expression data for all samples on the Portal at once.
 
-All single-cell and single-nuclei gene expression data from the Portal can be downloaded as a single zip file containing data stored as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-portal-wide-download-structure) or [`AnnData` objects (`.h5ad` files)](#anndata-portal-wide-download-structure).
-All spatial data for any samples sequenced using [spatial transcriptomics](#spatial-transcriptomics-libraries) is available separately as a zip file.
+All single-cell and single-nuclei gene expression data from the Portal can be downloaded as a single zip file containing data stored as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-portal-wide-download-structure) or [`AnnData` objects (`.h5ad` files)](#anndata-portal-wide-download-structure). 
+All spatial data for any samples sequenced using [spatial transcriptomics](#spatial-transcriptomics-libraries) are available separately as a zip file. 
 
 When downloading any of the available Portal-wide data downloads, all metadata and bulk RNA-seq data is also included.
 
-<!--TODO: make sure data format naming for files is correctly formatted-->
-Each zip file will be named with the chosen data format (either `SingleCellExperiment` or `AnnData`) and the date you accessed the data on the ScPCA Portal.
+Each zip file will be named with the chosen data format (either `single-cell-experiment` or `anndata`) and the date you accessed the data on the ScPCA Portal.
 Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
 
 As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
@@ -117,9 +150,8 @@ For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the
 ### `AnnData` Portal-wide download structure
 ![portal wide download structure - `anndata`](STUB-IMAGE){width="600"}
 
-<!--TODO:
-spatial section to be moved here
--->
+### Spatial Portal-wide download structure
+![portal wide download structure - spatial](#STUB-IMAGE){width="600"}
 
 ### Portal-wide downloads as merged objects
 
@@ -248,10 +280,11 @@ This file will contain fields equivalent to those found in the `single_cell_meta
 For libraries where multiple biological samples were combined via cellhashing or similar technology (see the {ref}`FAQ section about multiplexed samples <faq:What is a multiplexed sample?>`), the organization of the downloaded files and metadata is slightly different.
 Note that multiplexed sample libraries are only available as `SingleCellExperiment` objects, and are not currently available as `AnnData` objects.
 
-For project downloads, the counts and QC files will be organized by the _set_ of samples that comprise each library, rather than in individual sample folders.
+When downloading an entire project, the counts and QC files will be organized by the _set_ of samples that comprise each library, rather than in individual sample folders.
 These sample set folders are named with an underscore-separated list of the sample ids for the libraries within, _e.g._, `SCPCS999990_SCPCS999991_SCPCS999992`.
-Bulk RNA-seq data, if present, will follow the [same format as bulk RNA-seq for single-sample libraries](#download-folder-structure-for-project-downloads).
+Bulk RNA-seq data, if present, will follow the [same format as bulk RNA-seq for single-sample libraries](#download-folder-structure-for-singlecellexperiment-project-downloads).
 
+<!--TODO: update this image to have correct folder names-->
 ![multiplexed project download folder](images/multiplexed-download-folder.png){width="750"}
 
 Because we do not perform demultiplexing to separate cells from multiplexed libraries into sample-specific count matrices, sample downloads from a project with multiplexed data will include all libraries that contain the sample of interest, but these libraries _will still contain cells from other samples_.
@@ -264,7 +297,11 @@ In addition, the `demux_cell_count_estimate` column will contain an estimate of 
 
 ## Spatial transcriptomics libraries
 
-If a sample includes a library processed using spatial transcriptomics, the spatial transcriptomics output files will be available as a separate download from the single-cell/single-nuclei gene expression data.
+If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files by selecting `Spatial` as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
+
+If downloading an [entire project using the `Download Now` button](#project-downloads), you will need to download the spatial data separately from the single-cell and single-nuclei gene expression data. 
+If creating and downloading a [custom dataset by using the `Add to Dataset` button](#custom-datasets), you will be able to select both `Single-cell` and `Spatial` to be included in the download. 
+Alternatively, you can download all of the spatial transcriptomic data from the Portal on the [Portal-wide Downloads page](#portal-wide-downloads).
 
 For all spatial transcriptomics libraries, a `SCPCL000000_spatial` folder will be nested inside the corresponding sample folder in the download.
 Inside that folder will be the following folders and files:
@@ -277,6 +314,8 @@ Inside that folder will be the following folders and files:
 
 A full description of all files included in the download for spatial transcriptomics libraries can also be found in the [`spaceranger count` documentation](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count#outputs).
 
+<!-- TODO: Confirm spatial_metadata.tsv or spatial-metadata.tsv: https://github.com/AlexsLemonade/scpca-docs/issues/381#issuecomment-2867277605 -->
 Every download also includes a single `spatial_metadata.tsv` file containing metadata for all libraries included in the download.
 
+<!--TODO: update this image to have correct folder names-->
 ![sample download with spatial](images/spatial-download-folder.png){width="600"}
