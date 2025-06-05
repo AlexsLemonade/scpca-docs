@@ -69,10 +69,10 @@ In addition to the counts matrices, the `SingleCellExperiment` or `AnnData` obje
 See the {ref}`section on merged object processing<processing_information:merged objects>` for more information about how merged objects were created.
 
 If downloading a project that contains at least one CITE-seq library, the quantified CITE-seq expression data will also be merged.
-In `SingleCellExperiment` objects (`rds` files), the CITE-seq expression data is provided as an alternative experiment in the same object as the gene expression data.
+In `SingleCellExperiment` objects (`.rds` files), the CITE-seq expression data is provided as an alternative experiment in the same object as the gene expression data.
 However, for `AnnData` objects, (`.h5ad` files), the quantified CITE-seq expression is instead provided as a separate file called `SCPCP000000_merged_adt.h5ad`.
 
-For any projects containing bulk RNA-seq data, a separate folder, `SCPCP000000_bulk`, containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
+For any projects containing bulk RNA-seq data, a separate folder `SCPCP000000_bulk` containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
 See the [section on bulk RNA-seq for more information](#bulk-rna-seq). 
 
 Every download also includes a single `single-cell_metadata.tsv` file containing metadata for all libraries included in the merged object.
@@ -118,7 +118,7 @@ For `SingleCellExperiment` objects (`.rds` files), the quantified CITE-seq expre
 For [`AnnData` objects (`.h5ad` files)](#detailed-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
 The below image shows the expected file structure for an example custom dataset. 
-For more information on the detailed contents of the project folders for each data format and modality, see the [Project downloads section](#project-downloads).  
+For more details about the project folder contents for each data format and modality, see the [Project downloads section](#project-downloads).  
 
 ### Download folder structure for custom downloads:
 ![custom dataset download](images/custom-dataset-generic.png){width="600"}
@@ -136,7 +136,7 @@ When downloading any of the available Portal-wide data downloads, all metadata a
 Each zip file will be named with the chosen data format (either `single-cell-experiment` or `anndata`) and the date you accessed the data on the ScPCA Portal.
 Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
 
-For any projects containing bulk RNA-seq data, a separate folder, `SCPCP000000_bulk`, containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included.
+For any projects containing bulk RNA-seq data, a separate folder `SCPCP000000_bulk` containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included.
 See the [section on bulk RNA-seq for more information](#bulk-rna-seq). 
 
 As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
