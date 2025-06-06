@@ -43,6 +43,7 @@ See the [section on bulk RNA-seq for more information](#bulk-rna-seq).
 See the expected file structure and [description of the Spatial transcriptomics output below](#spatial-transcriptomics-libraries).
 - If the project contains samples that have been multiplexed, the organization of the downloaded files will be slightly different than what is shown below. 
 See the section describing [multiplexed sample libraries](#multiplexed-sample-libraries) for an overview of the expected download structure. 
+
 For more information on choosing a data format and modality, see the {ref}`documentation on download options<download_options:Download options>`.
 
 When downloading a project, you can choose to download data from all samples as individual files, or you can download {ref}`a single file containing all samples merged into a single object<faq:When should I download a project as a merged object?>`.
@@ -161,7 +162,7 @@ Note that downloading all data using this option _will not_ download a merged ob
 ![portal wide download structure - merged `sce`](images/portal-wide-sc-merged.png){width="600"}
 
 #### Portal-wide download structure for merged `AnnData` objects
-![portal wide download structure - merged `anndata`](iamges/portal-wide-anndata-cite-seq-merged.png){width="600"}
+![portal wide download structure - merged `anndata`](images/portal-wide-anndata-cite-seq-merged.png){width="600"}
 
 ### Metadata-only downloads
 
@@ -308,10 +309,8 @@ Inside that folder will be the following folders and files:
 
 A full description of all files included in the download for spatial transcriptomics libraries can also be found in the [`spaceranger count` documentation](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count#outputs).
 
-<!-- TODO: Confirm spatial_metadata.tsv or spatial-metadata.tsv: https://github.com/AlexsLemonade/scpca-docs/issues/381#issuecomment-2867277605 -->
 Every download also includes a single `spatial_metadata.tsv` file containing metadata for all libraries included in the download.
 
-<!--TODO: update this image to have correct folder names-->
 ![sample download with spatial](images/project-spatial.png){width="600"}
 
 

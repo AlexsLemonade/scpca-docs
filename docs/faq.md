@@ -220,6 +220,14 @@ There are three types of projects for which merged objects are not available:
     - The more samples that are included in a merged object, the larger the object, and the more difficult it will be to work with that object in R or Python.
     Because of this, we do not provide merged objects for projects with more than 100 samples as the size of the merged object is too large.
 
+## Why can't I merge a subset of samples from a project?
+
+{ref}`Merged project downloads<download_files:Merged object downloads>` are not available for a subset of samples in a project.
+Merged objects will always contain all samples in the given project ([see which projects do not have merged objects](#which-projects-can-i-download-as-merged-objects)).
+
+If you would like to work with a merged object that only contains a subset of project samples, we recommend downloading the merged object and subsetting it directly to the samples of your choosing.
+See {ref}`Subsetting the Merged Object<getting_started:Subsetting the merged object>` for instructions on how to subset `SingleCellExperiment` and `AnnData` merged objects.
+
 ## Why doesn't my existing code work on a new download from the Portal?
 
 Although we try to maintain backward compatibility, new features added to the ScPCA Portal may result in downloads that are no longer compatible with code written with older downloads from the ScPCA Portal in mind.
@@ -248,14 +256,6 @@ We currently do not support including both data formats at once in `My Dataset`.
 Once a sample or project of a given data format has been added to `My Dataset`, all subsequent single-cell or single-nuclei data added will automatically be in that same format.
 
 Therefore, if you wish to download single-cell or single-nuclei expression data in both `SingleCellExperiment` and `AnnData` data formats, you will need to create and download separate `My Dataset`s, one at a time, for each format.
-
-## Why can't I merge a subset of samples from a project?
-
-{ref}`Merged project downloads<download_files:Merged object downloads>` are not available for a subset of samples in a project.
-Merged objects will always contain all samples in the given project ([see which projects do not have merged objects](#which-projects-can-i-download-as-merged-objects)).
-
-If you would like to work with a merged object that only contains a subset of project samples, we recommend downloading the merged object and subsetting it directly to the samples of your choosing.
-See {ref}`Subsetting the Merged Object<getting_started:Subsetting the merged object>` for instructions on how to subset `SingleCellExperiment` and `AnnData` merged objects.
 
 
 ## Why did project options change when I appended samples to My Dataset?
