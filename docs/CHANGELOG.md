@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## TODO: UPDATE WITH CORRECT DATE
+## 2025.07.25
 
 * Previously, the `cell_id` column in the cell metadata for merged objects was incorrectly formatted.  
 This has now been fixed so that all merged objects have the `cell_id` formatted as `<library_id>-<barcode>`. 
