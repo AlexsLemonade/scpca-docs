@@ -54,6 +54,9 @@ Only cells that pass this FDR threshold are included in the filtered counts matr
 For some libraries, `DropletUtils::emptyDropsCellRanger()` may fail due to low numbers of droplets with reads or other violations of its assumptions.
 For these libraries, only droplets containing at least 100 UMI are included in the filtered counts matrix.
 
+We additionally used [`scDblFinder`](https://www.bioconductor.org/packages/release/bioc/html/scDblFinder.html) to predict whether cells present in this filtered object are singlets or doublets.
+We provide the results from this analysis in the filtered objects, but we do not perform any filtering based on these results.
+
 ### Processed gene expression data
 
 In addition to the raw gene expression data, we also provide a processed `SingleCellExperiment` object with further filtering applied, a normalized counts matrix, and results from dimensionality reduction.
@@ -91,15 +94,15 @@ In addition, `CellAssign` annotation is only performed if there are at least 30 
 Some cells may be labeled as "Unclassified cell" if they were not annotated with `SingleR` or `CellAssign`.
 These are cells which were not present in previous ScPCA data versions on which cell typing was initially performed, so they were not labeled.
 
-Additionally, annotations from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
+Additionally, annotations from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label.
 The [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) between the `SingleR` and `CellAssign` cell type assignments is used as the consensus cell type label if the following criteria are met, otherwise no consensus cell type is assigned:
 
 1. The terms share only one distinct LCA.
-The only exception to this rule is if the terms share two LCAs and one of which is `hematopoietic precursor cell`, then `hematopoietic precursor cell` is used as the consensus label. 
+The only exception to this rule is if the terms share two LCAs and one of which is `hematopoietic precursor cell`, then `hematopoietic precursor cell` is used as the consensus label.
 
 2. The LCA has fewer than 170 descendants, or is either `neuron` or `epithelial cell`.
 
-If the LCA is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`. 
+If the LCA is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`.
 
 Cell type annotation is not performed for cell line samples.
 For information on how to determine if a given sample was derived from a cell line, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
