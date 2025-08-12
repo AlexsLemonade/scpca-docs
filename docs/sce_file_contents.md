@@ -85,7 +85,7 @@ See the description of the {ref}`processed gene expression data <processing_info
 
 The `processed` object has an additional `colData` column reflecting cluster assignments.
 Note that these clusters were calculated with default parameters and were not evaluated, as described in the {ref}`section on processed gene expression data <processing_information:Processed gene expression data>`.
-Further, if cell type annotation was performed, the `processed` object's `colData` will contain additional columns representing annotation results, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
+Further, if cell type annotation was performed, the `processed` object's `colData` will have additional columns containing annotation results, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
 
 | Column name             | Contents                                              |
 | ----------------------- | ----------------------------------------------------- |
