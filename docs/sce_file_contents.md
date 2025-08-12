@@ -68,7 +68,7 @@ The following per-cell data columns are included for each cell, calculated using
 | `total`                 | Total UMI count for RNA-seq data and any alternative experiments (i.e., ADT data from CITE-seq)                                                                                                             |
 
 The following additional per-cell data columns are included in both the `filtered` and `processed` objects.
-These columns include metrics calculated by [`miQC`](https://bioconductor.org/packages/release/bioc/html/miQC.html), a package that jointly models proportion of reads belonging to mitochondrial genes and number of unique genes detected to predict low-quality cells.
+These columns include metrics calculated by [`miQC`](https://bioconductor.org/packages/release/bioc/html/miQC.html), a package that jointly models proportion of reads belonging to mitochondrial genes and number of unique genes detected to predict low-quality cells, as well as [`scDblFinder`](https://www.bioconductor.org/packages/release/bioc/html/scDblFinder.html), a package to predict doublets.
 We also include the filtering results used for the creation of the `processed` objects.
 See the description of the {ref}`processed gene expression data <processing_information:Processed gene expression data>` for more information on filtering performed to create the `processed` objects.
 
@@ -78,11 +78,14 @@ See the description of the {ref}`processed gene expression data <processing_info
 | `miQC_pass`             | Indicates whether the cell passed the default miQC filtering. `TRUE` is assigned to cells with a low probability of being compromised (`prob_compromised` < 0.75) or [sufficiently low mitochondrial content](https://bioconductor.org/packages/release/bioc/vignettes/miQC/inst/doc/miQC.html#preventing-exclusion-of-low-mito-cells)  |
 | `scpca_filter` | Labels cells as either `Keep` or `Remove` based on filtering criteria (`prob_compromised` < 0.75 and number of unique genes detected > 200) |
 | `adt_scpca_filter` | If CITE-seq was performed, labels cells as either `Keep` or `Remove` based on ADT filtering criteria (`discard = TRUE` as determined by [`DropletUtils::CleanTagCounts()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/cleanTagCounts.html)) |
+| `scDblFinder_class` | The `scDblFinder` predicted classification, either "singlet" or "doublet" |
+| `scDblFinder_score` | The `scDblFinder` doublet score, representing the probability that the cell is a doublet  |
 | `submitter_celltype_annotation` | If available, cell type annotations obtained from the group that submitted the original data. Cells that the submitter did not annotate are labeled as `"Submitter-excluded"` |
 
 
-The `processed` object has one additional `colData` column reflecting cluster assignments.
-Further, if cell type annotation was performed, there will be additional columns representing annotation results in the `processed` object's `colData`, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
+The `processed` object has an additional `colData` column reflecting cluster assignments.
+Note that these clusters were calculated with default parameters and were not evaluated, as described in the {ref}`section on processed gene expression data <processing_information:Processed gene expression data>`.
+Further, if cell type annotation was performed, the `processed` object's `colData` will have additional columns containing annotation results, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
 
 | Column name             | Contents                                              |
 | ----------------------- | ----------------------------------------------------- |
