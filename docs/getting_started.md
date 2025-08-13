@@ -489,7 +489,7 @@ Be aware that the processed objects have been filtered to remove low-quality cel
 ### Filtering cells based on ADT quality control
 
 The `adt_scpca_filter` column indicates which cells should be removed before proceeding with downstream analyses of the ADT data, as determined by [`DropletUtils::CleanTagCounts()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/cleanTagCounts.html).
-This process identified cells with high levels of ambient contamination and/or high levels of negative control ADTs (if available).
+This process identified low-quality cells as those with either very low or high levels of ambient contamination and/or levels of negative control ADTs (if available).
 Cells are labeled either as `"Keep"` (cells to retain) or `"Remove"` (cells to filter out).
 
 To filter cells based on this column in the `SingleCellExperiment` objects, use the following command:
@@ -520,6 +520,23 @@ Here are some additional resources that can be used for working with ADT counts 
 - [Integrating with Protein Abundance, Orchestrating Single Cell Analysis](http://bioconductor.org/books/3.15/OSCA.advanced/integrating-with-protein-abundance.html)
 - [Seurat vignette on using with multimodal data](https://satijalab.org/seurat/articles/multimodal_vignette.html)
 
+### Using MuData objects for multimodal analysis
+
+It is also possible to combine the given RNA and ADT `AnnData` objects into a single [`MuData` object](https://mudata.readthedocs.io/en/latest/index.html) for multimodal analysis, as shown below.
+
+_Note: You will need to install the [`MuData` package](https://mudata.readthedocs.io/en/latest/index.html) to generate and work with `MuData` objects._
+
+```python
+import anndata
+import mudata
+
+# Read individual AnnData files
+rna_object = anndata.read_h5ad(file = "SCPCL000000_processed_rna.h5ad")
+adt_object = anndata.read_h5ad(file = "SCPCL000000_processed_adt.h5ad")
+
+# Combine into a MuData object, using keys "RNA" and "ADT" to distinguish modalities
+mdata_object = mudata.MuData({"RNA": rna_object, "ADT": adt_object})
+```
 
 ## Special considerations for multiplexed samples
 
