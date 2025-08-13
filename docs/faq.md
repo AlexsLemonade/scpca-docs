@@ -72,7 +72,7 @@ There are two types of samples where `AnnData` objects are not available:
 
 ## What if I want to use MuData instead of AnnData objects?
 
-[`MuData` objects](https://mudata.readthedocs.io/en/latest/index.html) are Python objects build on top of `AnnData` objects that are specifically used to store multimodal data.
+[`MuData` objects](https://mudata.readthedocs.io/en/latest/index.html) are Python objects built on top of `AnnData` objects that are specifically used to store multimodal data.
 Currently, we provide RNA counts and ADT counts, if present, as separate `AnnData` objects in their own H5AD files, as described in {ref}`the file contents documentation<sce_file_contents:Additional AnnData components for CITE-seq libraries (with ADT tags)>`.
 However, these objects can be combined into a `MuData` object if desired for a multimodal analysis.
 

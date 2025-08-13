@@ -489,7 +489,7 @@ Be aware that the processed objects have been filtered to remove low-quality cel
 ### Filtering cells based on ADT quality control
 
 The `adt_scpca_filter` column indicates which cells should be removed before proceeding with downstream analyses of the ADT data, as determined by [`DropletUtils::CleanTagCounts()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/cleanTagCounts.html).
-This process identified low-quality cells as those with either very low or high levels of ambient contamination and/or levels of negative control ADTs (if available).
+This process identified low-quality cells as those with either very low or high levels of ambient contamination and/or negative control ADTs (if available).
 Cells are labeled either as `"Keep"` (cells to retain) or `"Remove"` (cells to filter out).
 
 To filter cells based on this column in the `SingleCellExperiment` objects, use the following command:
