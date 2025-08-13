@@ -129,7 +129,8 @@ When cells were [filtered based on RNA-seq content](#filtering-cells) after quan
 
 An ambient profile representing antibody-derived tag (ADT) proportions present in the ambient solution is calculated from the unfiltered `SingleCellExperiment` object using [`DropletUtils::ambientProfileEmpty()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/ambientProfileEmpty.html).
 Quality-control statistics were calculated with [`DropletUtils::cleanTagCounts()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/cleanTagCounts.html) (with default parameters) using this ambient profile, along with negative/isotype control information, if present.
-Low-quality cells identified by `DropletUtils::cleanTagCounts()` (those having high levels of ambient contamination or substantial negative/isotype control tags) are flagged but not removed except during normalization, as described below.
+This function flags cells as low-quality if they either have very high levels of ambient contamination and/or negative/isotype control tags (if present), or lack ambient expression altogether which may indicate failed capture.
+Low-quality cells identified by `DropletUtils::cleanTagCounts()` are flagged but not removed except during normalization, as described below.
 If `DropletUtils::cleanTagCounts()` cannot reliably determine which cells to filter, then no cells will be flagged for removal.
 
 For all cells that would be retained if `DropletUtils::cleanTagCounts()` filtering were applied, log-normalized ADT counts are, by default, calculated using [median-based normalization](http://bioconductor.org/books/3.16/OSCA.advanced/integrating-with-protein-abundance.html#cite-seq-median-norm), again making use of the baseline ambient profile.
