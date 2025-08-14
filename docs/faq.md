@@ -90,6 +90,9 @@ adt_object = anndata.read_h5ad(file = "SCPCL000000_processed_adt.h5ad")
 mdata_object = mudata.MuData({"RNA": rna_object, "ADT": adt_object})
 ```
 
+For more information on working with `AnnData` objects, see {ref}`Getting started with an ScPCA dataset <getting_started:Getting started with an scpca dataset>`.
+
+
 ## What is the difference between samples and libraries?
 
 A sample ID, labeled as `scpca_sample_id` and indicated by the prefix `SCPCS`, represents a unique tissue that was collected from a participant.
