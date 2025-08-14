@@ -74,21 +74,8 @@ There are two types of samples where `AnnData` objects are not available:
 
 [`MuData` objects](https://mudata.readthedocs.io/en/latest/index.html) are Python objects built on top of `AnnData` objects that are specifically used to store multimodal data.
 Currently, we provide RNA counts and ADT counts, if present, as separate `AnnData` objects in their own H5AD files, as described in {ref}`the file contents documentation<sce_file_contents:Additional AnnData components for CITE-seq libraries (with ADT tags)>`.
-However, these objects can be combined into a `MuData` object if desired for a multimodal analysis.
-
-_Note: You will need to install the [`MuData` package](https://mudata.readthedocs.io/en/latest/index.html) to generate and work with `MuData` objects._
-
-```python
-import anndata
-import mudata
-
-# Read individual AnnData files
-rna_object = anndata.read_h5ad(file = "SCPCL000000_processed_rna.h5ad")
-adt_object = anndata.read_h5ad(file = "SCPCL000000_processed_adt.h5ad")
-
-# Combine into a MuData object, using keys "RNA" and "ADT" to distinguish modalities
-mdata_object = mudata.MuData({"RNA": rna_object, "ADT": adt_object})
-```
+However, these objects can be combined into a `MuData` object if desired for multimodal analyses.
+For more information on converting to a `MuData` object, see {ref}`Getting started with an ScPCA dataset <getting_started:Using MuData objects for multimodal analysis>`.
 
 ## What is the difference between samples and libraries?
 
