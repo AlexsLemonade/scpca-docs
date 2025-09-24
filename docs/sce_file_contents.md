@@ -451,7 +451,7 @@ There are two exceptions to this:
 * The `AnnData` object does not contain the `sample_metadata` item in the `.uns` slot.
 Instead, the contents of the `sample_metadata` data frame are stored in the cell-level metadata (`.obs`).
 * The `AnnData` object does not contain any metadata fields whose object type could not be converted to python.
-This includes any [`DataFrame`](https://rdrr.io/bioc/S4Vectors/man/DataFrame-class.html) or `list` type fields present in the `SingleCellExperiment` metadata.
+This includes any `list` type fields present in the `SingleCellExperiment` metadata.
 
 
 The `AnnData` object also includes the following additional items in the `.uns` slot:
