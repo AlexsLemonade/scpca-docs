@@ -446,8 +446,13 @@ adata_object.uns # experiment metadata
 
 All of the object metadata included in `SingleCellExperiment` objects are present in the `.uns` slot of the `AnnData` object.
 To see a full description of the included columns, see the [section on experiment metadata in `Components of a SingleCellExperiment object`](#singlecellexperiment-experiment-metadata).
-The only exception is that the `AnnData` object _does not_ contain the `sample_metadata` item in the `.uns` slot.
+There are two exceptions to this:
+
+* The `AnnData` object does not contain the `sample_metadata` item in the `.uns` slot.
 Instead, the contents of the `sample_metadata` data frame are stored in the cell-level metadata (`.obs`).
+* The `AnnData` object does not contain any metadata fields in the `SingleCellExperiment` whose object type cannot be converted to python.
+This includes any [`DataFrame`](https://rdrr.io/bioc/S4Vectors/man/DataFrame-class.html) or `list` type fields.
+
 
 The `AnnData` object also includes the following additional items in the `.uns` slot:
 
