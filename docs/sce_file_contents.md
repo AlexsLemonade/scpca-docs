@@ -83,9 +83,12 @@ See the description of the {ref}`processed gene expression data <processing_info
 | `submitter_celltype_annotation` | If available, cell type annotations obtained from the group that submitted the original data. Cells that the submitter did not annotate are labeled as `"Submitter-excluded"` |
 
 
-The `processed` object has an additional `colData` column reflecting cluster assignments.
-Note that these clusters were calculated with default parameters and were not evaluated, as described in the {ref}`section on processed gene expression data <processing_information:Processed gene expression data>`.
-Further, if cell type annotation was performed, the `processed` object's `colData` will have additional columns containing annotation results, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`.
+The `processed` object contains additional `colData` column(s):
+
+* A column with graph-based clustering assignments will be present
+Note that these clusters were calculated with default parameters and were not evaluated, as described in the {ref}`section on processed gene expression data <processing_information:Processed gene expression data>`
+* If cell type annotation was performed, columns containing annotation results will be present, as described in the {ref}`cell type annotation processing section <processing_information:Cell type annotation>`
+* If CNV inference was performed, columns containing these results will be present, as described in the {ref}`CNV inference processing section <processing_information:CNV inference>`
 
 | Column name             | Contents                                              |
 | ----------------------- | ----------------------------------------------------- |
@@ -97,6 +100,10 @@ Further, if cell type annotation was performed, the `processed` object's `colDat
 | `cellassign_max_prediction`  | If cell typing with `CellAssign` was performed and completed successfully, the annotation's prediction score (probability)  |
 | `consensus_celltype_annotation`  | The assigned consensus cell type annotation as determined by finding the latest common ancestor between the `SingleR` and `CellAssign` cell type annotations. Cells labeled as `"Unknown"` do not have an appropriate consensus cell type label that could be assigned. This column is only present if `SingleR` and `CellAssign` were run |
 | `consensus_celltype_ontology`  | The assigned consensus cell type ontology ID as determined by finding the latest common ancestor between the `SingleR` and `CellAssign` cell type annotations. Cells labeled as `NA` do not have an appropriate consensus cell type label that could be assigned. This column is only present if `SingleR` and `CellAssign` were run |
+| `is_infercnv_reference`  | Whether the cell would be considered part a reference normal cells for `inferCNV` inference. This column is present if consensus cell types were assigned, regardless of whether CNV inference was performed. |
+| `infercnv_total_cnv`  | If CNV inference was performed, the total number of CNV events in the cell calculated by `inferCNV`. Cells labeled `NA` were either filtered out during `inferCNV` calculations, as described in the {ref}`CNV inference processing section <processing_information:CNV inference>`, or may be the result of `inferCNV` result caching. This column is only present if `inferCNV` was successfully run |
+
+
 
 ### SingleCellExperiment gene information and metrics
 
@@ -166,6 +173,10 @@ metadata(sce) # experiment metadata
 | `cellassign_reference_organs`  | If cell typing with `CellAssign` was performed and completed successfully, a comma-separated list of organs and/or tissue compartments from which marker genes were obtained to create the reference. Only present for `processed` objects                                                                                                                                         |
 | `cellassign_reference_source`  | If cell typing with `CellAssign` was performed and completed successfully, the source of the reference dataset (default is [`PanglaoDB`](https://panglaodb.se/)). Only present for `processed` objects                                                                                                                                                                             |
 | `cellassign_reference_version` | If cell typing with `CellAssign` was performed and completed successfully, the version of the reference dataset source. For references obtained from `PanglaoDB`, the version scheme is a date in ISO8601 format. Only present for `processed` objects                                                                                                                             |
+| `infercnv_reference_celltypes` | Vector of consensus cell type labels which would be specified for the normal reference cells in `inferCNV` reference. Only present when consensus cell types were assigned, regardless of whether CNV inference is performed                                                                                                                                                       |
+| `infercnv_success`             | Boolean indicating if `inferCNV` succeeded. `TRUE` indicates that `inferCNV` successfully ran, `FALSE` indicates that `inferCNV` was attempted but failed during inference for an unknown reason, and `NA` indicates that `inferCNV` was not run due to insufficient normal reference cells. Only present when CNV inference was attempted                                         |
+| `infercnv_options`             | A list containing the contents of the `objects` slot from the [final `inferCNV` results object](https://github.com/broadinstitute/infercnv/wiki/Output-Files#infercnv-object-files) containing all parameters specified used when running `inferCNV`. Only present when CNV inference was performed                                                                                |
+| `infercnv_table`               | The `inferCNV` metadata table with detailed CNV results from the `inferCNV`. This data frame corresponds to the [`map_metadata_from_infercnv.txt` table calculated from the HMM results](https://github.com/broadinstitute/infercnv/wiki/Extracting-features). Only present when CNV inference was performed                                                                       |
 
 
 ### SingleCellExperiment sample metadata
