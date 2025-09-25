@@ -103,8 +103,6 @@ Note that these clusters were calculated with default parameters and were not ev
 | `is_infercnv_reference`  | Whether the cell would be considered part a reference normal cells for `inferCNV` inference. This column is present if consensus cell types were assigned, regardless of whether CNV inference was performed. |
 | `infercnv_total_cnv`  | If CNV inference was performed, the total number of CNV events in the cell calculated by `inferCNV`. Cells labeled `NA` were either filtered out during `inferCNV` calculations, as described in the {ref}`CNV inference processing section <processing_information:CNV inference>`, or may be the result of `inferCNV` result caching. This column is only present if `inferCNV` was successfully run |
 
-
-
 ### SingleCellExperiment gene information and metrics
 
 Gene information and metrics calculated from the RNA-seq expression data are stored as a `DataFrame` in the `rowData` slot, with the Ensembl ID as the names of the rows.
