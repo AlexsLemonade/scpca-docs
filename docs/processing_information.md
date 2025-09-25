@@ -120,7 +120,7 @@ We perform CNV inference using [`inferCNV`](https://github.com/broadinstitute/in
 
 `inferCNV` uses a designated set of normal reference cells to quantify CNV events based on gene expression.
 Which consensus cell types to include in the normal reference are determined by each sample's diagnosis.
-We [designate cells either as `reference` or `query`](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#sample-annotation-file), rather than using their specific cell type labels, where the label `reference` was used to specify normal reference cells.
+We [designate cells as either `reference` or `query`](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#sample-annotation-file), rather than using their specific cell type labels, where the label `reference` was used to specify normal reference cells.
 `inferCNV` is only run if there are at least 100 cells present in the normal reference.
 As such, `inferCNV` is also not run on cell lines because they do not undergo cell type annotation.
 
@@ -128,7 +128,7 @@ We additionally specify a [gene ordering file](https://github.com/broadinstitute
 We use all other `inferCNV` defaults, except we set `denoise = TRUE` and `cutoff = 0.1` (for 10x data) [as recommended](https://github.com/broadinstitute/inferCNV/wiki#quick-start).
 Note that we keep the default `inferCNV` setting to remove any cells with raw RNA counts less than 100; these cells will not have `inferCNV` estimates.
 
-We calculate the total CNV per cell [using the feature output from the `i6` HMM](https://github.com/broadinstitute/infercnv/wiki/Extracting-features) by summing all values in the HMM metadata table columns named `has_cnv_<chromosome number and arm>` (e.g., `has_cnv_chr1p`, `has_cnv_chr1q`, and so on).
+We calculate the total CNV per cell [using the feature output from the `i6` HMM](https://github.com/broadinstitute/infercnv/wiki/Extracting-features) by summing all values in the HMM metadata table columns named `has_cnv_{chr}{1:22}{p,q}>` (e.g., `has_cnv_chr1p`, `has_cnv_chr1q`, and so on).
 Any cells which `inferCNV` removed due to low counts will not have a total CNV estimate.
 
 
