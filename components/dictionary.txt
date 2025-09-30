@@ -19,6 +19,7 @@ cellhash
 cellhashing
 CELLxGENE
 CHANGELOG
+CNV
 confounders
 CZI
 CZI's

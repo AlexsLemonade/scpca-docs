@@ -114,6 +114,25 @@ For information on how to determine if a given sample was derived from a cell li
 **Note:** For some libraries, cell type annotations were provided from the group that submitted the original data.
 In these cases, the cell type annotations obtained from the submitter will be present in addition to cell type annotation performed with `SingleR` and `CellAssign`.
 
+#### CNV inference
+
+We perform CNV inference using [`inferCNV`](https://github.com/broadinstitute/infercnv), specifying the [`i6` HMM](https://github.com/broadinstitute/infercnv/wiki/infercnv-i6-HMM-type) to quantify specific CNV events.
+
+`inferCNV` uses a designated set of normal reference cells to quantify CNV events based on gene expression.
+We use [the consensus cell type labels], as described in the [cell type annotation section](#cell-type-annotation), to establish normal references for each sample.
+The specific cell types to include are determined by each sample's diagnosis.
+We [designate cells as either `reference` or `query`](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#sample-annotation-file), rather than using their specific cell type labels, where the label `reference` was used to specify normal reference cells.
+`inferCNV` is only run if there are at least 100 cells designated as `reference` in a given sample.
+As such, `inferCNV` is also not run on cell lines because they do not undergo cell type annotation.
+
+We additionally specify a [gene ordering file](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#gene-ordering-file) with chromosome arm designations (e.g., `chr1p` and `chr1q` are used rather than `chr1`) for finer-grained results.
+We use all other `inferCNV` defaults, except we set `denoise = TRUE` and `cutoff = 0.1` (for 10x data) [as recommended](https://github.com/broadinstitute/inferCNV/wiki#quick-start).
+Note that we keep the default `inferCNV` setting to remove any cells with raw RNA counts less than 100; these cells will not have `inferCNV` estimates.
+
+We calculate the total CNV per cell [using the feature output from the `i6` HMM](https://github.com/broadinstitute/infercnv/wiki/Extracting-features) by summing all values in the HMM metadata table columns named `has_cnv_{chr}{1:22}{p,q}>` (e.g., `has_cnv_chr1p`, `has_cnv_chr1q`, and so on).
+Any cells which `inferCNV` removed due to low counts will not have a total CNV estimate.
+
+
 ## ADT quantification from CITE-seq experiments
 
 CITE-seq libraries with reads from antibody-derived tags (ADTs) were also quantified using  [`salmon`](https://salmon.readthedocs.io/en/latest) and [`alevin-fry`](https://alevin-fry.readthedocs.io/en/latest/), rounded to integer values.
