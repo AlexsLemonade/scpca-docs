@@ -450,7 +450,7 @@ There are two exceptions to this:
 
 * The `AnnData` object does not contain the `sample_metadata` item in the `.uns` slot.
 Instead, the contents of the `sample_metadata` data frame are stored in the cell-level metadata (`.obs`).
-* The `AnnData` object does not contain any metadata fields whose object type could not be converted to python.
+* The `AnnData` object does not contain any metadata fields whose type could not be automatically converted to a Python object.
 This includes any `list` type fields present in the `SingleCellExperiment` metadata.
 
 
