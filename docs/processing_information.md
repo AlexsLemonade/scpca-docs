@@ -114,6 +114,17 @@ For information on how to determine if a given sample was derived from a cell li
 **Note:** For some libraries, cell type annotations were provided from the group that submitted the original data.
 In these cases, the cell type annotations obtained from the submitter will be present in addition to cell type annotation performed with `SingleR` and `CellAssign`.
 
+##### Cell type annotations from the OpenScPCA project
+
+As part of the ongoing [OpenScPCA project](https://openscpca.readthedocs.io/en/latest/), cell types are annotated and validated on a project-by-project basis using methods and references that are most approriate for the disease types represented in that project. 
+If cell type annotation has been completed for all samples in a project, these curated cell types will be included alongside the automated cell type annotations. 
+For more information on where to find these annotations in the downloaded objects, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
+
+For more details on how cells from a specific project were annotated, see the appropriate module in the [`OpenScPCA-analysis` repository](https://github.com/AlexsLemonade/OpenScPCA-analysis). 
+
+This analysis is part of an ongoing open and collaborative effort to characterize the ScPCA Portal data. 
+For more information on the project, including contributing your own analyses, see the [OpenScPCA documentation](https://openscpca.readthedocs.io/en/latest/). 
+
 #### CNV inference
 
 We perform CNV inference using [`inferCNV`](https://github.com/broadinstitute/infercnv), specifying the [`i6` HMM](https://github.com/broadinstitute/infercnv/wiki/infercnv-i6-HMM-type) to quantify specific CNV events.
