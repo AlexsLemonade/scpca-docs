@@ -121,7 +121,7 @@ If cell type annotation has been completed for all samples in a project, these c
 For more information on where to find these annotations in the downloaded objects, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
 
 For more details on how cells from a specific project were annotated, see the appropriate module in the [`OpenScPCA-analysis` repository](https://github.com/AlexsLemonade/OpenScPCA-analysis). 
-The name of the module and other versioning information can be found in the {ref}`experiment metadata for SingleCellExperiment and AnnData objects <sce_file_contents:singlecellexperiment experiment metadata`. 
+The name of the module and other versioning information can be found in the {ref}`experiment metadata for SingleCellExperiment and AnnData objects <sce_file_contents:singlecellexperiment experiment metadata>`. 
 
 The OpenScPCA project is an ongoing open and collaborative effort to characterize the ScPCA Portal data. 
 For more information on the project, including contributing your own analyses, see the [OpenScPCA documentation](https://openscpca.readthedocs.io/en/latest/). 
