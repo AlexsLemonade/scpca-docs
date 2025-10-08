@@ -122,7 +122,7 @@ For more information on where to find these annotations in the downloaded object
 
 For more details on how cells from a specific project were annotated, see the appropriate module in the [`OpenScPCA-analysis` repository](https://github.com/AlexsLemonade/OpenScPCA-analysis). 
 
-This analysis is part of an ongoing open and collaborative effort to characterize the ScPCA Portal data. 
+The OpenScPCA project is an ongoing open and collaborative effort to characterize the ScPCA Portal data. 
 For more information on the project, including contributing your own analyses, see the [OpenScPCA documentation](https://openscpca.readthedocs.io/en/latest/). 
 
 #### CNV inference
