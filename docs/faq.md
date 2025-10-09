@@ -156,11 +156,28 @@ You can find the [function for generating a QC report](https://github.com/AlexsL
 ## Which libraries include cell type annotations?
 
 Most single-cell and single-nuclei RNA-seq libraries available on the portal will have cell type annotations included in the processed `SingleCellExperiment` or `AnnData` object.
-For more information on where to find the cell type annotations, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
+For more information on where to find the cell type annotations, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
 If cell type annotation was performed, a supplemental cell type report (`SCPCL000000_celltype-report.html`) will be included in the download.
 
 Cell type annotation is not performed on samples derived from cell lines.
 This means processed objects will not include cell type annotations, and the download will not include a cell type report.
+
+## Which libraries include CNV inferences?
+
+As with cell type annotation, most single-cell and single-nuclei RNA-seq libraries available on the portal will have {ref}`CNV inferences<processing_information:cnv inference>` in the processed `SingleCellExperiment` or `AnnData` object.
+For more information on where to find these results, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
+
+There are several circumstances when CNV results are not available:
+
+* CNV inference is not performed on libraries which do not have enough cells to include in a normal reference, as described in the {ref}`CNV inference processing documentation<processing_information:cnv inference>`
+* CNV inference is not performed on libraries derived from cell line samples
+* If `inferCNV` experienced a failure while running, there will not be any associated results in the processed objects, but the
+
+## Where can I find the inferCNV heatmap?
+
+For libraries that underwent CNV inference, the [`inferCNV` heatmap depicting expression across genomic regions](https://github.com/broadinstitute/inferCNV/wiki/Interpreting-the-figure) is embedded in the final QC report.
+You can directly copy the figure from the QC report file for use in other contexts.
+
 
 ## What if I want to use Seurat instead of Bioconductor?
 
