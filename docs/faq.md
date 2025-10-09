@@ -165,7 +165,7 @@ This means processed objects will not include cell type annotations, and the dow
 ## Which libraries include CNV inferences?
 
 As with cell type annotation, most single-cell and single-nuclei RNA-seq libraries available on the portal will have {ref}`CNV inferences<processing_information:cnv inference>` in the processed `SingleCellExperiment` or `AnnData` object.
-For more information on where to find these results, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
+For more information on where to find these results, refer to sections describing {ref}`SingleCellExperiment cell metrics <sce_file_contents:singlecellexperiment cell metrics>` and {ref}`SingleCellExperiment metadata <sce_file_contents:singlecellexperiment experiment metadata>`, and/or {ref}`AnnData cell metrics <sce_file_contents:anndata cell metrics>` and {ref}`AnnData metadata <sce_file_contents:anndata experiment metadata>`
 
 There are several circumstances when CNV results are not available:
 
