@@ -55,6 +55,7 @@ HTOs
 Hippen
 HVG
 HVGs
+inferCNV
 intronic
 introns
 isotype
