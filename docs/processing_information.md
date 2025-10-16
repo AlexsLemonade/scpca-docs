@@ -97,10 +97,10 @@ Please be aware that all cell type annotation reference datasets are derived fro
 In addition, `CellAssign` annotation is only performed if there are at least 30 cells present in the `processed` object.
 
 For `SCimilarity` annotation, we use the foundational model described in [Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y) that contains 7.3 million cells from various normal and diseased tissues to annotate all samples.
-Cells will be annotated with the cell type label of the cell from the model that is most similar to the query cell being annotated. 
+Each cell is annotated with the cell type label of the most similar cell in the `SCimilarity` model.
 
-Some cells may be labeled as "Unclassified cell" if they were not annotated with `SingleR`, `CellAssign`, or `SCimilarity`.
-These are cells which were not present in previous ScPCA data versions on which cell typing was initially performed, so they were not labeled.
+Some cells may be labeled as “Unclassified cell” if they were not annotated with a given automated method.
+These cells were not present in earlier ScPCA data versions on which cell typing was originally performed and are therefore not labeled.
 
 Additionally, annotations from `SingleR`, `CellAssign`, and `SCimilarity` are used to assign an ontology-aware consensus cell type label.
 
@@ -112,7 +112,7 @@ Consensus cell types are assigned if two out of the three cell type methods shar
 
 3. If the LCA has fewer than 170 descendants and is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, `supporting cell`, `biogenic amine secreting cell`, `protein secreting cell`, `extracellular matrix secreting cell`, `serotonin secreting cell`, `peptide hormone secreting cell`, `exocrine cell`, `sensory receptor cell`, or `interstitial cell`. 
 
-If more than one LCA is identified as a possible consensus cell type, meaning there is agreement between all 3 methods, the LCA with the fewest descendants is used as the consensus cell type. 
+If more than one LCA is identified as a possible consensus cell type, meaning there is agreement among all three methods, the LCA with the fewest descendants is used as the consensus cell type. 
 
 Cell type annotation is not performed for cell line samples.
 For information on how to determine if a given sample was derived from a cell line, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
