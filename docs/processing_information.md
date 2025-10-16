@@ -108,7 +108,7 @@ Consensus cell types are assigned if two out of the three cell type methods shar
 
 1. The terms share at least 1 LCA with fewer than 170 descendants, with the exception of `neuron`, `epithelial cell`, `columnar/cuboidal epithelial cell` or `endo-epithelial cell`.
 
-2. If more than 1 LCA is shared between two terms, then the LCA with the fewest descendents is kept and all others are discarded.
+2. If more than 1 LCA is shared between two terms, then the LCA with the fewest descendants is kept and all others are discarded.
 
 3. If the LCA has fewer than 170 descendants and is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, `supporting cell`, `biogenic amine secreting cell`, `protein secreting cell`, `extracellular matrix secreting cell`, `serotonin secreting cell`, `peptide hormone secreting cell`, `exocrine cell`, `sensory receptor cell`, or `interstitial cell`. 
 
