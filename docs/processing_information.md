@@ -83,7 +83,7 @@ We perform cell type annotation with three complementary methods, where possible
 
 - [`SingleR`](https://bioconductor.org/packages/release/bioc/html/SingleR.html), a reference-based cell type annotation method ([Looney _et al._ 2019](https://doi.org/10.1038/s41590-018-0276-y))
 - [`CellAssign`](https://github.com/Irrationone/cellassign), a marker-gene-based cell type annotation method ([Zhang _et al._ 2019](https://doi.org/10.1038/s41592-019-0529-1))
-- [`SCimilarity`](https://genentech.github.io/scimilarity/index.html), which uses a foundational model to assign cell type labels ([Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y))
+- [`SCimilarity`](https://genentech.github.io/scimilarity/index.html), a cell atlas foundation model ([Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y))
 
 For `SingleR` annotation, we identify an appropriate reference dataset from the [`celldex` package](http://bioconductor.org/packages/release/data/experiment/html/celldex.html) and train the classification model to use ontology IDs for annotation.
 Cells which `SingleR` cannot confidently assign are labeled as `NA`.
@@ -96,7 +96,7 @@ As a consequence, cells which `CellAssign` cannot confidently annotate from the 
 Please be aware that all cell type annotation reference datasets are derived from normal (not tumor) tissue.
 In addition, `CellAssign` annotation is only performed if there are at least 30 cells present in the `processed` object.
 
-For `SCimilarity` annotation, we use the foundational model described in [Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y) that contains 7.3 million cells from various normal and diseased tissues to annotate all samples.
+For `SCimilarity` annotation, we use the foundation model described in [Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y) that contains 7.3 million cells from various normal and diseased tissues to annotate all samples.
 Each cell is annotated with the cell type label of the most similar cell in the `SCimilarity` model.
 
 Some cells may be labeled as “Unclassified cell” if they were not annotated with a given automated method.
