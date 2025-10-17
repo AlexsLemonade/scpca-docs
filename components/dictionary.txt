@@ -48,6 +48,7 @@ hashedDrops
 HDF
 hexamer
 HBC
+Heimberg
 Hemberg
 HTO
 HTODemux

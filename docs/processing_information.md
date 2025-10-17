@@ -79,10 +79,11 @@ Finally, these principal components are used to calculate the [UMAP (Uniform Man
 
 #### Cell type annotation
 
-We perform cell type annotation with two complementary methods, where possible:
+We perform cell type annotation with three complementary methods, where possible, and assign a single consensus cell type annotation based on agreement between these methods: 
 
 - [`SingleR`](https://bioconductor.org/packages/release/bioc/html/SingleR.html), a reference-based cell type annotation method ([Looney _et al._ 2019](https://doi.org/10.1038/s41590-018-0276-y))
 - [`CellAssign`](https://github.com/Irrationone/cellassign), a marker-gene-based cell type annotation method ([Zhang _et al._ 2019](https://doi.org/10.1038/s41592-019-0529-1))
+- [`SCimilarity`](https://genentech.github.io/scimilarity/index.html), which uses a foundational model to assign cell type labels ([Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y))
 
 For `SingleR` annotation, we identify an appropriate reference dataset from the [`celldex` package](http://bioconductor.org/packages/release/data/experiment/html/celldex.html) and train the classification model to use ontology IDs for annotation.
 Cells which `SingleR` cannot confidently assign are labeled as `NA`.
@@ -95,18 +96,24 @@ As a consequence, cells which `CellAssign` cannot confidently annotate from the 
 Please be aware that all cell type annotation reference datasets are derived from normal (not tumor) tissue.
 In addition, `CellAssign` annotation is only performed if there are at least 30 cells present in the `processed` object.
 
-Some cells may be labeled as "Unclassified cell" if they were not annotated with `SingleR` or `CellAssign`.
-These are cells which were not present in previous ScPCA data versions on which cell typing was initially performed, so they were not labeled.
+For `SCimilarity` annotation, we use the foundational model described in [Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y) that contains 7.3 million cells from various normal and diseased tissues to annotate all samples.
+Each cell is annotated with the cell type label of the most similar cell in the `SCimilarity` model.
 
-Additionally, annotations from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label.
-The [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) between the `SingleR` and `CellAssign` cell type assignments is used as the consensus cell type label if the following criteria are met, otherwise no consensus cell type is assigned:
+Some cells may be labeled as “Unclassified cell” if they were not annotated with a given automated method.
+These cells were not present in earlier ScPCA data versions on which cell typing was originally performed and are therefore not labeled.
 
-1. The terms share only one distinct LCA.
-The only exception to this rule is if the terms share two LCAs and one of which is `hematopoietic precursor cell`, then `hematopoietic precursor cell` is used as the consensus label.
+Additionally, annotations from `SingleR`, `CellAssign`, and `SCimilarity` are used to assign an ontology-aware consensus cell type label.
 
-2. The LCA has fewer than 170 descendants, or is either `neuron` or `epithelial cell`.
+Consensus cell types are assigned if two out of the three cell type methods share an [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) that meets the following criteria, otherwise no consensus cell type is assigned:
 
-If the LCA is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`.
+1. The terms share at least 1 LCA with fewer than 170 descendants, with the exception of `neuron`, `epithelial cell`, `columnar/cuboidal epithelial cell` or `endo-epithelial cell`.
+
+2. If more than 1 LCA is shared between two terms, then the LCA with the fewest descendants is kept and all others are discarded.
+
+3. If the LCA has fewer than 170 descendants and is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, `supporting cell`, `biogenic amine secreting cell`, `protein secreting cell`, `extracellular matrix secreting cell`, `serotonin secreting cell`, `peptide hormone secreting cell`, `exocrine cell`, `sensory receptor cell`, or `interstitial cell`. 
+
+If more than one LCA is identified as a possible consensus cell type, meaning there is agreement among all three methods, the LCA with the fewest descendants is used as the consensus cell type. 
+For more information about how consensus cell types are assigned, see the [`cell-type-consensus` module in the `OpenScPCA-analysis` GitHub repository](https://github.com/AlexsLemonade/OpenScPCA-analysis/blob/main/analyses/cell-type-consensus).
 
 Cell type annotation is not performed for cell line samples.
 For information on how to determine if a given sample was derived from a cell line, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
