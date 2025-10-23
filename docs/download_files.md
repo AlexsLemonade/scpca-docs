@@ -15,9 +15,9 @@ Note that multiplexed sample libraries are only available as `SingleCellExperime
 See the {ref}`FAQ section about samples and libraries <faq:What is the difference between samples and libraries?>` for more information.
 
 The files shown below will be included with each library (example shown for a library with ID `SCPCL000000`):
-- An unfiltered counts file: `SCPCL000000_unfiltered.rds` or `SCPCL00000_unfiltered_rna.h5ad`,
-- A filtered counts file: `SCPCL000000_filtered.rds` or `SCPCL00000_filtered_rna.h5ad`,
-- A processed counts file: `SCPCL000000_processed.rds` or `SCPCL00000_processed_rna.h5ad`,
+- An unfiltered counts file: `SCPCL000000_unfiltered.rds` or `SCPCL000000_unfiltered_rna.h5ad`,
+- A filtered counts file: `SCPCL000000_filtered.rds` or `SCPCL000000_filtered_rna.h5ad`,
+- A processed counts file: `SCPCL000000_processed.rds` or `SCPCL000000_processed_rna.h5ad`,
 - A quality control report: `SCPCL000000_qc.html`,
 - A supplemental cell type report: `SCPCL000000_celltype-report.html`
 
@@ -76,7 +76,7 @@ This file contains the raw and normalized counts data for cell barcodes that hav
 In addition to the counts matrices, the `SingleCellExperiment` or `AnnData` object stored in the file includes the results of dimensionality reduction using both principal component analysis (PCA) and UMAP.
 
 See {ref}`Single-cell gene expression file contents <sce_file_contents:Single-cell gene expression file contents>` for more information about the contents of the `SingleCellExperiment` and `AnnData` objects and the included statistics and metadata.
-See also {ref}`Using the provided RDS files in R <faq:how do i use the provided RDS files in r?>` and {ref}`Using the provided H5AD files in Python <faq:how do i use the provided H5AD files in python?>`.
+See also {ref}`Getting started with an ScPCA dataset <getting_started:Getting started with an scpca dataset>`.
 
 ## QC report
 
@@ -276,3 +276,4 @@ sce <- readRDS(processed_data)
 
 Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
 Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
+Information about working with downloaded files can be found in our {ref}`Getting started with an ScPCA dataset <getting_started:Getting started with an scpca dataset>` guide.
