@@ -260,7 +260,7 @@ auth_token <- get_auth(email = "your.email@example.com", agree = TRUE)
 # Get the sample metadata for a project
 sample_metadata <- get_sample_metadata(project_id = "SCPCP000001")
 
-# Download a data for a sample
+# Download data for a sample
 # this function returns a vector of the downloaded file paths
 file_paths <- download_sample(
   sample_id = "SCPCS000001",
