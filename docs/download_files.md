@@ -240,3 +240,39 @@ A full description of all files included in the download for spatial transcripto
 Every download also includes a single `spatial_metadata.tsv` file containing metadata for all libraries included in the download.
 
 ![sample download with spatial](images/spatial-download-folder.png){width="600"}
+
+## Programmatic downloads from the ScPCA Portal
+
+We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
+This package allows you to search for and download data from the ScPCA Portal directly within R.
+
+An example of basic usage of the `ScPCAr` package follows:
+
+```r
+library(ScPCAr)
+
+# First, look at the terms of use
+view_terms()
+
+# Get an authentication token for use with the ScPCA Portal
+auth_token <- get_auth(email = "your.email@example.com", agree = TRUE)
+
+# Get the sample metadata for a project
+sample_metadata <- get_sample_metadata(project_id = "SCPCP000001")
+
+# Download a data for a sample
+# this function returns a vector of the downloaded file paths
+file_paths <- download_sample(
+  sample_id = "SCPCS000001",
+  auth_token = auth_token,
+  destination = "scpca_data",
+  format = "sce"
+)
+
+# select and read in the processed SingleCellExperiment object
+processed_data <- grep("_processed.rds$", file_paths)
+sce <- readRDS(processed_data)
+```
+
+Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
+Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
