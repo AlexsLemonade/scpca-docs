@@ -282,3 +282,9 @@ Download links expire in 7 days, but you can generate a new link on the ScPCA Po
 
 Download links are only available for projects (i.e., not for downloading individual samples).
 
+## Can I download data from the Portal programmatically?
+
+We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
+This package allows you to search for and download data from the ScPCA Portal directly within R.
+Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
+Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
