@@ -138,11 +138,11 @@ For more information on the project, including contributing your own analyses, s
 We perform CNV inference using [`inferCNV`](https://github.com/broadinstitute/infercnv), specifying the [`i6` HMM](https://github.com/broadinstitute/infercnv/wiki/infercnv-i6-HMM-type) to quantify specific CNV events.
 
 `inferCNV` uses a designated set of normal reference cells to quantify CNV events based on gene expression.
-We use [the consensus cell type labels], as described in the [cell type annotation section](#cell-type-annotation), to establish normal references for each sample.
+We use the consensus cell type labels, as described in the [cell type annotation section](#cell-type-annotation), to establish normal references for each sample.
 The specific cell types to include are determined by each sample's diagnosis.
 We [designate cells as either `reference` or `query`](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#sample-annotation-file), rather than using their specific cell type labels, where the label `reference` was used to specify normal reference cells.
 `inferCNV` is only run if there are at least 100 cells designated as `reference` in a given sample.
-As such, `inferCNV` is also not run on cell lines because they do not undergo cell type annotation.
+As such, `inferCNV` is not run on cell lines because they do not undergo cell type annotation or on samples obtained from normal or non-cancerous tissue.
 
 We additionally specify a [gene ordering file](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#gene-ordering-file) with chromosome arm designations (e.g., `chr1p` and `chr1q` are used rather than `chr1`) for finer-grained results.
 We use all other `inferCNV` defaults, except we set `denoise = TRUE` and `cutoff = 0.1` (for 10x data) [as recommended](https://github.com/broadinstitute/inferCNV/wiki#quick-start).
