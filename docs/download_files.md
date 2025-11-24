@@ -102,7 +102,7 @@ You can select the data formats and modalities for each project or sample before
 The `My Dataset` button on the top right of the portal can then be used to view and download the custom dataset as a single zip file. 
 
 Each zip file will be named with a unique dataset ID, the chosen data format (either `single-cell-experiment` or `anndata`), and the date you accessed the data on the ScPCA Portal.
-Note that a custom dataset can only contain data in one format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
+Note that a custom dataset can only contain single-cell data in one data format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
 If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), you can check the {ref}`Spatial modality box<download_options:Modalities>` to include the spatial transcriptomics data in `My Dataset`.
 
 Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either `single-cell`, `spatial`, or `bulk`). 
