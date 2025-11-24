@@ -15,7 +15,7 @@ Only {ref}`one data format is currently supported for a single download<faq:Why 
 To obtain data in both `SingleCellExperiment` and `AnnData` formats, you will need to download these file formats separately.
 
 The only exception to this rule is when downloading spatial transcriptomics data, as the only data format available will be `Spaceranger`. 
-Spatial data can be coupled with single-cell data in either the `SingleCellExperiment` or `AnnData` formats, but not both.
+Spatial data can be coupled with single-cell data in either the `SingleCellExperiment` or `AnnData` format, but not with both.
 
 In addition, note that expression data for multiplexed libraries is only available in `SingleCellExperiment` format, {ref}`as described here<download_files:Multiplexed sample libraries>`.
 

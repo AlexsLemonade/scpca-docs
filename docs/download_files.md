@@ -131,8 +131,7 @@ All spatial data for any samples sequenced using [spatial transcriptomics](#spat
 
 When downloading any of the available Portal-wide data downloads, all relevant metadata and bulk RNA-seq data is also included.
 
-Each zip file will be named with the chosen data format (either `single-cell-experiment` or `anndata`) and the date you accessed the data on the ScPCA Portal.
-If downloading the spatial data, the zip file will contain the Spatial data format, `spaceranger`, in the file name.
+Each zip file will be named with the chosen data format (`single-cell-experiment`, `anndata`, or `spaceranger`) and the date you accessed the data on the ScPCA Portal.
 Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
 
 For any projects containing bulk RNA-seq data, a separate folder `SCPCP000000_bulk` containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included.
