@@ -106,7 +106,7 @@ Additionally, annotations from `SingleR`, `CellAssign`, and `SCimilarity` are us
 
 Consensus cell types are assigned if two out of the three cell type methods share an [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) that meets the following criteria, otherwise no consensus cell type is assigned:
 
-1. The terms share at least 1 LCA with fewer than 170 descendants, with the exception of `neuron`, `epithelial cell`, `columnar/cuboidal epithelial cell` or `endo-epithelial cell`.
+1. The terms share at least 1 LCA that either has fewer than 170 descendants or is one of `neuron`, `epithelial cell`, `columnar/cuboidal epithelial cell` or `endo-epithelial cell`.
 
 2. If more than 1 LCA is shared between two terms, then the LCA with the fewest descendants is kept and all others are discarded.
 
