@@ -20,7 +20,7 @@ All data on the Portal has been updated to include a number of new features.
 No doublets were filtered, but the results from `scDblFinder` are present in the filtered and processed objects.
 * Updated cell type annotations
   * All samples include cell type annotations obtained from [`SCimilarity`](https://genentech.github.io/scimilarity/), in addition to the existing cell type annotations from `SingleR` and `CellAssign`.
-  * Consensus cell types have been updated to incoporate `SCimilarity` results. 
+  * Consensus cell types have been updated to incorporate `SCimilarity` results. 
   If two of the three automated methods agree using an ontology-based approach, a consensus cell type is assigned. 
   * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` for more information on these updated cell types.
 * Cell types were annotated as part of the ongoing [OpenScPCA project](https://openscpca.readthedocs.io) for `SCPCP000004` (Neuroblastoma) and `SCPCP000015` (Ewing sarcoma).
