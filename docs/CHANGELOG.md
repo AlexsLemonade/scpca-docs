@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## TODO: REPLACE WITH RELEASE DATE FOR NEW FEATURES 
+## 2025.12.04
 
 All data on the Portal has been updated to include a number of new features.
 
