@@ -55,7 +55,7 @@ For some libraries, `DropletUtils::emptyDropsCellRanger()` may fail due to low n
 For these libraries, only droplets containing at least 100 UMI are included in the filtered counts matrix.
 
 We additionally used [`scDblFinder`](https://www.bioconductor.org/packages/release/bioc/html/scDblFinder.html) to predict whether cells present in this filtered object are singlets or doublets.
-We provide the results from this analysis in the filtered objects, but we do not perform any filtering based on these results.
+We provide the results from this analysis in the filtered and processed objects, but we do not perform any filtering based on these results.
 
 ### Processed gene expression data
 
