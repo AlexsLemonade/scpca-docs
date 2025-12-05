@@ -44,11 +44,11 @@ This download includes H5AD files that can be directly read into Python.
 
 _Note: You will need to install the [`AnnData` package](https://anndata.readthedocs.io/en/latest/index.html) to work with the provided files._
 
-To read in the H5AD files you can use the `readh5ad` function from the `AnnData` package.
+To read in the H5AD files you can use the `read_h5ad` function from the `AnnData` package.
 
 ```python
 import anndata
-scpca_sample = anndata.readh5ad(file = "SCPCL000000_processed_rna.h5ad")
+scpca_sample = anndata.read_h5ad(file = "SCPCL000000_processed_rna.h5ad")
 ```
 
 A full description of the contents of the `AnnData` object can be found in the section on {ref}`Components of an AnnData object <sce_file_contents:Components of an anndata object>`.
@@ -68,6 +68,30 @@ There are two types of samples where `AnnData` objects are not available:
     - Resolving such disagreements requires examination of the HTO data, which can not be stored in the same `AnnData` object.
     Therefore, we do not currently provide any multiplexed libraries as `AnnData` objects.
     - In addition, providing multiplexed data in this form is not compliant with the standards for [CZI's CELLxGENE](https://cellxgene.cziscience.com), which we have tried to match as closely as possible.
+
+
+## What if I want to use MuData instead of AnnData objects?
+
+[`MuData` objects](https://mudata.readthedocs.io/en/latest/index.html) are Python objects built on top of `AnnData` objects that are specifically used to store multimodal data.
+Currently, we provide RNA counts and ADT counts, if present, as separate `AnnData` objects in their own H5AD files, as described in {ref}`the file contents documentation<sce_file_contents:Additional AnnData components for CITE-seq libraries (with ADT tags)>`.
+However, these objects can be combined into a `MuData` object if desired for a multimodal analysis.
+
+_Note: You will need to install the [`MuData` package](https://mudata.readthedocs.io/en/latest/index.html) to generate and work with `MuData` objects._
+
+```python
+import anndata
+import mudata
+
+# Read individual AnnData files
+rna_object = anndata.read_h5ad(file = "SCPCL000000_processed_rna.h5ad")
+adt_object = anndata.read_h5ad(file = "SCPCL000000_processed_adt.h5ad")
+
+# Combine into a MuData object, using keys "RNA" and "ADT" to distinguish modalities
+mdata_object = mudata.MuData({"RNA": rna_object, "ADT": adt_object})
+```
+
+For more information on working with `AnnData` objects, see {ref}`Getting started with an ScPCA dataset <getting_started:Getting started with an scpca dataset>`.
+
 
 ## What is the difference between samples and libraries?
 
@@ -132,11 +156,28 @@ You can find the [function for generating a QC report](https://github.com/AlexsL
 ## Which libraries include cell type annotations?
 
 Most single-cell and single-nuclei RNA-seq libraries available on the portal will have cell type annotations included in the processed `SingleCellExperiment` or `AnnData` object.
-For more information on where to find the cell type annotations, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
+For more information on where to find the cell type annotations, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
 If cell type annotation was performed, a supplemental cell type report (`SCPCL000000_celltype-report.html`) will be included in the download.
 
 Cell type annotation is not performed on samples derived from cell lines.
 This means processed objects will not include cell type annotations, and the download will not include a cell type report.
+
+## Which libraries include CNV inferences?
+
+As with cell type annotation, most single-cell and single-nuclei RNA-seq libraries available on the portal will have {ref}`CNV inferences<processing_information:cnv inference>` in the processed `SingleCellExperiment` or `AnnData` object.
+For more information on where to find these results, refer to sections describing {ref}`SingleCellExperiment cell metrics <sce_file_contents:singlecellexperiment cell metrics>` and {ref}`SingleCellExperiment metadata <sce_file_contents:singlecellexperiment experiment metadata>`, and/or {ref}`AnnData cell metrics <sce_file_contents:anndata cell metrics>` and {ref}`AnnData metadata <sce_file_contents:anndata experiment metadata>`.
+
+There are several circumstances when CNV results are not available:
+
+* CNV inference is not performed on libraries which do not have enough cells to include in a normal reference, as described in the {ref}`CNV inference processing documentation<processing_information:cnv inference>`
+* CNV inference is not performed on libraries derived from cell line samples
+* If `inferCNV` experienced a failure while running, there will not be any associated results in the processed objects
+
+## Where can I find the inferCNV heatmap?
+
+For libraries that underwent CNV inference, the [`inferCNV` heatmap depicting expression across genomic regions](https://github.com/broadinstitute/inferCNV/wiki/Interpreting-the-figure) is embedded in the final QC report.
+You can directly copy the figure from the QC report file for use in other contexts.
+
 
 ## What if I want to use Seurat instead of Bioconductor?
 
@@ -234,10 +275,16 @@ However, we respect submitters' requests to remove samples if they have deemed t
 
 ## What does the Copy Download Link button do?
 
-The copy download link allows you to copy the URL to download a project using a command line tool such as [`wget`](https://www.gnu.org/software/wget/) or [`curl`](https://curl.se/). 
+The copy download link allows you to copy the URL to download a project using a command line tool such as [`wget`](https://www.gnu.org/software/wget/) or [`curl`](https://curl.se/).
 It does not trigger a download via your web browser, so you must take additional steps to download the data with another tool.
 
 Download links expire in 7 days, but you can generate a new link on the ScPCA Portal as often as needed.
 
 Download links are only available for projects (i.e., not for downloading individual samples).
 
+## Can I download data from the Portal programmatically?
+
+We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
+This package allows you to search for and download data from the ScPCA Portal directly within R.
+Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
+Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).

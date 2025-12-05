@@ -19,6 +19,7 @@ cellhash
 cellhashing
 CELLxGENE
 CHANGELOG
+CNV
 confounders
 CZI
 CZI's
@@ -47,6 +48,7 @@ hashedDrops
 HDF
 hexamer
 HBC
+Heimberg
 Hemberg
 HTO
 HTODemux
@@ -54,6 +56,7 @@ HTOs
 Hippen
 HVG
 HVGs
+inferCNV
 intronic
 introns
 isotype
@@ -65,12 +68,16 @@ Lun
 Marioni
 miQC
 MLA
+MuData
+Neuroblastoma
 oligo
 oligos
+OpenScPCA
 Pearson
 Prasad
 pre
 preprint
+programmatically
 pseudocount
 pseudogenes
 Looney

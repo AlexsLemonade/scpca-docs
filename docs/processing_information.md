@@ -54,6 +54,9 @@ Only cells that pass this FDR threshold are included in the filtered counts matr
 For some libraries, `DropletUtils::emptyDropsCellRanger()` may fail due to low numbers of droplets with reads or other violations of its assumptions.
 For these libraries, only droplets containing at least 100 UMI are included in the filtered counts matrix.
 
+We additionally used [`scDblFinder`](https://www.bioconductor.org/packages/release/bioc/html/scDblFinder.html) to predict whether cells present in this filtered object are singlets or doublets.
+We provide the results from this analysis in the filtered and processed objects, but we do not perform any filtering based on these results.
+
 ### Processed gene expression data
 
 In addition to the raw gene expression data, we also provide a processed `SingleCellExperiment` object with further filtering applied, a normalized counts matrix, and results from dimensionality reduction.
@@ -64,6 +67,10 @@ Cells with a high likelihood of being compromised (greater than 0.75) and cells 
 In certain circumstances, `miQC` modeling may fail; in these cases, only cells which do not pass the threshold of at least 200 unique genes are removed.
 
 Log-normalized counts are calculated using the deconvolution method presented in [Lun, Bach, and Marioni (2016)](https://doi.org/10.1186/s13059-016-0947-7).
+Specifically, `scran::quickCluster()` was used to derive cell clusters on which to calculate sum factors with `scran::computeSumFactors()`, which are in turn used during normalization with `scuttle::logNormCounts()`.
+If this deconvolution-based approach failed for any reason, only `scuttle::logNormCounts()` was used for normalization.
+
+Next, `scran::modelGeneVar()` was used to model gene variance from the log-normalized counts and `scran::getTopHVGs()` was used to select the top 2000 high-variance genes.
 The log-normalized counts are used to model variance of each gene prior to selecting the top 2000 highly variable genes (HVGs).
 These HVGs are then used as input to principal component analysis, and the top 50 principal components are selected.
 Finally, these principal components are used to calculate the [UMAP (Uniform Manifold Approximation and Projection)](http://bioconductor.org/books/3.13/OSCA.basic/dimensionality-reduction.html#uniform-manifold-approximation-and-projection) embeddings.
@@ -72,10 +79,11 @@ Finally, these principal components are used to calculate the [UMAP (Uniform Man
 
 #### Cell type annotation
 
-We perform cell type annotation with two complementary methods, where possible:
+We perform cell type annotation with three complementary methods, where possible, and assign a single consensus cell type annotation based on agreement between these methods: 
 
 - [`SingleR`](https://bioconductor.org/packages/release/bioc/html/SingleR.html), a reference-based cell type annotation method ([Looney _et al._ 2019](https://doi.org/10.1038/s41590-018-0276-y))
 - [`CellAssign`](https://github.com/Irrationone/cellassign), a marker-gene-based cell type annotation method ([Zhang _et al._ 2019](https://doi.org/10.1038/s41592-019-0529-1))
+- [`SCimilarity`](https://genentech.github.io/scimilarity/index.html), a cell atlas foundation model ([Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y))
 
 For `SingleR` annotation, we identify an appropriate reference dataset from the [`celldex` package](http://bioconductor.org/packages/release/data/experiment/html/celldex.html) and train the classification model to use ontology IDs for annotation.
 Cells which `SingleR` cannot confidently assign are labeled as `NA`.
@@ -88,24 +96,61 @@ As a consequence, cells which `CellAssign` cannot confidently annotate from the 
 Please be aware that all cell type annotation reference datasets are derived from normal (not tumor) tissue.
 In addition, `CellAssign` annotation is only performed if there are at least 30 cells present in the `processed` object.
 
-Some cells may be labeled as "Unclassified cell" if they were not annotated with `SingleR` or `CellAssign`.
-These are cells which were not present in previous ScPCA data versions on which cell typing was initially performed, so they were not labeled.
+For `SCimilarity` annotation, we use the foundation model described in [Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y) that contains 7.3 million cells from various normal and diseased tissues to annotate all samples.
+Each cell is annotated with the cell type label of the most similar cell in the `SCimilarity` model.
 
-Additionally, annotations from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
-The [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) between the `SingleR` and `CellAssign` cell type assignments is used as the consensus cell type label if the following criteria are met, otherwise no consensus cell type is assigned:
+Some cells may be labeled as “Unclassified cell” if they were not annotated with a given automated method.
+These cells were not present in earlier ScPCA data versions on which cell typing was originally performed and are therefore not labeled.
 
-1. The terms share only one distinct LCA.
-The only exception to this rule is if the terms share two LCAs and one of which is `hematopoietic precursor cell`, then `hematopoietic precursor cell` is used as the consensus label. 
+Additionally, annotations from `SingleR`, `CellAssign`, and `SCimilarity` are used to assign an ontology-aware consensus cell type label.
 
-2. The LCA has fewer than 170 descendants, or is either `neuron` or `epithelial cell`.
+Consensus cell types are assigned if two out of the three cell type methods share an [latest common ancestor (LCA)](https://rdrr.io/bioc/ontoProc/man/findCommonAncestors.html) that meets the following criteria, otherwise no consensus cell type is assigned:
 
-If the LCA is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, and `supporting cell`. 
+1. The terms share at least 1 LCA that either has fewer than 170 descendants or is one of `neuron`, `epithelial cell`, `columnar/cuboidal epithelial cell` or `endo-epithelial cell`.
+
+2. If more than 1 LCA is shared between two terms, then the LCA with the fewest descendants is kept and all others are discarded.
+
+3. If the LCA has fewer than 170 descendants and is one of the following non-specific LCA terms, no consensus cell type is assigned: `bone cell`, `lining cell`, `blood cell`, `progenitor cell`, `supporting cell`, `biogenic amine secreting cell`, `protein secreting cell`, `extracellular matrix secreting cell`, `serotonin secreting cell`, `peptide hormone secreting cell`, `exocrine cell`, `sensory receptor cell`, or `interstitial cell`. 
+
+If more than one LCA is identified as a possible consensus cell type, meaning there is agreement among all three methods, the LCA with the fewest descendants is used as the consensus cell type. 
+For more information about how consensus cell types are assigned, see the [`cell-type-consensus` module in the `OpenScPCA-analysis` GitHub repository](https://github.com/AlexsLemonade/OpenScPCA-analysis/blob/main/analyses/cell-type-consensus).
 
 Cell type annotation is not performed for cell line samples.
 For information on how to determine if a given sample was derived from a cell line, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment sample metadata>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
 
 **Note:** For some libraries, cell type annotations were provided from the group that submitted the original data.
 In these cases, the cell type annotations obtained from the submitter will be present in addition to cell type annotation performed with `SingleR` and `CellAssign`.
+
+##### Cell type annotations from the OpenScPCA project
+
+As part of the ongoing [OpenScPCA project](https://openscpca.readthedocs.io/en/latest/), cell types are annotated and validated on a project-by-project basis using methods and references that are most appropriate for the disease types represented in that project. 
+If cell type annotation has been completed for all samples in a project, these curated cell types will be included alongside the automated cell type annotations. 
+For more information on where to find these annotations in the downloaded objects, refer to section(s) describing {ref}`SingleCellExperiment file contents <sce_file_contents:singlecellexperiment cell metrics>` and/or {ref}`AnnData file contents <sce_file_contents:anndata cell metrics>`.
+
+For more details on how cells from a specific project were annotated, see the appropriate module in the [`OpenScPCA-analysis` repository](https://github.com/AlexsLemonade/OpenScPCA-analysis). 
+The name of the module and other versioning information can be found in the {ref}`experiment metadata for SingleCellExperiment and AnnData objects <sce_file_contents:singlecellexperiment experiment metadata>`. 
+
+The OpenScPCA project is an ongoing open and collaborative effort to characterize the ScPCA Portal data. 
+For more information on the project, including contributing your own analyses, see the [OpenScPCA documentation](https://openscpca.readthedocs.io/en/latest/). 
+
+#### CNV inference
+
+We perform CNV inference using [`inferCNV`](https://github.com/broadinstitute/infercnv), specifying the [`i6` HMM](https://github.com/broadinstitute/infercnv/wiki/infercnv-i6-HMM-type) to quantify specific CNV events.
+
+`inferCNV` uses a designated set of normal reference cells to quantify CNV events based on gene expression.
+We use the consensus cell type labels, as described in the [cell type annotation section](#cell-type-annotation), to establish normal references for each sample.
+The specific cell types to include are determined by each sample's diagnosis.
+We [designate cells as either `reference` or `query`](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#sample-annotation-file), rather than using their specific cell type labels, where the label `reference` was used to specify normal reference cells.
+`inferCNV` is only run if there are at least 100 cells designated as `reference` in a given sample.
+As such, `inferCNV` is not run on cell lines because they do not undergo cell type annotation or on samples obtained from normal or non-cancerous tissue.
+
+We additionally specify a [gene ordering file](https://github.com/broadinstitute/inferCNV/wiki/File-Definitions#gene-ordering-file) with chromosome arm designations (e.g., `chr1p` and `chr1q` are used rather than `chr1`) for finer-grained results.
+We use all other `inferCNV` defaults, except we set `denoise = TRUE` and `cutoff = 0.1` (for 10x data) [as recommended](https://github.com/broadinstitute/inferCNV/wiki#quick-start).
+Note that we keep the default `inferCNV` setting to remove any cells with raw RNA counts less than 100; these cells will not have `inferCNV` estimates.
+
+We calculate the total CNV per cell [using the feature output from the `i6` HMM](https://github.com/broadinstitute/infercnv/wiki/Extracting-features) by summing all values in the HMM metadata table columns named `has_cnv_{chr}{1:22}{p,q}>` (e.g., `has_cnv_chr1p`, `has_cnv_chr1q`, and so on).
+Any cells which `inferCNV` removed due to low counts will not have a total CNV estimate.
+
 
 ## ADT quantification from CITE-seq experiments
 
@@ -126,7 +171,8 @@ When cells were [filtered based on RNA-seq content](#filtering-cells) after quan
 
 An ambient profile representing antibody-derived tag (ADT) proportions present in the ambient solution is calculated from the unfiltered `SingleCellExperiment` object using [`DropletUtils::ambientProfileEmpty()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/ambientProfileEmpty.html).
 Quality-control statistics were calculated with [`DropletUtils::cleanTagCounts()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/cleanTagCounts.html) (with default parameters) using this ambient profile, along with negative/isotype control information, if present.
-Low-quality cells identified by `DropletUtils::cleanTagCounts()` (those having high levels of ambient contamination or substantial negative/isotype control tags) are flagged but not removed except during normalization, as described below.
+This function flags cells as low-quality if they either have very high levels of ambient contamination and/or negative/isotype control tags (if present), or lack ambient expression altogether which may indicate failed capture.
+Low-quality cells identified by `DropletUtils::cleanTagCounts()` are flagged but not removed except during normalization, as described below.
 If `DropletUtils::cleanTagCounts()` cannot reliably determine which cells to filter, then no cells will be flagged for removal.
 
 For all cells that would be retained if `DropletUtils::cleanTagCounts()` filtering were applied, log-normalized ADT counts are, by default, calculated using [median-based normalization](http://bioconductor.org/books/3.16/OSCA.advanced/integrating-with-protein-abundance.html#cite-seq-median-norm), again making use of the baseline ambient profile.

@@ -12,6 +12,27 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
+## 2025.12.04
+
+All data on the Portal has been updated to include a number of new features.
+
+* Doublet detection was run on all samples using [`scDblFinder`](https://bioconductor.org/packages/release/bioc/html/scDblFinder.html). 
+No doublets were filtered, but the results from `scDblFinder` are present in the filtered and processed objects.
+* Updated cell type annotations
+  * All samples include cell type annotations obtained from [`SCimilarity`](https://genentech.github.io/scimilarity/), in addition to the existing cell type annotations from `SingleR` and `CellAssign`.
+  * Consensus cell types have been updated to incorporate `SCimilarity` results. 
+  If two of the three automated methods agree using an ontology-based approach, a consensus cell type is assigned. 
+  * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` for more information on these updated cell types.
+* Cell types were annotated as part of the ongoing [OpenScPCA project](https://openscpca.readthedocs.io) for `SCPCP000004` (Neuroblastoma) and `SCPCP000015` (Ewing sarcoma).
+These cell types are now included in all objects for those samples.  
+  * For more information see our {ref}`documentation on OpenScPCA cell types<processing_information:cell type annotations from the OpenScPCA project`.
+* CNV inference was performed using [`InferCNV`](https://github.com/broadinstitute/infercnv) on all samples with at least 100 non-malignant reference cells, as identified by the consensus cell types. 
+  * See our {ref}`documentation on CNV inference <processing_information:CNV inference>`
+  * For more information on where to find the inferCNV results in the downloaded objects see {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>`.
+
+In addition to these new features, data from the Portal can now be downloaded programmatically using the new [`ScPCAr` package](https://alexslemonade.github.io/ScPCAr). 
+See an example in {ref}`our documentation <download_files:programmatic downloads from the ScPCA Portal`.
+
 ## 2025.07.25
 
 * Previously, the `cell_id` column in the cell metadata for merged objects was incorrectly formatted.  
