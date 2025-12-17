@@ -25,13 +25,13 @@ No doublets were filtered, but the results from `scDblFinder` are present in the
   * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` for more information on these updated cell types.
 * Cell types were annotated as part of the ongoing [OpenScPCA project](https://openscpca.readthedocs.io) for `SCPCP000004` (Neuroblastoma) and `SCPCP000015` (Ewing sarcoma).
 These cell types are now included in all objects for those samples.  
-  * For more information see our {ref}`documentation on OpenScPCA cell types<processing_information:cell type annotations from the OpenScPCA project`.
+  * For more information see our {ref}`documentation on OpenScPCA cell types<processing_information:cell type annotations from the OpenScPCA project>`.
 * CNV inference was performed using [`InferCNV`](https://github.com/broadinstitute/infercnv) on all samples with at least 100 non-malignant reference cells, as identified by the consensus cell types. 
   * See our {ref}`documentation on CNV inference <processing_information:CNV inference>`
   * For more information on where to find the inferCNV results in the downloaded objects see {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>`.
 
 In addition to these new features, data from the Portal can now be downloaded programmatically using the new [`ScPCAr` package](https://alexslemonade.github.io/ScPCAr). 
-See an example in {ref}`our documentation <download_files:programmatic downloads from the ScPCA Portal`.
+See an example in {ref}`our documentation <download_files:programmatic downloads from the ScPCA Portal>`.
 
 ## 2025.07.25
 
