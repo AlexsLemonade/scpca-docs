@@ -31,7 +31,7 @@ These cell types are now included in all objects for those samples.
   * For more information on where to find the inferCNV results in the downloaded objects see {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>`.
 
 In addition to these new features, data from the Portal can now be downloaded programmatically using the new [`ScPCAr` package](https://alexslemonade.github.io/ScPCAr). 
-See an example in {ref}`our documentation <download_files:programmatic downloads from the ScPCA Portal`.
+See an example in {ref}`our documentation <download_files:programmatic downloads from the ScPCA Portal>`.
 
 ## 2025.07.25
 
