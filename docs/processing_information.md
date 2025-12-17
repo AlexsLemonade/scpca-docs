@@ -148,7 +148,7 @@ We additionally specify a [gene ordering file](https://github.com/broadinstitute
 We use all other `inferCNV` defaults, except we set `denoise = TRUE` and `cutoff = 0.1` (for 10x data) [as recommended](https://github.com/broadinstitute/inferCNV/wiki#quick-start).
 Note that we keep the default `inferCNV` setting to remove any cells with raw RNA counts less than 100; these cells will not have `inferCNV` estimates.
 
-We calculate the total CNV per cell [using the feature output from the `i6` HMM](https://github.com/broadinstitute/infercnv/wiki/Extracting-features) by summing all values in the HMM metadata table columns named `has_cnv_{chr}{1:22}{p,q}>` (e.g., `has_cnv_chr1p`, `has_cnv_chr1q`, and so on).
+We calculate the total CNV per cell [using the feature output from the `i6` HMM](https://github.com/broadinstitute/infercnv/wiki/Extracting-features) by summing all values in the HMM metadata table columns named `has_cnv_{chr}{1:22}{p,q}` (e.g., `has_cnv_chr1p`, `has_cnv_chr1q`, and so on).
 Any cells which `inferCNV` removed due to low counts will not have a total CNV estimate.
 
 

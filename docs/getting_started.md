@@ -408,7 +408,7 @@ subsetted_adata_merged_object = adata_merged_object[adata_merged_object.obs["lib
 ```
 
 The merged object additionally contains metadata such as information about sample diagnosis, subdiagnosis, or tissue location that may be useful for subsetting.
-A full set of merged object contents which can support subsetting is available in <TODO: the forthcoming section forthcoming in `merged_objects.md` about file contents>.
+A full set of merged object contents which can support subsetting is available in {ref}`this documentation<merged_objects:merged objects>`.
 
 As one example, to subset a `SingleCellExperiment` merged object to a given diagnosis, use the following R code:
 
