@@ -14,7 +14,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 
 ## TODO: Add release date for datasets
 
-* Data on the Portal can now be downloaded three different ways: 
+* Data on the Portal can now be downloaded in three different ways: 
   * By selecting a {ref}`single project<download_files:project downloads>` to download.
   * By creating a {ref}`custom dataset<download_files:custom datasets>` with a selection of projects and/or samples. 
   Custom datasets are referred to as `My Dataset` on the Portal. 
