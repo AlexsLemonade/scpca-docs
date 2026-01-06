@@ -170,7 +170,7 @@ For more information on where to find these results, refer to sections describin
 There are several circumstances when CNV results are not available:
 
 * CNV inference is not performed on libraries which do not have enough cells to include in a normal reference, as described in the {ref}`CNV inference processing documentation<processing_information:cnv inference>`
-* CNV inference is not performed on libraries derived from cell line samples
+* CNV inference is not performed on libraries derived from cell line or non-cancerous samples 
 * If `inferCNV` experienced a failure while running, there will not be any associated results in the processed objects
 
 ## Where can I find the inferCNV heatmap?
