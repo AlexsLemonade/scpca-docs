@@ -1,7 +1,6 @@
 name: Spell check Markdown files
 
 # Controls when the action will run.
-# Pull requests to master only.
 on:
   pull_request:
     branches:
