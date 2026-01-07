@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## TODO: Add release date for datasets
+## 2026.01.08
 
 * Data on the Portal can now be downloaded in three different ways: 
   * By selecting a {ref}`single project<download_files:project downloads>` to download.
