@@ -397,7 +397,7 @@ libraries <- c("SCPCL00000X", "SCPCL00000Y", "SCPCL00000Z")
 subsetted_merged_sce <- merged_sce[,merged_sce$library_id %in% libraries]
 ```
 
-To subset an `AnnData` merged object to a given set of libraries, use the following R code:
+To subset an `AnnData` merged object to a given set of libraries, use the following python code:
 
 ```r
 # Define list of library IDs of interest

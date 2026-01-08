@@ -170,7 +170,7 @@ For more information on where to find these results, refer to sections describin
 There are several circumstances when CNV results are not available:
 
 * CNV inference is not performed on libraries which do not have enough cells to include in a normal reference, as described in the {ref}`CNV inference processing documentation<processing_information:cnv inference>`
-* CNV inference is not performed on libraries derived from cell line samples
+* CNV inference is not performed on libraries derived from cell line or non-cancerous samples 
 * If `inferCNV` experienced a failure while running, there will not be any associated results in the processed objects
 
 ## Where can I find the inferCNV heatmap?
@@ -241,7 +241,7 @@ The samples have simply been merged into a single file - _they have not been int
 
 You may prefer to download this merged object instead of individual sample files to facilitate downstream analyses that consider multiple samples at once, such as differential expression analysis, integrating multiple samples, or jointly clustering multiple samples.
 
-Please refer to {ref}`the getting started with a merged object section<getting_started:Working with a Merged ScPCA object>` for more details on working with merged objects.
+Please refer to {ref}`the section about getting started with a merged object<getting_started:Working with a Merged ScPCA object>` for more details on working with these objects.
 
 
 ## Which projects can I download as merged objects?
@@ -260,6 +260,14 @@ There are three types of projects for which merged objects are not available:
 - Projects containing more than 100 samples
     - The more samples that are included in a merged object, the larger the object, and the more difficult it will be to work with that object in R or Python.
     Because of this, we do not provide merged objects for projects with more than 100 samples as the size of the merged object is too large.
+
+## Why can't I merge a subset of samples from a project?
+
+{ref}`Merged project downloads<download_files:Merged object downloads>` are not available for a subset of samples in a project.
+Merged objects will always contain all samples in the given project ([see which projects do not have merged objects](#which-projects-can-i-download-as-merged-objects)).
+
+If you would like to work with a merged object that only contains a subset of project samples, we recommend downloading the merged object and subsetting it directly to the samples of your choosing.
+See {ref}`Subsetting the Merged Object<getting_started:Subsetting the merged object>` for instructions on how to subset `SingleCellExperiment` and `AnnData` merged objects.
 
 ## Why doesn't my existing code work on a new download from the Portal?
 
@@ -283,8 +291,44 @@ Download links expire in 7 days, but you can generate a new link on the ScPCA Po
 Download links are only available for projects (i.e., not for downloading individual samples).
 
 ## Can I download data from the Portal programmatically?
+## Why can't I change the data format in My Dataset?
 
 We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
 This package allows you to search for and download data from the ScPCA Portal directly within R.
 Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
 Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
+
+When creating a {ref}`custom dataset for download<download_files:Custom datasets>` (`My Dataset`), all single-cell sample or project data included must be of the same {ref}`data format<download_options:Data format>`, either `SingleCellExperiment` for use in R or `AnnData` for use in Python.
+We currently do not support including both data formats at once in `My Dataset`.
+Once a sample or project of a given data format has been added to `My Dataset`, all subsequent single-cell or single-nuclei data added will automatically be in that same format.
+
+Therefore, if you wish to download single-cell or single-nuclei expression data in both `SingleCellExperiment` and `AnnData` data formats, you will need to create and download separate `My Dataset`s, one at a time, for each format.
+
+
+## Why did project options change when I appended samples to My Dataset?
+
+If you would like to include all samples from a dataset you have previously created, you can append these samples to your current `My Dataset`.
+In some cases, however, certain project-level options may change when you append additional samples from a project that is already present in `My Dataset`.
+
+Specifically, we apply these rules when you append to `My Dataset`:
+
+* If you selected to {ref}`include bulk RNA-seq expression in the download<download_options:Modalities>` *either* in the previous dataset or the current `My Dataset`, bulk expression will remain included in the download.
+* If you selected the {ref}`merged project option<download_options:Merged objects>` **both** in the previous dataset and the current `My Dataset`, the merge option will remain selected.
+Otherwise, if only one dataset had this option selected, the merge option will no longer be applied.
+
+You are always welcome to edit these options in `My Dataset` to your liking after appending the additional samples.
+
+## Why are some values different after I regenerate My Dataset?
+
+The Portal only offers data processed using a single version of the [`AlexsLemonade/scpca-nf` workflow](github.com/AlexsLemonade/scpca-nf/) for each sample at any given time.
+If any new features or updates are made to the workflow, all data currently on the Portal will be re-processed.
+Because of this, when you regenerate a previously-created version of `My Dataset`, the values in your downloaded files may be slightly different compared to a previous download.
+A full description of any major changes made to data on the Portal are described in the {ref}`CHANGELOG page<changelog:CHANGELOG>`.
+
+You can learn more about the specific version of the data you have as follows:
+
+* The file name of each downloaded zip file, and the enclosed `README.md`, will include the date it was downloaded from the Portal
+* The metadata included in your downloaded files will contain information about the `AlexsLemonade/scpca-nf` workflow version that was used to process the data
+  * For example, the column `workflow_version` in the metadata file included in your download (`single-cell_metadata.tsv`, `bulk_metadata.tsv`, and/or `spatial_metadata.tsv`) provides the `AlexsLemonade/scpca-nf` workflow version used to process the sample, and the column `processed_date` provides the date the sample was processed through the workflow.
+  See the {ref}`metadata documentation<download_files:metadata>` for additional information
+* For more information about a given `AlexsLemonade/scpca-nf` release, refer to the [releases page on GitHub](https://github.com/AlexsLemonade/scpca-nf/releases)

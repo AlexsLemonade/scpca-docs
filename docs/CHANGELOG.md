@@ -5,12 +5,25 @@ As of November 2023, the `CHANGELOG` is a feature of our documentation we'll use
 You can find more information about how and when your download was prepared in the following places:
 
 * The date your download was packaged (`Generated on: {date}`) is included at the top of the README in your download.
-* The version of the [`AlexsLemonade/scpca-nf`](https://github.com/alexsLemonade/scpca-nf) pipeline used to process data in your download is included in the `workflow_version` column of the `single_cell_metadata.tsv` or `bulk_metadata.tsv` file in your download.
+* The version of the [`AlexsLemonade/scpca-nf`](https://github.com/alexsLemonade/scpca-nf) pipeline used to process data in your download is included in the `workflow_version` column of the `single_cell_metadata.tsv`, `bulk_metadata.tsv`, or `spatial_metadata.tsv` file in your download.
 For more information about `AlexsLemonade/scpca-nf` versions, please see [the releases page on GitHub](https://github.com/AlexsLemonade/scpca-nf/releases).
 
 <!-------------------------------------------------->
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
+
+## 2026.01.08
+
+* Data on the Portal can now be downloaded in three different ways: 
+  * By selecting a {ref}`single project<download_files:project downloads>` to download.
+  * By creating a {ref}`custom dataset<download_files:custom datasets>` with a selection of projects and/or samples. 
+  Custom datasets are referred to as `My Dataset` on the Portal. 
+  * By choosing one of the {ref}`Portal-wide download options<download_files:portal-wide downloads>`. 
+* Although the content of the data included in each download has not changed, the download file structures have changed. 
+See the {ref}`Downloadable Files page for more information<download_files:downloadable files>`.
+* A new section of the documentation describing possible {ref}`download options<download_options:download options>` has been added.
+* The previously named `single_cell_metadata.tsv` files that are included with each download have been renamed to `single-cell_metadata.tsv`.
+
 
 ## 2025.12.04
 
@@ -40,11 +53,11 @@ This has now been fixed so that all merged objects have the `cell_id` formatted 
 
 ## 2025.04.24
 
-* Consensus cell type annotations are now available in all processed `SingleCellExperiment` and `AnnData` objects and merged objects. 
-  * The labels obtained from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label. 
-  * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` to learn more about how consensus cell types are assigned. 
+* Consensus cell type annotations are now available in all processed `SingleCellExperiment` and `AnnData` objects and merged objects.
+  * The labels obtained from `SingleR` and `CellAssign` are used to assign an ontology-aware consensus cell type label.
+  * See our {ref}`documentation on cell type annotation<processing_information:cell type annotation>` to learn more about how consensus cell types are assigned.
   * See {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` and {ref}`the merged object file contents page<merged_objects:singlecellexperiment cell metrics>` for more information on obtaining these cell type annotations from the downloaded objects.
-* All assays within a merged object are now saved as a sparse matrix (`CsparseMatrix`), whereas previously these assays were saved as a `DelayedArray`. 
+* All assays within a merged object are now saved as a sparse matrix (`CsparseMatrix`), whereas previously these assays were saved as a `DelayedArray`.
 
 ## 2024.11.14
 

@@ -79,7 +79,7 @@ Finally, these principal components are used to calculate the [UMAP (Uniform Man
 
 #### Cell type annotation
 
-We perform cell type annotation with three complementary methods, where possible, and assign a single consensus cell type annotation based on agreement between these methods: 
+We perform cell type annotation with three complementary methods, where possible, and assign a single consensus cell type annotation based on agreement among these methods: 
 
 - [`SingleR`](https://bioconductor.org/packages/release/bioc/html/SingleR.html), a reference-based cell type annotation method ([Looney _et al._ 2019](https://doi.org/10.1038/s41590-018-0276-y))
 - [`CellAssign`](https://github.com/Irrationone/cellassign), a marker-gene-based cell type annotation method ([Zhang _et al._ 2019](https://doi.org/10.1038/s41592-019-0529-1))

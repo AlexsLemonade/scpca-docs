@@ -1,12 +1,13 @@
 # Downloadable files
 
 The ScPCA Portal download packages include gene expression data, a QC report, and associated metadata for each processed sample.
-Gene expression data is available as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-downloads) or [`AnnData` objects (`.h5ad` files)](#anndata-downloads).
-These files are delivered as a zip file.
+Gene expression data is available as either [`SingleCellExperiment` objects (`.rds` files)](#download-folder-structure-for-singlecellexperiment-project-downloads) or [`AnnData` objects (`.h5ad` files)](#download-folder-structure-for-anndata-project-downloads).
+All downloaded files are delivered as a zip file.
 When you uncompress the zip file, the root directory name of your download will include the date you accessed the data on the ScPCA Portal.
 We recommend you record this date in case there are future updates to the Portal that change the underlying data or if you need to cite the data in the future (see {ref}`How to Cite <citation:how to cite>` for more information).
 Please see our {ref}`CHANGELOG <CHANGELOG:CHANGELOG>` for a summary of changes that impact downloads from the Portal.
 
+Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [Portal-wide download options](#portal-wide-downloads).
 For all data downloads, sample folders (indicated by the `SCPCS` prefix) contain the files for all libraries (`SCPCL` prefix) derived from that biological sample.
 Most samples only have one library that has been sequenced.
 For [multiplexed sample libraries](#multiplexed-sample-libraries), the sample folder name will be an underscore-separated list of all samples found in the library files that the folder contains.
@@ -21,45 +22,156 @@ The files shown below will be included with each library (example shown for a li
 - A quality control report: `SCPCL000000_qc.html`,
 - A supplemental cell type report: `SCPCL000000_celltype-report.html`
 
-Every download also includes a single `single_cell_metadata.tsv` file containing metadata for all libraries included in the download.
+For more information on the contents of these files, see the sections on [gene expression data](#gene-expression-data), the [QC report](#qc-report), and the [cell type report](#cell-type-report).
 
-Metadata-only downloads are also available, either by downloading the metadata for all samples in a single project or by downloading the metadata for all samples on the Portal.
-Please see the [section on metadata](#metadata) for a full description of the contents of the metadata files.
+Every download also includes sample and processing metadata for all libraries included in the download.
+For a full description of the metadata files, refer to the [metadata section below](#metadata).
 
-If downloading a project containing bulk RNA-seq data, two tab-separated value files, e.g., `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will be included in the merged object download.
-The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by Salmon.
-The `SCPCP000000_bulk_metadata.tsv` file contains associated metadata for all samples with bulk RNA-seq data.
+Metadata-only downloads are also available, either by downloading the metadata for all samples in a single project using the `Download Sample Metadata` button or by downloading the [metadata for all samples on the Portal](#metadata-only-downloads).
 
-See also {ref}`processing bulk RNA samples <processing_information:Bulk RNA samples>`.
+## Project downloads
 
-The folder structure within the zip file is determined by whether individual samples or all samples associated with a project are selected for download.
-Note that if a sample selected for download contains a spatial transcriptomics library, the files included will be different than pictured below.
-See the [description of the Spatial transcriptomics output section below](#spatial-transcriptomics-libraries).
+Use the `Download Now` button next to the project title to instantly download gene expression data for all samples in a single project as a single zip file.
+To download more than one project or combine samples across projects, see the section on [downloading custom datasets](#custom-datasets).
 
-## `SingleCellExperiment` downloads
+For project downloads, data for all samples will be provided as either [`SingleCellExperiment` objects (`.rds` files)](https://bioconductor.org/books/3.21/OSCA.intro/the-singlecellexperiment-class.html) or [`AnnData` objects (`.h5ad` files)](https://anndata.readthedocs.io/en/latest/index.html).
+Each zip file will be named with the project accession ID, the chosen data format (either `single-cell-experiment` or `anndata`), and the date you accessed the data on the ScPCA Portal.
 
-### Download folder structure for project downloads:
-![project download folder](images/project-download-folder.png){width="600"}
+- If the project contains bulk RNA-seq data, a separate folder labeled with the `_bulk` suffix containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
+See the [section on bulk RNA-seq for more information](#bulk-rna-seq).
+- If the project contains samples with a spatial transcriptomics library, the spatial data will be provided as a separate download.
+See the expected file structure and [description of the Spatial transcriptomics output below](#spatial-transcriptomics-libraries).
+- If the project contains samples that have been multiplexed, the organization of the downloaded files will be slightly different than what is shown below. 
+See the section describing [multiplexed sample libraries](#multiplexed-sample-libraries) for an overview of the expected download structure. 
 
-### Download folder structure for individual sample downloads:
-![sample download folder](images/sample-download-folder.png){width="600"}
+For more information on choosing a data format and modality, see the {ref}`documentation on download options<download_options:Download options>`.
 
-## `AnnData` downloads
+When downloading a project, you can choose to download data from all samples as individual files, or you can download {ref}`a single file containing all samples merged into a single object<faq:When should I download a project as a merged object?>`.
+Below are examples of the expected folder structure when downloading a project with gene expression data from all samples stored in individual files.
 
-### Download folder structure for project downloads:
-![project download folder](images/anndata-project-download-folder.png){width="600"}
+### Download folder structure for `SingleCellExperiment` project downloads:
+![project download folder](images/project-sc.png){width="600"}
 
-### Download folder structure for individual sample downloads:
-![sample download folder](images/anndata-sample-download-folder.png){width="600"}
+### Download folder structure for `AnnData` project downloads:
+![project download folder](images/project-anndata.png){width="600"}
 
-### Download folder structure for individual sample downloads with CITE-seq (ADT) data:
-![sample download folder](images/anndata-sample-citeseq-download-folder.png){width="600"}
+### Download folder structure for `AnnData` project downloads with CITE-seq (ADT) data:
+![project download folder](images/project-anndata-cite-seq.png){width="600"}
 
-If downloading a sample that contains a CITE-seq library as an `AnnData` object (`.h5ad` file), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+If downloading a project with samples that contain a CITE-seq library as an `AnnData` object (`.h5ad` file), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+### Merged object downloads
+
+Merged object downloads contain all single-cell or single-nuclei gene expression data for a given ScPCA project within a single object, provided as either a [`SingleCellExperiment` object (`.rds` file)](https://bioconductor.org/books/3.21/OSCA.intro/the-singlecellexperiment-class.html) or an [`AnnData` object (`.h5ad` file)](https://anndata.readthedocs.io/en/latest/index.html).
+
+The object file, `SCPCP000000_merged.rds` or `SCPCP000000_merged_rna.h5ad`, contains both a raw and normalized counts matrix, each with combined counts for all samples in an ScPCA project.
+In addition to the counts matrices, the `SingleCellExperiment` or `AnnData` object stored in the file includes the results of library-weighted dimensionality reduction using both principal component analysis (PCA) and UMAP.
+See the {ref}`section on merged object processing<processing_information:merged objects>` for more information about how merged objects were created.
+
+If downloading a project that contains at least one CITE-seq library, the quantified CITE-seq expression data will also be merged.
+In `SingleCellExperiment` objects (`.rds` files), the CITE-seq expression data is provided as an alternative experiment in the same object as the gene expression data.
+However, for `AnnData` objects, (`.h5ad` files), the quantified CITE-seq expression is instead provided as a separate file called `SCPCP000000_merged_adt.h5ad`.
+
+For any projects containing bulk RNA-seq data, a separate folder `SCPCP000000_bulk` containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included in the project download.
+See the [section on bulk RNA-seq for more information](#bulk-rna-seq). 
+
+Every download also includes a single `single-cell_metadata.tsv` file containing metadata for all libraries included in the merged object.
+For a full description of this file's contents, refer to the [metadata section below](#metadata).
+
+Every download includes a summary report, `SCPCP000000_merged-summary-report.html`, which provides a brief summary of the samples and libraries included in the merged object.
+This includes a summary of the types of libraries (e.g., single-cell, single-nuclei, with CITE-seq) and sample diagnoses included in the object, as well as UMAP visualizations highlighting each library.
+
+Every download also includes the individual [QC report](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object.
+
+#### Download folder structure for `SingleCellExperiment` merged downloads:
+![merged project download folder](images/project-sc-merged.png){width="600"}
+
+#### Download folder structure for `AnnData` merged downloads:
+![merged project download folder](images/project-anndata-merged.png){width="600"}
+
+#### Download folder structure for `AnnData` merged downloads with CITE-seq (ADT) data:
+![merged project download folder](images/project-anndata-cite-seq-merged.png){width="600"}
+
+
+## Custom datasets
+
+You can create a custom dataset with any combination of individual samples and projects with your choice of modalities and data format. 
+Custom datasets are referred to as `My Dataset` within the portal.
+The `Add to Dataset` button allows you to add projects and selected samples to `My Dataset`. 
+You can select the data formats and modalities for each project or sample before you add it to `My Dataset`.
+The `My Dataset` button on the top right of the portal can then be used to view and download the custom dataset as a single zip file. 
+
+Each zip file will be named with a unique dataset ID, the chosen data format (either `single-cell-experiment` or `anndata`), and the date you accessed the data on the ScPCA Portal.
+Note that a custom dataset can only contain single-cell data in one data format, [`SingleCellExperiment` objects (`.rds` files)](#custom-datasets-with-singlecellexperiment-format) or [`AnnData` objects (`.h5ad` files)](#custom-datasets-with-anndata-format) (see {ref}`FAQ for more information<faq:Why can't I change the data format in My Dataset?>`). 
+If a sample has [spatial transcriptomics data](#spatial-transcriptomics-libraries), you can check the {ref}`Spatial modality box<download_options:Modalities>` to include the spatial transcriptomics data in `My Dataset`.
+
+Data for all samples included in `My Dataset` will be organized in folders labeled with the unique project identifier and modality, where each folder contains data for all samples from a single project with the same modality (either `single-cell`, `spatial`, or `bulk`). 
+Each project folder will also contain an appropriate metadata file, either `single-cell_metadata.tsv` (`single-cell`), `spatial_metadata.tsv` (`spatial`), or `SCPCP000000_bulk_metadata.tsv` (`bulk`). 
+For more information on available data formats and modalities, see {ref}`the section describing download options <download_options:data formats>`. 
+
+If downloading a project as a [merged object](#merged-object-downloads), the project folder will contain a `_merged` suffix. 
+
+If any samples included in `My Dataset` contain associated CITE-seq data, the quantified CITE-seq expression data will be included when downloading single-cell expression data.
+For `SingleCellExperiment` objects (`.rds` files), the quantified CITE-seq expression is included in the same file as the gene expression data. 
+For [`AnnData` objects (`.h5ad` files)](#detailed-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+The below image shows the expected file structure for an example custom dataset. 
+For more details about the project folder contents for each data format and modality, see the [Project downloads section](#project-downloads).  
+
+### Download folder structure for custom downloads:
+![custom dataset download](images/custom-dataset-generic.png){width="600"}
+
+## Portal-wide Downloads
+
+The Portal-wide Download page can be used to download all [metadata](#metadata-only-downloads) or gene expression data for all samples on the Portal at once.
+
+All single-cell and single-nuclei gene expression data from the Portal can be downloaded as a single zip file containing data stored as either [`SingleCellExperiment` objects (`.rds` files)](#singlecellexperiment-portal-wide-download-structure) or [`AnnData` objects (`.h5ad` files)](#anndata-portal-wide-download-structure). 
+This zip file includes data for any [multiplexed samples](#multiplexed-sample-libraries).
+All spatial data for any samples sequenced using [spatial transcriptomics](#spatial-transcriptomics-libraries) are available separately as a zip file. 
+
+When downloading any of the available Portal-wide data downloads, all relevant metadata and bulk RNA-seq data is also included.
+
+Each zip file will be named with the chosen data format (`single-cell-experiment`, `anndata`, or `spaceranger`) and the date you accessed the data on the ScPCA Portal.
+Each zip file will contain a folder for each project with gene expression data for all samples in that project as either individual objects or a single [merged object](#portal-wide-downloads-as-merged-objects), depending on your selection.
+
+For any projects containing bulk RNA-seq data, a separate folder `SCPCP000000_bulk` containing two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will also be included.
+See the [section on bulk RNA-seq for more information](#bulk-rna-seq). 
+
+As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
+For [`SingleCellExperiment (R)` downloads](#singlecellexperiment-portal-wide-download-structure), the quantified CITE-seq expression is included in the same file as the gene expression data.
+For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+### `SingleCellExperiment` Portal-wide download structure
+![portal wide download structure - `sce`](images/portal-wide-sc-folder.png){width="600"}
+
+### `AnnData` Portal-wide download structure
+![portal wide download structure - `anndata`](images/portal-wide-anndata-cite-seq.png){width="600"}
+
+### Spatial Portal-wide download structure
+![portal wide download structure - spatial](images/portal-wide-spatial.png){width="600"}
+
+### Portal-wide downloads as merged objects
+
+You can choose to download all single-cell and single-nuclei samples from the Portal as [merged objects for each project](#merged-object-downloads) by checking "Merge samples into one object per project".
+{ref}`Merged objects<merged_objects:Merged objects>` contain gene expression for all samples in a given project in a single file.
+This download includes a folder for each project that contains a single merged object (`SCPCP000000_merged.rds` or `SCPCP000000_merged.h5ad`), a merged summary report (`SCPCP000000_merged-summary-report.html`), a single [metadata](#metadata) file (`single-cell_metadata.tsv`), and all individual [QC reports](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object for that project.
+
+Note that downloading all data using this option _will not_ download a merged object with all samples from all projects, but a single merged object for each project.
+
+#### Portal-wide download structure for merged `SingleCellExperiment` objects
+![portal wide download structure - merged `sce`](images/portal-wide-sc-merged.png){width="600"}
+
+#### Portal-wide download structure for merged `AnnData` objects
+![portal wide download structure - merged `anndata`](images/portal-wide-anndata-cite-seq-merged.png){width="600"}
+
+### Metadata-only downloads
+
+The Portal-wide metadata download is a single TSV file containing the metadata for all samples with associated single-cell RNA-seq, single-nuclei RNA-seq, or spatial transcriptomics data available on the Portal.
+A table describing all columns included in the file can be found in the [metadata section below](#metadata).
 
 ## Gene expression data
 
-Single-cell or single-nuclei gene expression data is provided as either [`SingleCellExperiment` objects (`.rds` files)](http://bioconductor.org/books/3.13/OSCA.intro/the-singlecellexperiment-class.html) or [`AnnData` objects (`.h5ad` files)](https://anndata.readthedocs.io/en/latest/index.html).
+Single-cell or single-nuclei gene expression data is provided as either [`SingleCellExperiment` objects (`.rds` files)](https://bioconductor.org/books/3.21/OSCA.intro/the-singlecellexperiment-class.html) or [`AnnData` objects (`.h5ad` files)](https://anndata.readthedocs.io/en/latest/index.html).
 Three files will be provided for each library included in the download - an unfiltered counts file, a filtered counts file, and a processed counts file.
 
 The unfiltered counts file, `SCPCL000000_unfiltered.rds` or `SCPCL000000_unfiltered_rna.h5ad`, contains the counts matrix, where the rows correspond to genes or features and the columns correspond to cell barcodes.
@@ -93,7 +205,7 @@ Therefore, there will be no cell type report in the download for these libraries
 
 ## Metadata
 
-Included with each download is a `single_cell_metadata.tsv` file containing relevant metadata for each sample included in the download.
+Included with each download is a `single-cell_metadata.tsv` file containing relevant metadata for each sample included in the download.
 Each row corresponds to a unique sample/library combination and contains the following columns:
 
 | column_id       | contents                                                       |
@@ -147,84 +259,44 @@ Each row corresponds to a unique sample/library combination and contains the fol
 | `demux_method` | Methods used to calculate demultiplexed sample numbers. Only present for multiplexed libraries |
 | `demux_samples` | Samples included in multiplexed library. Only present for multiplexed libraries |
 | `date_processed` | Date sample was processed through `AlexsLemonade/scpca-nf` |
+| `workflow` | The URL to the `AlexsLemonade/scpca-nf` workflow |
+| `workflow_version` | Version of `AlexsLemonade/scpca-nf` the sample was processed with |
+| `workflow_commit` | Commit hash of `AlexsLemonade/scpca-nf` the sample was processed with |
 
-Additional metadata may also be included, specific to the disease type and experimental design of the project.
-Examples of this include treatment or outcome.
+Project-specific metadata will contain all columns listed in the table above and any additional project-specific columns, such as treatment or outcome.
 Metadata pertaining to processing will be available in this table and inside of the `SingleCellExperiment` and `AnnData` objects.
 See the {ref}`SingleCellExperiment experiment metadata <sce_file_contents:singlecellexperiment experiment metadata>` section for more information on metadata columns that can be found in the `SingleCellExperiment` object.
 See the {ref}`AnnData experiment metadata <sce_file_contents:anndata experiment metadata>` section for more information on metadata columns that can be found in the `AnnData` object.
 
 For projects with bulk RNA-seq data, a bulk metadata file (e.g., `SCPCP000000_bulk_metadata.tsv`) will be included for project downloads.
-This file will contain fields equivalent to those found in the `single_cell_metadata.tsv` related to processing the sample, but will not contain patient or disease specific metadata (e.g. `age`, `sex`, `diagnosis`, `subdiagnosis`, `tissue_location`, or `disease_timing`).
-
-### Metadata-only downloads
-
-Metadata for all samples on the Portal is available to download separately from gene expression data downloads.
-Each project page has an option to download metadata for all of its samples as a single zip file containing the `metadata.tsv` file and a `README.md` file.
-Project-specific metadata will contain all columns listed in [the above table](#metadata) and any additional project-specific columns, such as treatment or outcome.
-
-Additionally, a single TSV file containing the metadata for all samples from all projects on the Portal is available for download.
-The Portal-wide metadata will contain all columns listed in [the above table](#metadata).
+This file will contain fields equivalent to those found in the `single-cell_metadata.tsv` related to processing the sample, but will not contain patient or disease specific metadata (e.g. `age`, `sex`, `diagnosis`, `subdiagnosis`, `tissue_location`, or `disease_timing`).
 
 ## Multiplexed sample libraries
 
 For libraries where multiple biological samples were combined via cellhashing or similar technology (see the {ref}`FAQ section about multiplexed samples <faq:What is a multiplexed sample?>`), the organization of the downloaded files and metadata is slightly different.
 Note that multiplexed sample libraries are only available as `SingleCellExperiment` objects, and are not currently available as `AnnData` objects.
 
-For project downloads, the counts and QC files will be organized by the _set_ of samples that comprise each library, rather than in individual sample folders.
+When downloading an entire project, the counts and QC files will be organized by the _set_ of samples that comprise each library, rather than in individual sample folders.
 These sample set folders are named with an underscore-separated list of the sample ids for the libraries within, _e.g._, `SCPCS999990_SCPCS999991_SCPCS999992`.
-Bulk RNA-seq data, if present, will follow the [same format as bulk RNA-seq for single-sample libraries](#download-folder-structure-for-project-downloads).
+Bulk RNA-seq data, if present, will follow the [same format as bulk RNA-seq for single-sample libraries](#download-folder-structure-for-singlecellexperiment-project-downloads).
 
-![multiplexed project download folder](images/multiplexed-download-folder.png){width="750"}
+![multiplexed project download folder](images/project-sc-multiplexed.png){width="750"}
 
 Because we do not perform demultiplexing to separate cells from multiplexed libraries into sample-specific count matrices, sample downloads from a project with multiplexed data will include all libraries that contain the sample of interest, but these libraries _will still contain cells from other samples_.
 
 For more on the specific contents of multiplexed library `SingleCellExperiment` objects, see the {ref}`Additional SingleCellExperiment components for multiplexed libraries <sce_file_contents:additional singlecellexperiment components for multiplexed libraries>` section.
 
-The [metadata file](#metadata) for multiplexed libraries (`single_cell_metadata.tsv`) will have the same format as for individual samples, but each row will represent a particular sample/library pair, meaning that there may be multiple rows for each `scpca_library_id`, one for each `scpca_sample_id` within that library.
+The [metadata file](#metadata) for multiplexed libraries (`single-cell_metadata.tsv`) will have the same format as for individual samples, but each row will represent a particular sample/library pair, meaning that there may be multiple rows for each `scpca_library_id`, one for each `scpca_sample_id` within that library.
 In addition, the `demux_cell_count_estimate` column will contain an estimate of the number of cells from the sample in the library (after demultiplexing) in the sample/library pair.
-
-
-## Merged object downloads
-
-When downloading a full ScPCA project, you can choose to download data from all samples as individual files, or you can download {ref}`a single file containing all samples merged into a single object<faq:When should I download a project as a merged object?>`.
-
-Merged object downloads contain all single-cell or single-nuclei gene expression data for a given ScPCA project within a single object, provided as either a [`SingleCellExperiment` object (`.rds` file)](http://bioconductor.org/books/3.13/OSCA.intro/the-singlecellexperiment-class.html) or an [`AnnData` object (`.h5ad` file)](https://anndata.readthedocs.io/en/latest/index.html).
-
-The object file, `SCPCP000000_merged.rds` or `SCPCP000000_merged_rna.h5ad`, contains both a raw and normalized counts matrix, each with combined counts for all samples in an ScPCA project.
-In addition to the counts matrices, the `SingleCellExperiment` or `AnnData` object stored in the file includes the results of library-weighted dimensionality reduction using both principal component analysis (PCA) and UMAP.
-See the {ref}`section on merged object processing<processing_information:merged objects>` for more information about how merged objects were created.
-
-If downloading a project that contains at least one CITE-seq library, the quantified CITE-seq expression data will also be merged.
-In `SingleCellExperiment` objects (`rds` files), the CITE-seq expression data is provided as an alternative experiment in the same object as the gene expression data.
-However, for `AnnData` objects, (`.h5ad` files), the quantified CITE-seq expression is instead provided as a separate file called `SCPCP000000_merged_adt.h5ad`.
-
-Every download also includes a single `single_cell_metadata.tsv` file containing metadata for all libraries included in the merged object.
-For a full description of this file's contents, refer to the [metadata section above](#metadata).
-
-If downloading a project containing bulk RNA-seq data, two tab-separated value files, e.g., `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`, will be included in the merged object download.
-The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by Salmon.
-The `SCPCP000000_bulk_metadata.tsv` file contains associated metadata for all samples with bulk RNA-seq data.
-This file will contain fields equivalent to those found in the `single_cell_metadata.tsv` related to processing the sample, but will not contain patient or disease specific metadata (e.g. `age`, `sex`, `diagnosis`, `subdiagnosis`, `tissue_location`, or `disease_timing`).
-
-Every download includes a summary report, `SCPCL000000_merged-summary-report.html`, which provides a brief summary of the samples and libraries included in the merged object.
-This includes a summary of the types of libraries (e.g., single-cell, single-nuclei, with CITE-seq) and sample diagnoses included in the object, as well as UMAP visualizations highlighting each library.
-
-Every download also includes the individual [QC report](#qc-report) and, if applicable, [cell type annotation reports](#cell-type-report) for each library included in the merged object.
-
-### Download folder structure for `SingleCellExperiment` merged downloads:
-![project download folder](images/merged-project-download-folder.png){width="600"}
-
-### Download folder structure for `AnnData` merged downloads:
-![project download folder](images/merged-anndata-project-download-folder.png){width="600"}
-
-### Download folder structure for `AnnData` merged downloads with CITE-seq (ADT) data:
-![project download folder](images/merged-anndata-project-citeseq-download-folder.png){width="600"}
 
 
 ## Spatial transcriptomics libraries
 
-If a sample includes a library processed using spatial transcriptomics, the spatial transcriptomics output files will be available as a separate download from the single-cell/single-nuclei gene expression data.
+If a sample includes a library processed using spatial transcriptomics, you can obtain the spatial transcriptomics output files by selecting `Spatial` as the modality (see more on {ref}`modality download options<download_options:modalities>`). 
+
+If downloading an [entire project using the `Download Now` button](#project-downloads), you will need to download the spatial data separately from the single-cell and single-nuclei gene expression data. 
+If creating and downloading a [custom dataset by using the `Add to Dataset` button](#custom-datasets), you will be able to select both `Single-cell` and `Spatial` to be included in the download. 
+Alternatively, you can download all of the spatial transcriptomic data from the Portal on the [Portal-wide Downloads page](#portal-wide-downloads).
 
 For all spatial transcriptomics libraries, a `SCPCL000000_spatial` folder will be nested inside the corresponding sample folder in the download.
 Inside that folder will be the following folders and files:
@@ -239,7 +311,20 @@ A full description of all files included in the download for spatial transcripto
 
 Every download also includes a single `spatial_metadata.tsv` file containing metadata for all libraries included in the download.
 
-![sample download with spatial](images/spatial-download-folder.png){width="600"}
+![sample download with spatial](images/project-spatial.png){width="600"}
+
+
+## Bulk RNA-seq
+
+Some projects include samples that were sequenced using bulk RNA-seq alongside any single-cell and/or single-nucleus RNA-seq. 
+For more details on including bulk RNA-seq in your download, see the {ref}`documentation on download options<download_options:modalities>`.
+
+A separate folder labeled with the project accession ID and `_bulk` suffix will be included for each project containing bulk RNA-seq in the download.
+This folder contains two tab-separated value files, `SCPCP000000_bulk_quant.tsv` and `SCPCP000000_bulk_metadata.tsv`.
+The `SCPCP000000_bulk_quant.tsv` file contains a gene by sample matrix (each row a gene, each column a sample) containing raw gene expression counts quantified by `salmon`.
+The `SCPCP000000_bulk_metadata.tsv` file contains associated metadata for all samples with bulk RNA-seq data.
+This file will contain fields equivalent to those found in the `single-cell_metadata.tsv` related to processing the sample, but will not contain patient or disease specific metadata (e.g. `age`, `sex`, `diagnosis`, `subdiagnosis`, `tissue_location`, or `disease_timing`).
+See also {ref}`processing bulk RNA samples <processing_information:Bulk RNA samples>`.
 
 ## Programmatic downloads from the ScPCA Portal
 
