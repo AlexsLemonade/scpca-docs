@@ -111,6 +111,7 @@ TSV
 UMAP
 UMI
 UMIs
+URI
 uncompress
 unspliced
 xenograft
