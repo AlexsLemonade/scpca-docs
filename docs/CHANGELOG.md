@@ -19,8 +19,8 @@ Previously, if two out of three methods (`SingleR`, `CellAssign`, and `SCimilari
 The consensus cell types have been updated so that if two out of three methods agree the consensus cell type is assigned with the appropriate label using an ontology-based approach, regardless of whether or not the third method is able to classify the cell. 
   * See the {ref}`documentation on cell type annotation<processing_information:cell type annotation>` for more information on how consensus cell type are assigned. 
   * See the {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>` page for more information on where to find cell type annotations in the processed objects. 
-* The `infercnv_success` status previously reported in the metadata of `SingleCellExperiment` objects and `uns` of `AnnData` objects has been renamed as `infercnv_status` . 
-For more information, see {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>`.
+* The `infercnv_success` status previously reported in the metadata of `SingleCellExperiment` objects and `uns` of `AnnData` objects has been renamed as `infercnv_status` and now contains a string instead of boolean value.
+For more information on the contents of this value, see {ref}`the single-cell gene expression file contents page<sce_file_contents:singlecellexperiment cell metrics>`.
 
 ## 2026.01.08
 
