@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## TODO: ADD DATE
+## 2026.02.09
 
 * Consensus cell types have been updated to fix a minor bug in assigning labels.
 Previously, if two out of three methods (`SingleR`, `CellAssign`, and `SCimilarity`) agreed but the third method was unable to classify a cell, the consensus cell type was incorrectly classified as `Unknown`.
