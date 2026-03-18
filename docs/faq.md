@@ -291,17 +291,13 @@ Download links expire in 7 days, but you can generate a new link on the ScPCA Po
 Download links are only available for projects (i.e., not for downloading individual samples).
 
 ## Can I download data from the Portal programmatically?
+
+We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
+This package allows you to search for and download data from the ScPCA Portal directly within R.
+Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
+Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
+
 ## Why can't I change the data format in My Dataset?
-
-We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
-This package allows you to search for and download data from the ScPCA Portal directly within R.
-Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
-Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
-
-We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
-This package allows you to search for and download data from the ScPCA Portal directly within R.
-Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
-Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
 
 When creating a {ref}`custom dataset for download<download_files:Custom datasets>` (`My Dataset`), all single-cell sample or project data included must be of the same {ref}`data format<download_options:Data format>`, either `SingleCellExperiment` for use in R or `AnnData` for use in Python.
 We currently do not support including both data formats at once in `My Dataset`.
