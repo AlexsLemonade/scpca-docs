@@ -5,7 +5,10 @@
 ### Mapping and quantification using alevin-fry
 
 We used [`salmon`](https://salmon.readthedocs.io/en/latest) and [`alevin-fry`](https://alevin-fry.readthedocs.io/en/latest/) to generate gene by cell counts matrices for all single-cell and single-nuclei samples.
-In brief, we utilized [selective alignment](#selective-alignment) to the [`splici` index](#reference-transcriptome-index) for all single-cell and single-nuclei samples.
+In brief, we utilized [selective alignment](#selective-alignment) to the [`splici` index](#reference-transcriptome-index).
+
+The only exception to this was single-nuclei samples generated using the probe-based GEM-X Flex platform from 10x Genomics. 
+See [Quantification for GEM-X Flex samples](#quantification-for-gem-x-flex-samples) for more information.
 
 #### Reference transcriptome index
 
@@ -36,12 +39,23 @@ In contrast to Cell Ranger, `cr-like-em` keeps multi-mapped reads and invokes an
 
 3. With initial mapping to the `splici` index, `alevin-fry` quantification resulted in separate counts for spliced and unspliced transcripts, and an ambiguous count for reads compatible with either spliced or unspliced transcripts.
 
-### Post alevin-fry processing
-
 #### Combining counts from spliced cDNA and intronic regions
 
-For single-cell and single-nuclei samples, the reads from spliced cDNA and intronic regions are combined by gene to produce a gene by cell counts matrix.
+For single-cell and single-nuclei samples processed with `alevin-fry`, the reads from spliced cDNA and intronic regions are combined by gene to produce a gene by cell counts matrix.
 After combining read counts, values are rounded to integer values.
+The counts data from this step can be found in the `unfiltered` objects included with each library. 
+
+### Mapping and quantification for GEM-X Flex samples 
+
+Libraries that were generated using the GEM-X Flex technology from 10x Genomics were quantified with the [`cellranger multi` pipeline](https://www.10xgenomics.com/support/software/cell-ranger/latest/analysis/running-pipelines/cr-multi) within Cell Ranger. 
+The `cellranger mkref` command was used to create a transcriptome reference index compatible with Cell Ranger. 
+The probe set associated with the specific GEM-X Flex version used for library preparation was provided as input alongside the transcriptome reference index and FASTQ files to `cellranger multi`. 
+
+If samples were multiplexed into a single library using GEM-X Flex, demultiplexing was performed as part of `cellranger multi` so that outputs were separated to have one gene by cell counts matrix for each sample.
+
+The gene by cell counts matrix output for each sample in the `raw_feature_bc_matrix` folder was saved to the `unfiltered` objects included with each library.  
+
+### Post alignment processing
 
 #### Filtering cells
 
