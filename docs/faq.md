@@ -298,6 +298,11 @@ This package allows you to search for and download data from the ScPCA Portal di
 Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
 Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
 
+We provide an R package, [`ScPCAr`](https://alexslemonade.github.io/ScPCAr/), to facilitate programmatic access to the ScPCA Portal.
+This package allows you to search for and download data from the ScPCA Portal directly within R.
+Please see the [package documentation](https://alexslemonade.github.io/ScPCAr/) for more details about installation and usage.
+Source code for the package can be found on [GitHub](https://github.com/AlexsLemonade/ScPCAr).
+
 When creating a {ref}`custom dataset for download<download_files:Custom datasets>` (`My Dataset`), all single-cell sample or project data included must be of the same {ref}`data format<download_options:Data format>`, either `SingleCellExperiment` for use in R or `AnnData` for use in Python.
 We currently do not support including both data formats at once in `My Dataset`.
 Once a sample or project of a given data format has been added to `My Dataset`, all subsequent single-cell or single-nuclei data added will automatically be in that same format.
