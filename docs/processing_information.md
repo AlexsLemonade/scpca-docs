@@ -8,7 +8,7 @@ We used [`salmon`](https://salmon.readthedocs.io/en/latest) and [`alevin-fry`](h
 In brief, we utilized [selective alignment](#selective-alignment) to the [`splici` index](#reference-transcriptome-index).
 
 The only exception to this was single-nuclei samples generated using the probe-based GEM-X Flex platform from 10x Genomics. 
-See [Quantification for GEM-X Flex samples](#quantification-for-gem-x-flex-samples) for more information.
+See [Quantification for GEM-X Flex samples](#mapping-and-quantification-for-gem-x-flex-samples) for more information.
 
 #### Reference transcriptome index
 
