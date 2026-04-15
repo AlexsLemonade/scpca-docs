@@ -281,9 +281,9 @@ We process and release all data provided to us on the Portal, without filtering 
 Instead, we provide a QC report with each download so that users may assess library quality themselves.
 However, we respect submitters' requests to remove samples if they have deemed they are low quality based on their own analyses.
 
-## What does the Copy Download Link button do?
+## How can I use the command line tools link to download data?
 
-The copy download link allows you to copy the URL to download a project using a command line tool such as [`wget`](https://www.gnu.org/software/wget/) or [`curl`](https://curl.se/).
+The `Copy Link` button allows you to copy the URL to download a project using a command line tool such as [`wget`](https://www.gnu.org/software/wget/) or [`curl`](https://curl.se/).
 It does not trigger a download via your web browser, so you must take additional steps to download the data with another tool.
 
 Download links expire in 7 days, but you can generate a new link on the ScPCA Portal as often as needed.
