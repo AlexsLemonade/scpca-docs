@@ -112,8 +112,9 @@ In addition, `CellAssign` annotation is only performed if there are at least 30 
 
 For `SCimilarity` annotation, we use the foundation model described in [Heimberg _et al._ 2025](https://doi.org/10.1038/s41586-024-08411-y) that contains 7.3 million cells from various normal and diseased tissues to annotate all samples.
 Each cell is annotated with the cell type label of the most similar cell in the `SCimilarity` model.
+`SCimilarity` annotation is only performed if there are at least 30 cells present in the `processed` object.
 
-Some cells may be labeled as “Unclassified cell” if they were not annotated with a given automated method.
+Some cells may be labeled as "Unclassified cell" if they were not annotated with a given automated method.
 These cells were not present in earlier ScPCA data versions on which cell typing was originally performed and are therefore not labeled.
 
 Additionally, annotations from `SingleR`, `CellAssign`, and `SCimilarity` are used to assign an ontology-aware consensus cell type label.
