@@ -10,6 +10,7 @@ Please see our {ref}`CHANGELOG <CHANGELOG:CHANGELOG>` for a summary of changes t
 Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [Portal-wide download options](#portal-wide-downloads).
 For all data downloads, sample folders (indicated by the `SCPCS` prefix) contain the files for all libraries (`SCPCL` prefix) derived from that biological sample.
 Most samples only have one library that has been sequenced.
+If the data was generated using GEM-X Flex, filenames will contain a prefix with both the library and sample id (`SCPCL000000-SCPCS000000`). 
 For [multiplexed sample libraries](#multiplexed-sample-libraries), the sample folder name will be an underscore-separated list of all samples found in the library files that the folder contains.
 Note that multiplexed sample libraries are only available as `SingleCellExperiment` objects, and are not currently available as `AnnData` objects.
 
@@ -41,6 +42,7 @@ Each zip file will be named with the project accession ID, the chosen data forma
 See the [section on bulk RNA-seq for more information](#bulk-rna-seq).
 - If the project contains samples with a spatial transcriptomics library, the spatial data will be provided as a separate download.
 See the expected file structure and [description of the Spatial transcriptomics output below](#spatial-transcriptomics-libraries).
+- If the project contains data that was generated using GEM-X Flex, all individual files will contain a prefix with both the library and sample id (`SCPCL000000-SCPCS000000`). 
 - If the project contains samples that have been multiplexed, the organization of the downloaded files will be slightly different than what is shown below. 
 See the section describing [multiplexed sample libraries](#multiplexed-sample-libraries) for an overview of the expected download structure. 
 
@@ -115,6 +117,8 @@ If any samples included in `My Dataset` contain associated CITE-seq data, the qu
 For `SingleCellExperiment` objects (`.rds` files), the quantified CITE-seq expression is included in the same file as the gene expression data. 
 For [`AnnData` objects (`.h5ad` files)](#detailed-folder-structure-for-individual-samples-with-cite-seq-adt-data), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
 
+If any samples included in `My Dataset` were generated using GEM-X Flex, all files included in the download will contain a prefix with both the library and sample id (`SCPCL000000-SCPCS000000`). 
+
 The below image shows the expected file structure for an example custom dataset. 
 For more details about the project folder contents for each data format and modality, see the [Project downloads section](#project-downloads).  
 
@@ -140,6 +144,8 @@ See the [section on bulk RNA-seq for more information](#bulk-rna-seq).
 As with [individual project](#project-downloads) and [custom datasets](#custom-datasets), the quantified CITE-seq expression data will be included when downloading single-cell expression data.
 For [`SingleCellExperiment (R)` downloads](#singlecellexperiment-portal-wide-download-structure), the quantified CITE-seq expression is included in the same file as the gene expression data.
 For [`AnnData (Python)` downloads](#anndata-portal-wide-download-structure), the quantified CITE-seq expression data is included as a separate file with the suffix `_adt.h5ad`.
+
+When downloading the single-cell expression data, the individual files from samples generated using GEM-X Flex will contain a prefix with both the library and sample id (`SCPCL000000-SCPCS000000`). 
 
 ### `SingleCellExperiment` Portal-wide download structure
 ![portal wide download structure - `sce`](images/portal-wide-sc-folder.png){width="600"}
