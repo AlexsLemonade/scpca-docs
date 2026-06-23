@@ -10,7 +10,6 @@ Please see our {ref}`CHANGELOG <CHANGELOG:CHANGELOG>` for a summary of changes t
 Data can be downloaded by either downloading a [single project](#project-downloads), creating a [custom dataset](#custom-datasets), or by choosing one of the [Portal-wide download options](#portal-wide-downloads).
 For all data downloads, sample folders (indicated by the `SCPCS` prefix) contain the files for all libraries (`SCPCL` prefix) derived from that biological sample.
 Most samples only have one library that has been sequenced.
-If the data was generated using GEM-X Flex, filenames will contain a prefix with both the library and sample id (`SCPCL000000-SCPCS000000`). 
 For [multiplexed sample libraries](#multiplexed-sample-libraries), the sample folder name will be an underscore-separated list of all samples found in the library files that the folder contains.
 Note that multiplexed sample libraries are only available as `SingleCellExperiment` objects, and are not currently available as `AnnData` objects.
 
@@ -22,6 +21,8 @@ The files shown below will be included with each library (example shown for a li
 - A processed counts file: `SCPCL000000_processed.rds` or `SCPCL000000_processed_rna.h5ad`,
 - A quality control report: `SCPCL000000_qc.html`,
 - A supplemental cell type report: `SCPCL000000_celltype-report.html`
+
+If the data was generated using GEM-X Flex, filenames will contain a prefix with both the library and sample id (`SCPCL000000-SCPCS000000`). 
 
 For more information on the contents of these files, see the sections on [gene expression data](#gene-expression-data), the [QC report](#qc-report), and the [cell type report](#cell-type-report).
 
