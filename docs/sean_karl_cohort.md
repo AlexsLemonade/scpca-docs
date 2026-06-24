@@ -24,6 +24,7 @@ Scores were calculated by quantile-normalizing the raw counts matrix and then ta
 
 The objects available on the Portal contain the scores for all cells across all metaprograms. 
 The scores for each metaprogram are present as an individual column in the cell metadata (`colData` for `SingleCellExperiment` objects or `obs` for `AnnData` objects). 
+<!--TODO: Update the naming scheme here with anything decided in https://github.com/AlexsLemonade/scpca-nf/pull/1307-->
 Column names are formatted with: `submitter_data_<metaprogram name>_score`, where the `metaprogram name` is the designated name provided by the submitters. 
 
 For more detailed information on how metaprograms were generated, see the [`ews-nf` documentation](https://github.com/AlexsLemonade/ews-nf/blob/main/README.md)
