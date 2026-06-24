@@ -4,6 +4,8 @@ This page contains information about additional processing specific to the Sean 
 In collaboration with the submitters, the Data Lab developed an open-source Nextflow pipeline, [`ews-nf`](https://github.com/AlexsLemonade/ews-nf), which was used to annotate all cells and identify recurrent gene expression programs, or metaprograms, present across all samples in the cohort. 
 The results from this workflow have been incorporated into all samples available for download. 
 
+The information presented here is included in the objects in addition to all standard contents found in {ref}`all objects <sce_file_contents:Single-cell gene expression file contents>` available on the Portal. 
+
 ## Custom cell type annotations 
 
 Custom cell type annotations can be found in the `submitter_celltype_annotation` column of the cell metadata (`colData` for `SingleCellExperiment` objects or `obs` for `AnnData` objects). 
