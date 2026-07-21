@@ -41,6 +41,7 @@ fastp
 FASTQ
 Franzén
 GC
+Genom
 Genomics
 github
 GRCh
