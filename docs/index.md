@@ -12,6 +12,7 @@ download_files
 sce_file_contents
 merged_objects
 getting_started
+SCPCP000027
 faq
 citation
 CHANGELOG
