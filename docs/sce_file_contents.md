@@ -78,8 +78,8 @@ See the description of the {ref}`processed gene expression data <processing_info
 | `miQC_pass`             | Indicates whether the cell passed the default miQC filtering. `TRUE` is assigned to cells with a low probability of being compromised (`prob_compromised` < 0.75) or [sufficiently low mitochondrial content](https://bioconductor.org/packages/release/bioc/vignettes/miQC/inst/doc/miQC.html#preventing-exclusion-of-low-mito-cells)  |
 | `scpca_filter` | Labels cells as either `Keep` or `Remove` based on filtering criteria (`prob_compromised` < 0.75 and number of unique genes detected > 200) |
 | `adt_scpca_filter` | If CITE-seq was performed, labels cells as either `Keep` or `Remove` based on ADT filtering criteria (`discard = TRUE` as determined by [`DropletUtils::CleanTagCounts()`](https://rdrr.io/github/MarioniLab/DropletUtils/man/cleanTagCounts.html)) |
-| `scDblFinder_class` | The `scDblFinder` predicted classification, either "singlet" or "doublet" |
-| `scDblFinder_score` | The `scDblFinder` doublet score, representing the probability that the cell is a doublet  |
+| `scDblFinder_class` | The `scDblFinder` predicted classification, either "singlet" or "doublet". `NA` values indicate that `scDblFinder` was not successful |
+| `scDblFinder_score` | The `scDblFinder` doublet score, representing the probability that the cell is a doublet. `NA` values indicate that `scDblFinder` was not successful  |
 
 
 The `processed` object contains additional `colData` column(s):
