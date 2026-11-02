@@ -20,7 +20,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
   Details on the available metadata can be found in the {ref}`single-cell gene expression file contents page<sce_file_contents:singlecellexperiment experiment metadata>`. 
 * Select projects may have additional information present in the data files for each sample. 
 Any projects with additional information will have a project-specific documentation page. 
-The first example of this is the addition of the Sean Karl Cohort, for which you can find project-specific information {ref}`here:<scpcp000026:the sean karl cohort>`. 
+The first example of this is the addition of the Sean Karl Cohort, for which you can find project-specific information {ref}`here<scpcp000026:the sean karl cohort>`. 
 
 ## 2026.02.09
 
