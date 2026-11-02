@@ -12,7 +12,7 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
-## TODO: FILL IN DATE WHEN SKC IS RELEASED 
+## TODO: Release date for Sean Karl Cohort
 
 * Data generated using the GEM-X Flex platform from 10x Genomics is now supported and available on the Portal.
   * See the {ref}`Processing information page <processing_information:mapping and quantification for GEM-X flex samples>` for information on how these samples were processed. 
