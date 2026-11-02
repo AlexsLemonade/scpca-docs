@@ -12,6 +12,13 @@ For more information about `AlexsLemonade/scpca-nf` versions, please see [the re
 <!-- PUT THE NEW CHANGELOG ENTRY RIGHT BELOW THIS -->
 <!-------------------------------------------------->
 
+## TODO: FILL IN DATE WHEN SKC IS RELEASED 
+
+* Data generated using the GEM-X Flex platform from 10x Genomics is now supported and available on the Portal.
+  * See the {ref}`Processing information page <processing_information:mapping and quantification for GEM-X flex samples>` for information on how these samples were processed. 
+  * These objects include some platform specific metadata. 
+  Details on the available metadata can be found in the {ref}`single-cell gene expression file contents page<sce_file_contents:singlecellexperiment experiment metadata>`. 
+
 ## 2026.02.09
 
 * Consensus cell types have been updated to fix a minor bug in assigning labels.
